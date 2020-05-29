@@ -1,0 +1,147 @@
+{
+    "name": "home_pc",
+    "sort": 1,
+    "routes": [
+        {
+            "name": "cms",
+            "path": "/cms",
+            "redirect": "/cms/article"
+        },
+        {
+            "name": "cms_article",
+            "path": "/cms/article",
+            "component": "/cms/home_pc/src/pages/article.vue",
+            "level": 3,
+            "oauth": {
+                "signIn": false
+            }
+        },
+        {
+            "name": "cms_article_view",
+            "path": "/cms/article_view",
+            "component": "/cms/home_pc/src/pages/article_view.vue",
+            "level": 4,
+            "oauth": {
+                "signIn": false
+            }
+        },
+        {
+            "name": "cms_article_channel",
+            "path": "/cms/article_channel",
+            "component": "/cms/home_pc/src/pages/article_channel.vue",
+            "level": 2,
+            "oauth": {
+                "signIn": false
+            }
+        },
+        {
+            "name": "cms_article_channel_view",
+            "path": "/cms/article_channel_view",
+            "component": "/cms/home_pc/src/pages/article_channel_view.vue",
+            "level": 3,
+            "oauth": {
+                "signIn": false
+            }
+        },
+        {
+            "name": "cms_article_comment",
+            "path": "/cms/article_comment",
+            "component": "/cms/home_pc/src/pages/article_comment.vue",
+            "level": 2,
+            "oauth": {
+                "signIn": false
+            }
+        },
+        {
+            "name": "cms_article_comment_view",
+            "path": "/cms/article_comment_view",
+            "component": "/cms/home_pc/src/pages/article_comment_view.vue",
+            "level": 3,
+            "oauth": {
+                "signIn": false
+            }
+        },
+        {
+            "name": "cms_article_section",
+            "path": "/cms/article_section",
+            "component": "/cms/home_pc/src/pages/article_section.vue",
+            "level": 2,
+            "oauth": {
+                "signIn": false
+            }
+        },
+        {
+            "name": "cms_article_section_view",
+            "path": "/cms/article_section_view",
+            "component": "/cms/home_pc/src/pages/article_section_view.vue",
+            "level": 3,
+            "oauth": {
+                "signIn": false
+            }
+        },
+        {
+            "name": "cms_article_type",
+            "path": "/cms/article_type",
+            "component": "/cms/home_pc/src/pages/article_type.vue",
+            "level": 2,
+            "oauth": {
+                "signIn": false
+            }
+        },
+        {
+            "name": "cms_article_type_view",
+            "path": "/cms/article_type_view",
+            "component": "/cms/home_pc/src/pages/article_type_view.vue",
+            "level": 3,
+            "oauth": {
+                "signIn": false
+            }
+        }
+    ],
+    "top": [],
+    "left": [],
+    "bottom": [],
+    "right": [],
+    "desktop": [],
+    "quick": [],
+    "main": [
+        {
+            "title": "门户",
+            "name": "cms",
+            "url": "/cms",
+            "display": 0,
+            "sub": [
+                {
+                    "title": "文章",
+                    "show": false,
+                    "name": "cms_article",
+                    "url": "/cms/article"
+                },
+                {
+                    "title": "文章频道",
+                    "show": false,
+                    "name": "cms_article_channel",
+                    "url": "/cms/article_channel"
+                },
+                {
+                    "title": "文章评论",
+                    "show": false,
+                    "name": "cms_article_comment",
+                    "url": "/cms/article_comment"
+                },
+                {
+                    "title": "文章章节",
+                    "show": false,
+                    "name": "cms_article_section",
+                    "url": "/cms/article_section"
+                },
+                {
+                    "title": "文章分类",
+                    "show": false,
+                    "name": "cms_article_type",
+                    "url": "/cms/article_type"
+                }
+            ]
+        }
+    ]
+}

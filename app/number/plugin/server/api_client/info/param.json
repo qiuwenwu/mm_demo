@@ -1,0 +1,768 @@
+{
+    "name": "number_info",
+    "title": "",
+    "add": {
+        "body": [
+            "yid",
+            "tid",
+            "cityID",
+            "gid",
+            "sid",
+            "uid",
+            "huaFei",
+            "maiJia",
+            "daiLiJia",
+            "diJia",
+            "format",
+            "order",
+            "heYue",
+            "desc",
+            "activity",
+            "hot",
+            "collection",
+            "private",
+            "display",
+            "group",
+            "diXiao",
+            "rid",
+            "kid",
+            "log",
+            "note",
+            "hide",
+            "score",
+            "average"
+        ],
+        "body_required": [
+            "number"
+        ]
+    },
+    "del": {
+        "query": [],
+        "query_required": [
+            "number_id"
+        ]
+    },
+    "set": {
+        "query": [
+            "number_id",
+            "cityID_min",
+            "cityID_max",
+            "huaFei_min",
+            "huaFei_max",
+            "maiJia_min",
+            "maiJia_max",
+            "daiLiJia_min",
+            "daiLiJia_max",
+            "diJia_min",
+            "diJia_max",
+            "order_min",
+            "order_max",
+            "heYue",
+            "hot_min",
+            "hot_max",
+            "collection_min",
+            "collection_max",
+            "private",
+            "display_min",
+            "display_max",
+            "hide",
+            "score_min",
+            "score_max",
+            "average_min",
+            "average_max"
+        ],
+        "query_required": [],
+        "body": [
+            "number",
+            "yid",
+            "tid",
+            "cityID",
+            "cityID_add",
+            "gid",
+            "sid",
+            "uid",
+            "huaFei",
+            "huaFei_add",
+            "maiJia",
+            "maiJia_add",
+            "daiLiJia",
+            "daiLiJia_add",
+            "diJia",
+            "diJia_add",
+            "format",
+            "order",
+            "order_add",
+            "heYue",
+            "desc",
+            "activity",
+            "hot",
+            "hot_add",
+            "collection",
+            "collection_add",
+            "private",
+            "display",
+            "display_add",
+            "group",
+            "diXiao",
+            "rid",
+            "kid",
+            "log",
+            "note",
+            "hide",
+            "score",
+            "score_add",
+            "average",
+            "average_add"
+        ],
+        "body_required": [],
+        "body_not": []
+    },
+    "get": {
+        "query": [
+            "number_id",
+            "cityID_min",
+            "cityID_max",
+            "huaFei_min",
+            "huaFei_max",
+            "maiJia_min",
+            "maiJia_max",
+            "daiLiJia_min",
+            "daiLiJia_max",
+            "diJia_min",
+            "diJia_max",
+            "order_min",
+            "order_max",
+            "heYue",
+            "hot_min",
+            "hot_max",
+            "collection_min",
+            "collection_max",
+            "private",
+            "display_min",
+            "display_max",
+            "createTime_min",
+            "createTime_max",
+            "topTime_min",
+            "topTime_max",
+            "updateTime_min",
+            "updateTime_max",
+            "hide",
+            "score_min",
+            "score_max",
+            "average_min",
+            "average_max"
+        ],
+        "query_required": []
+    },
+    "list": [
+        {
+            "name": "number_id",
+            "title": "号码ID",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "range": [
+                    1,
+                    2147483647
+                ]
+            }
+        },
+        {
+            "name": "number",
+            "title": "号码",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {
+                "format": "digits",
+                "notEmpty": 1
+            }
+        },
+        {
+            "name": "yid",
+            "title": "寓意",
+            "description": "",
+            "type": "number",
+            "dataType": "mediumint",
+            "number": {
+                "max": 8388607
+            }
+        },
+        {
+            "name": "tid",
+            "title": "套餐ID",
+            "description": "",
+            "type": "number",
+            "dataType": "mediumint",
+            "number": {
+                "max": 8388607
+            }
+        },
+        {
+            "name": "cityID",
+            "title": "城市ID",
+            "description": "",
+            "type": "number",
+            "dataType": "mediumint",
+            "number": {
+                "max": 8388607
+            }
+        },
+        {
+            "name": "cityID_min",
+            "title": "城市ID——最小值",
+            "description": "",
+            "type": "number",
+            "dataType": "mediumint",
+            "number": {
+                "max": 8388607
+            }
+        },
+        {
+            "name": "cityID_max",
+            "title": "城市ID——最大值",
+            "description": "",
+            "type": "number",
+            "dataType": "mediumint",
+            "number": {
+                "max": 8388607
+            }
+        },
+        {
+            "name": "gid",
+            "title": "供应商ID",
+            "description": "",
+            "type": "number",
+            "dataType": "mediumint",
+            "number": {
+                "max": 8388607
+            }
+        },
+        {
+            "name": "sid",
+            "title": "制式",
+            "description": "联通、移动、电信s",
+            "type": "number",
+            "dataType": "mediumint",
+            "number": {
+                "max": 8388607
+            }
+        },
+        {
+            "name": "uid",
+            "title": "处理者用户ID",
+            "description": "",
+            "type": "number",
+            "dataType": "mediumint",
+            "number": {
+                "max": 8388607
+            }
+        },
+        {
+            "name": "huaFei",
+            "title": "话费",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "huaFei_min",
+            "title": "话费——最小值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "huaFei_max",
+            "title": "话费——最大值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "maiJia",
+            "title": "卖价",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "maiJia_min",
+            "title": "卖价——最小值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "maiJia_max",
+            "title": "卖价——最大值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "daiLiJia",
+            "title": "代理价",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "daiLiJia_min",
+            "title": "代理价——最小值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "daiLiJia_max",
+            "title": "代理价——最大值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "diJia",
+            "title": "底价",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "diJia_min",
+            "title": "底价——最小值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "diJia_max",
+            "title": "底价——最大值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "format",
+            "title": "格式",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "order",
+            "title": "订单状态",
+            "description": "1为待售中, 2为已预约, 3为已售出，4为已下架, 5为已删除",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 9
+            }
+        },
+        {
+            "name": "order_min",
+            "title": "订单状态——最小值",
+            "description": "1为待售中, 2为已预约, 3为已售出，4为已下架, 5为已删除",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 9
+            }
+        },
+        {
+            "name": "order_max",
+            "title": "订单状态——最大值",
+            "description": "1为待售中, 2为已预约, 3为已售出，4为已下架, 5为已删除",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 9
+            }
+        },
+        {
+            "name": "heYue",
+            "title": "合约",
+            "description": "",
+            "type": "number",
+            "dataType": "tinyint",
+            "number": {
+                "max": 1
+            }
+        },
+        {
+            "name": "desc",
+            "title": "描述",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "activity",
+            "title": "活动",
+            "description": "有推荐、特价、包邮等",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "hot",
+            "title": "热度",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "hot_min",
+            "title": "热度——最小值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "hot_max",
+            "title": "热度——最大值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "collection",
+            "title": "收藏",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "collection_min",
+            "title": "收藏——最小值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "collection_max",
+            "title": "收藏——最大值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "private",
+            "title": "私有",
+            "description": "私有号码为公司专有号码",
+            "type": "number",
+            "dataType": "tinyint",
+            "number": {
+                "max": 1
+            }
+        },
+        {
+            "name": "display",
+            "title": "排序",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "display_min",
+            "title": "排序——最小值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "display_max",
+            "title": "排序——最大值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "createTime",
+            "title": "创建时间",
+            "description": "",
+            "type": "string",
+            "dataType": "datetime",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "createTime_min",
+            "title": "创建时间——开始时间",
+            "description": "",
+            "type": "string",
+            "dataType": "datetime",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "createTime_max",
+            "title": "创建时间——结束时间",
+            "description": "",
+            "type": "string",
+            "dataType": "datetime",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "topTime",
+            "title": "置顶时间",
+            "description": "只保留年、月、日、小时",
+            "type": "string",
+            "dataType": "datetime",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "topTime_min",
+            "title": "置顶时间——开始时间",
+            "description": "只保留年、月、日、小时",
+            "type": "string",
+            "dataType": "datetime",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "topTime_max",
+            "title": "置顶时间——结束时间",
+            "description": "只保留年、月、日、小时",
+            "type": "string",
+            "dataType": "datetime",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "updateTime",
+            "title": "更新时间",
+            "description": "",
+            "type": "string",
+            "dataType": "datetime",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "updateTime_min",
+            "title": "更新时间——开始时间",
+            "description": "",
+            "type": "string",
+            "dataType": "datetime",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "updateTime_max",
+            "title": "更新时间——结束时间",
+            "description": "",
+            "type": "string",
+            "dataType": "datetime",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "group",
+            "title": "分组",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "diXiao",
+            "title": "最低消费",
+            "description": "0为无最低消费",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "rid",
+            "title": "每日推荐ID",
+            "description": "",
+            "type": "number",
+            "dataType": "mediumint",
+            "number": {
+                "max": 8388607
+            }
+        },
+        {
+            "name": "kid",
+            "title": "号码种类",
+            "description": "手机号码、固话、400号码、QQ号码、车牌号码",
+            "type": "number",
+            "dataType": "smallint",
+            "number": {
+                "max": 32767
+            }
+        },
+        {
+            "name": "log",
+            "title": "操作日志",
+            "description": "",
+            "type": "string",
+            "dataType": "text",
+            "string": {}
+        },
+        {
+            "name": "note",
+            "title": "备注",
+            "description": "",
+            "type": "string",
+            "dataType": "text",
+            "string": {}
+        },
+        {
+            "name": "hide",
+            "title": "是否隐藏",
+            "description": "",
+            "type": "number",
+            "dataType": "tinyint",
+            "number": {
+                "max": 1
+            }
+        },
+        {
+            "name": "score",
+            "title": "质量得分",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "score_min",
+            "title": "质量得分——最小值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "score_max",
+            "title": "质量得分——最大值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "average",
+            "title": "均价",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "average_min",
+            "title": "均价——最小值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "average_max",
+            "title": "均价——最大值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        }
+    ]
+}

@@ -1,0 +1,120 @@
+{
+    "name": "cms_article_section",
+    "title": "文章章节",
+    "add": {
+        "body": [
+            "article_id",
+            "title",
+            "content",
+            "img"
+        ],
+        "body_required": [
+            "tag"
+        ]
+    },
+    "del": {
+        "query": [],
+        "query_required": [
+            "content_id"
+        ]
+    },
+    "set": {
+        "query": [
+            "content_id",
+            "title",
+            "content",
+            "tag",
+            "keyword"
+        ],
+        "query_required": [],
+        "body": [
+            "article_id",
+            "title",
+            "content",
+            "img",
+            "tag"
+        ],
+        "body_required": [],
+        "body_not": []
+    },
+    "get": {
+        "query": [
+            "content_id",
+            "title",
+            "content",
+            "tag",
+            "keyword"
+        ],
+        "query_required": []
+    },
+    "list": [
+        {
+            "name": "content_id",
+            "title": "内容模块ID",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "range": [
+                    1,
+                    2147483647
+                ]
+            }
+        },
+        {
+            "name": "article_id",
+            "title": "对应文章ID",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "range": [
+                    1,
+                    2147483647
+                ]
+            }
+        },
+        {
+            "name": "title",
+            "title": "章节标题",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "content",
+            "title": "章节内容",
+            "description": "",
+            "type": "string",
+            "dataType": "text",
+            "string": {}
+        },
+        {
+            "name": "img",
+            "title": "章节图片",
+            "description": "",
+            "type": "string",
+            "dataType": "text",
+            "string": {}
+        },
+        {
+            "name": "tag",
+            "title": "章节标签",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {
+                "notEmpty": 1
+            }
+        },
+        {
+            "name": "keyword",
+            "title": "关键词",
+            "description": "用于搜索章节标题(title)、章节内容(content)、章节标签(tag)",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+[{
+	"target": "/apis/wechat/*",
+	"name": "wechat_manage",
+	"title": "wechat的管理端api接口",
+	"description": "用于微信后台访问接口",
+	"stage": "main",
+	"func_file": "./main.js",
+	"sort": 100,
+	"end": true
+}]

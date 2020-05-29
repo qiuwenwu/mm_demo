@@ -1,0 +1,18 @@
+{
+    "name": "query_task2",
+    "title": "查询任务",
+    "description": "关联多个词条，用于批测",
+    "path": "/apis/query/task",
+    "method": "ALL",
+    "cache": 0,
+    "client_cache": false,
+    "param_path": "./param.json",
+    "sql_path": "./sql.json",
+    "check_param": true,
+    "oauth": {
+        "scope": true,
+        "signIn": true,
+        "gm": 2,
+        "user_admin": []
+    }
+}

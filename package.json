@@ -1,0 +1,44 @@
+{
+  "name": "mm_demo",
+  "version": "1.0.0",
+  "description": "这是超级美眉基于nodeJS和Koa开发的服务端框架，可用于中小型商城和游戏、CMS。",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start_task": "node --max_old_space_size=4096 server.js",
+    "server": "node nw.js",
+    "start_group": "node cluster.js",
+    "dev": "cross-env NODE_ENV=development PORT=5000 nodemon"
+  },
+  "keywords": [
+    "mm",
+    "nodejs",
+    "koa",
+    "task",
+    "event",
+    "api",
+    "web",
+    "cms",
+    "mall",
+    "mysql",
+    "sqlite",
+    "redis",
+    "mongoDB"
+  ],
+  "author": "邱文武",
+  "license": "ISC",
+  "devDependencies": {
+    "loadtest": "*"
+  },
+  "dependencies": {
+    "mm_os": "^1.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qiuwenwu/mm_demo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qiuwenwu/mm_demo/issues"
+  },
+  "homepage": "https://github.com/qiuwenwu/mm_demo#readme"
+}

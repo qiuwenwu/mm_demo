@@ -1,0 +1,18 @@
+{
+    "name": "activity_item2",
+    "title": "活动奖品",
+    "description": "用来办法给用户的奖品",
+    "path": "/apis/activity/item",
+    "method": "ALL",
+    "cache": 0,
+    "client_cache": false,
+    "param_path": "./param.json",
+    "sql_path": "./sql.json",
+    "check_param": true,
+    "oauth": {
+        "scope": true,
+        "signIn": true,
+        "gm": 2,
+        "user_admin": []
+    }
+}
