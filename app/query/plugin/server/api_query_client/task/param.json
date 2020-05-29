@@ -6,11 +6,12 @@
             "state",
             "user_id",
             "people_num",
-            "name",
             "note",
             "query"
         ],
-        "body_required": []
+        "body_required": [
+            "name"
+        ]
     },
     "del": {
         "query": [],
@@ -151,7 +152,9 @@
             "description": "",
             "type": "string",
             "dataType": "varchar",
-            "string": {}
+            "string": {
+                "notEmpty": 1
+            }
         },
         {
             "name": "note",

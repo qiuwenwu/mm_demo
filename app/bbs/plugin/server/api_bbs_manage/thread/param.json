@@ -13,7 +13,6 @@
             "hot",
             "praise",
             "collect_id",
-            "title",
             "keywords",
             "description",
             "img",
@@ -22,7 +21,9 @@
             "content",
             "collecter"
         ],
-        "body_required": []
+        "body_required": [
+            "title"
+        ]
     },
     "del": {
         "query": [],
@@ -392,7 +393,9 @@
             "description": "用于主题和html的<title>标签中",
             "type": "string",
             "dataType": "varchar",
-            "string": {}
+            "string": {
+                "notEmpty": 1
+            }
         },
         {
             "name": "keywords",

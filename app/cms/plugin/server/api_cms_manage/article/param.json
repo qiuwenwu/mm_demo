@@ -14,7 +14,6 @@
             "praise",
             "collect_id",
             "author",
-            "title",
             "keywords",
             "description",
             "img",
@@ -24,7 +23,9 @@
             "content",
             "collecter"
         ],
-        "body_required": []
+        "body_required": [
+            "title"
+        ]
     },
     "del": {
         "query": [],
@@ -329,7 +330,7 @@
             "title": "创建时间",
             "description": "",
             "type": "string",
-            "dataType": "timestamp",
+            "dataType": "datetime",
             "string": {
                 "notEmpty": true,
                 "format": "datetime"
@@ -340,7 +341,7 @@
             "title": "创建时间——开始时间",
             "description": "",
             "type": "string",
-            "dataType": "timestamp",
+            "dataType": "datetime",
             "string": {
                 "notEmpty": true,
                 "format": "datetime"
@@ -351,7 +352,7 @@
             "title": "创建时间——结束时间",
             "description": "",
             "type": "string",
-            "dataType": "timestamp",
+            "dataType": "datetime",
             "string": {
                 "notEmpty": true,
                 "format": "datetime"
@@ -404,7 +405,9 @@
             "description": "用于文章和html的<title>标签中",
             "type": "string",
             "dataType": "varchar",
-            "string": {}
+            "string": {
+                "notEmpty": 1
+            }
         },
         {
             "name": "keywords",

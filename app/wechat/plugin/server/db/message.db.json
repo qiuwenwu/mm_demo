@@ -22,7 +22,8 @@
             "decimal": 0,
             "default": "0",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "end",
@@ -41,7 +42,8 @@
             "decimal": 0,
             "default": "0",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "stage",
@@ -60,7 +62,8 @@
             "decimal": 0,
             "default": "1",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "msgid",
@@ -79,7 +82,8 @@
             "decimal": 0,
             "default": "0",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "update_time",
@@ -98,7 +102,8 @@
             "decimal": 0,
             "default": "CURRENT_TIMESTAMP",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "create_time",
@@ -117,7 +122,8 @@
             "decimal": 0,
             "default": "1970-01-01 00:00:00",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "group",
@@ -136,7 +142,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "msg_type",
@@ -155,7 +162,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "name",
@@ -174,7 +182,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "type",
@@ -193,7 +202,8 @@
             "decimal": 0,
             "default": "1",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "cmd",
@@ -212,7 +222,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "appid",
@@ -231,7 +242,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "from_user",
@@ -250,7 +262,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "to_user",
@@ -269,7 +282,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "robot",
@@ -288,7 +302,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "chatid",
@@ -307,7 +322,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "avatar",
@@ -326,7 +342,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "check",
@@ -345,7 +362,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "keyword",
@@ -364,7 +382,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "form",
@@ -383,7 +402,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "content_last",
@@ -402,7 +422,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "content",
@@ -421,7 +442,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "note",
@@ -440,7 +462,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         }
     ]
 }

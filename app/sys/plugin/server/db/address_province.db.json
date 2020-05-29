@@ -22,7 +22,8 @@
             "decimal": 0,
             "default": "0",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "show",
@@ -41,7 +42,8 @@
             "decimal": 0,
             "default": "0",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "display",
@@ -60,7 +62,8 @@
             "decimal": 0,
             "default": "100",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "name",
@@ -79,7 +82,8 @@
             "decimal": 0,
             "default": "",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         }
     ]
 }

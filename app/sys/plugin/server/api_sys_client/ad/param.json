@@ -13,7 +13,6 @@
             "times_click",
             "fee",
             "fee_max",
-            "name",
             "type",
             "location",
             "fee_way",
@@ -25,7 +24,9 @@
             "url",
             "keywords"
         ],
-        "body_required": []
+        "body_required": [
+            "name"
+        ]
     },
     "del": {
         "query": [],
@@ -372,7 +373,9 @@
             "description": "",
             "type": "string",
             "dataType": "varchar",
-            "string": {}
+            "string": {
+                "notEmpty": 1
+            }
         },
         {
             "name": "type",

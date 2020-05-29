@@ -22,7 +22,8 @@
             "decimal": 0,
             "default": "0",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "appid",
@@ -41,7 +42,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "account",
@@ -60,7 +62,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "nickname",
@@ -79,7 +82,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "avatar",
@@ -98,7 +102,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         }
     ]
 }

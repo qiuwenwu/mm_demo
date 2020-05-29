@@ -22,7 +22,8 @@
             "decimal": 0,
             "default": "0",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "state",
@@ -41,7 +42,8 @@
             "decimal": 0,
             "default": "1",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "bank",
@@ -60,7 +62,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "bank_name",
@@ -79,7 +82,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "bank_state",
@@ -98,7 +102,8 @@
             "decimal": 0,
             "default": "0",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "wechat",
@@ -117,7 +122,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "wechat_state",
@@ -136,7 +142,8 @@
             "decimal": 0,
             "default": "0",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "alipay",
@@ -155,7 +162,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "alipay_state",
@@ -174,7 +182,8 @@
             "decimal": 0,
             "default": "0",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "btc",
@@ -193,7 +202,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "btc_state",
@@ -212,7 +222,8 @@
             "decimal": 0,
             "default": "0",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "eth",
@@ -231,7 +242,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "eth_state",
@@ -250,7 +262,8 @@
             "decimal": 0,
             "default": "0",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "eos",
@@ -269,7 +282,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "eos_state",
@@ -288,7 +302,8 @@
             "decimal": 0,
             "default": "0",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "mm",
@@ -307,7 +322,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "mm_state",
@@ -326,7 +342,8 @@
             "decimal": 0,
             "default": "0",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         }
     ]
 }

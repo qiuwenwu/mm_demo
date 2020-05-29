@@ -22,7 +22,8 @@
             "decimal": 0,
             "default": "0",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "task_id",
@@ -41,7 +42,8 @@
             "decimal": 0,
             "default": "0",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "time",
@@ -60,7 +62,8 @@
             "decimal": 0,
             "default": "00:00:00",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "engine",
@@ -79,7 +82,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "city",
@@ -98,7 +102,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "query",
@@ -117,7 +122,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "ip",
@@ -136,7 +142,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "html",
@@ -155,7 +162,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "create_time",
@@ -174,7 +182,8 @@
             "decimal": 0,
             "default": "CURRENT_TIMESTAMP",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "update_time",
@@ -193,7 +202,8 @@
             "decimal": 0,
             "default": "CURRENT_TIMESTAMP",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         }
     ]
 }

@@ -4,8 +4,8 @@
     "table": "pay_config",
     "key": "config_id",
     "orderby_default": "`config_id` desc",
-    "field_obj": "`config_id`,`type`,`name`,`title`,`description`,`value`,`model`",
-    "field_default": "`config_id`,`type`,`name`,`title`,`description`,`value`,`model`",
+    "field_obj": "`config_id`,`name`,`type`,`title`,`description`,`value`,`model`",
+    "field_default": "`config_id`,`name`,`type`,`title`,`description`,`value`,`model`",
     "method": "get",
     "query": {
         "type": "`type` like '%{0}%'",

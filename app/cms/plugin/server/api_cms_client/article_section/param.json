@@ -4,11 +4,11 @@
     "add": {
         "body": [
             "article_id",
-            "title",
             "content",
             "img"
         ],
         "body_required": [
+            "title",
             "tag"
         ]
     },
@@ -80,7 +80,9 @@
             "description": "",
             "type": "string",
             "dataType": "varchar",
-            "string": {}
+            "string": {
+                "notEmpty": 1
+            }
         },
         {
             "name": "content",

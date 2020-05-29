@@ -1,0 +1,126 @@
+{
+    "name": "test2",
+    "title": "",
+    "add": {
+        "body": [
+            "name",
+            "age",
+            "sex",
+            "kouhao"
+        ],
+        "body_required": []
+    },
+    "del": {
+        "query": [],
+        "query_required": [
+            "id"
+        ]
+    },
+    "set": {
+        "query": [
+            "id",
+            "name",
+            "age_min",
+            "age_max",
+            "sex",
+            "keyword"
+        ],
+        "query_required": [],
+        "body": [
+            "name",
+            "age",
+            "age_add",
+            "sex",
+            "kouhao"
+        ],
+        "body_required": [],
+        "body_not": []
+    },
+    "get": {
+        "query": [
+            "id",
+            "name",
+            "age_min",
+            "age_max",
+            "sex",
+            "keyword"
+        ],
+        "query_required": []
+    },
+    "list": [
+        {
+            "name": "id",
+            "title": "",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "name",
+            "title": "",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "age",
+            "title": "",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "age_min",
+            "title": "——最小值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "age_max",
+            "title": "——最大值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "sex",
+            "title": "",
+            "description": "",
+            "type": "number",
+            "dataType": "tinyint",
+            "number": {
+                "max": 1
+            }
+        },
+        {
+            "name": "kouhao",
+            "title": "",
+            "description": "",
+            "type": "string",
+            "dataType": "text",
+            "string": {}
+        },
+        {
+            "name": "keyword",
+            "title": "关键词",
+            "description": "用于搜索(name)",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        }
+    ]
+}

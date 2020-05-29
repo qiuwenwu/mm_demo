@@ -22,7 +22,8 @@
             "decimal": 0,
             "default": "0",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "available",
@@ -41,7 +42,8 @@
             "decimal": 0,
             "default": "0",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "encrypt",
@@ -60,7 +62,8 @@
             "decimal": 0,
             "default": "1",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "times_allow",
@@ -79,7 +82,8 @@
             "decimal": 0,
             "default": "0",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "times_today",
@@ -98,7 +102,8 @@
             "decimal": 0,
             "default": "0",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "max_age",
@@ -117,7 +122,8 @@
             "decimal": 0,
             "default": "1825",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "user_id",
@@ -136,7 +142,8 @@
             "decimal": 0,
             "default": "0",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "times_count",
@@ -155,7 +162,8 @@
             "decimal": 0,
             "default": "0",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "name",
@@ -174,7 +182,8 @@
             "decimal": 0,
             "default": "",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "appid",
@@ -193,7 +202,8 @@
             "decimal": 0,
             "default": "",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "token",
@@ -212,7 +222,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "encoding_aes_key",
@@ -231,7 +242,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "appsecret",
@@ -250,7 +262,8 @@
             "decimal": 0,
             "default": "",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "icon",
@@ -269,7 +282,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "url",
@@ -288,7 +302,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "bind_ip",
@@ -307,7 +322,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "scope",
@@ -326,7 +342,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "scope_not",
@@ -345,7 +362,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "users",
@@ -364,7 +382,8 @@
             "decimal": 0,
             "default": null,
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "update_time",
@@ -383,7 +402,8 @@
             "decimal": 0,
             "default": "CURRENT_TIMESTAMP",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         }
     ]
 }

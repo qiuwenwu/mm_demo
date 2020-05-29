@@ -9,8 +9,8 @@
             "model"
         ],
         "body_required": [
-            "type",
-            "name"
+            "name",
+            "type"
         ]
     },
     "del": {
@@ -29,8 +29,8 @@
         ],
         "query_required": [],
         "body": [
-            "type",
             "name",
+            "type",
             "title",
             "value",
             "description",
@@ -64,9 +64,9 @@
             }
         },
         {
-            "name": "type",
-            "title": "数据类型",
-            "description": "string文本型、number数字型、boolean布尔型",
+            "name": "name",
+            "title": "变量名",
+            "description": "",
             "type": "string",
             "dataType": "varchar",
             "string": {
@@ -74,9 +74,9 @@
             }
         },
         {
-            "name": "name",
-            "title": "变量名",
-            "description": "",
+            "name": "type",
+            "title": "数据类型",
+            "description": "string文本型、number数字型、boolean布尔型",
             "type": "string",
             "dataType": "varchar",
             "string": {

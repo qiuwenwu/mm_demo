@@ -1,0 +1,12 @@
+{
+    "name": "number_info_copy1",
+    "title": "",
+    "description": "",
+    "path": "/api/number/info_copy1",
+    "method": "GET",
+    "cache": 0,
+    "client_cache": false,
+    "param_path": "./param.json",
+    "sql_path": "./sql.json",
+    "check_param": true
+}
