@@ -4,20 +4,26 @@
 			<mm_col>
 				<mm_view>
 					<header class="arrow">
-						<h5>应用刷新</h5>
+						<h5>应用信息</h5>
 					</header>
 					<mm_body>
 						<mm_form class="mm_filter">
 							<h5><span>筛选条件</span></h5>
-							<mm_list col="2">
+							<mm_list col="3">
 								<mm_col>
-									<mm_input v-model="query.keyword" title="关键词" desc="用户名 / 手机号 / 邮箱 / 姓名" @blur="search()" />
+									<mm_input v-model="query.keyword" title="关键词" desc="应用名称" @blur="search()" />
 								</mm_col>
-								<mm_col width="25">
-									<mm_select v-model="query.user_group" title="用户组" :options="$to_kv(user_group, 'group_id')" @change="search()" />
+								<mm_col>
+									<mm_select v-model="query.available" title="是否可用" :options="$to_kv(arr_available)" @change="search()" />
 								</mm_col>
-								<mm_col width="25">
-									<mm_select v-model="query.state" title="状态" :options="$to_kv(states)" @change="search()" />
+								<mm_col>
+									<mm_select v-model="query.encrypt" title="加解密方式" :options="$to_kv(arr_encrypt)" @change="search()" />
+								</mm_col>
+								<mm_col>
+									<mm_select v-model="query.user_id" title="持有者" :options="$to_kv(list_account, 'user_id', 'nickname')" @change="search()" />
+								</mm_col>
+								<mm_col>
+									<mm_btn class="btn_primary-x" type="reset" @click.native="reset();search()">重置</mm_btn>
 								</mm_col>
 							</mm_list>
 						</mm_form>
@@ -32,40 +38,102 @@
 							<thead>
 								<tr>
 									<th scope="col" class="th_selected"><input type="checkbox" :checked="select_state" @click="select_all()" /></th>
-									<th scope="col" class="th_id">#</th>
-									<th scope="col" class="th_username">
-										<mm_reverse title="用户名" v-model="query.orderby" field="username" :func="search"></mm_reverse>
+									<th scope="col" class="th_id"><span>#</span></th>
+									<th scope="col">
+										<mm_reverse title="是否可用" v-model="query.orderby" field="available" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_nickname">
-										<mm_reverse title="昵称" v-model="query.orderby" field="nickname" :func="search"></mm_reverse>
+									<th scope="col">
+										<mm_reverse title="加解密方式" v-model="query.orderby" field="encrypt" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_name">
-										<mm_reverse title="用户组" v-model="query.orderby" field="user_group" :func="search"></mm_reverse>
+									<th scope="col">
+										<mm_reverse title="每日允许请求次数" v-model="query.orderby" field="times_allow" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_phone">
-										<mm_reverse title="手机" v-model="query.orderby" field="phone" :func="search"></mm_reverse>
+									<th scope="col">
+										<mm_reverse title="今日请求次数" v-model="query.orderby" field="times_today" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_email">
-										<mm_reverse title="邮箱" v-model="query.orderby" field="email" :func="search"></mm_reverse>
+									<th scope="col">
+										<mm_reverse title="有效期时长" v-model="query.orderby" field="max_age" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_state">
-										<mm_reverse title="状态" v-model="query.orderby" field="state" :func="search"></mm_reverse>
+									<th scope="col">
+										<mm_reverse title="持有者" v-model="query.orderby" field="user_id" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_handle">操作</th>
+									<th scope="col">
+										<mm_reverse title="请求总次数" v-model="query.orderby" field="times_count" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="上次使用时间" v-model="query.orderby" field="time_update" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="应用名称" v-model="query.orderby" field="name" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="应用ID" v-model="query.orderby" field="appid" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="消息访问令牌" v-model="query.orderby" field="token" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="消息加密钥匙" v-model="query.orderby" field="encoding_aes_key" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="应用密钥" v-model="query.orderby" field="appsecret" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="消息访问地址" v-model="query.orderby" field="url" :func="search"></mm_reverse>
+									</th>
+									<th scope="col" class="th_handle"><span>操作</span></th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr v-for="(o, idx) in list" :key="idx">
+								<tr v-for="(o, idx) in list" :key="idx" :class="{'active': select == idx}" @click="selected(idx)">
 									<th scope="row"><input type="checkbox" :checked="select_has(o[field])" @click="select_change(o[field])" /></th>
-									<th scope="row">{{ o[field] }}</th>
-									<td><span class="name">{{ o.username }}</span></td>
-									<td><span class="name">{{ o.nickname }}</span></td>
-									<td><span class="name">{{ get_name(user_group, o.user_group, 'group_id') }}</span></td>
-									<td><span class="time">{{ o.phone }}</span></td>
-									<td><span class="email">{{ o.email }}</span></td>
-									<td><span class="state" v-bind:class="colors[o.state]">{{ states[o.state] }}</span></td>
 									<td>
-										<mm_btn class="btn_primary" :url="'./app_form?refresh_id=' + o[field]">修改</mm_btn>
+										<span>{{ o.app_id }}</span>
+									</td>
+									<td>
+										<mm_switch v-model="o.available" @click.native="set(o)" />
+									</td>
+									<td>
+										<span>{{arr_encrypt[o.encrypt] }}</span>
+									</td>
+									<td>
+										<span>{{ o.times_allow }}</span>
+									</td>
+									<td>
+										<span>{{ o.times_today }}</span>
+									</td>
+									<td>
+										<span>{{ o.max_age }}</span>
+									</td>
+									<td>
+										<span>{{ get_name(list_account, o.user_id, 'user_id', 'nickname') }}</span>
+									</td>
+									<td>
+										<span>{{ o.times_count }}</span>
+									</td>
+									<td>
+										<span>{{ $to_time(o.time_update, 'yyyy-MM-dd hh:mm') }}</span>
+									</td>
+									<td>
+										<span>{{ o.name }}</span>
+									</td>
+									<td>
+										<span>{{ o.appid }}</span>
+									</td>
+									<td>
+										<span>{{ o.token }}</span>
+									</td>
+									<td>
+										<span>{{ o.encoding_aes_key }}</span>
+									</td>
+									<td>
+										<span>{{ o.appsecret }}</span>
+									</td>
+									<td>
+										<span>{{ o.url }}</span>
+									</td>
+									<td>
+										<mm_btn class="btn_primary" :url="'./app_form?app_id=' + o[field]">修改</mm_btn>
 										<mm_btn class="btn_warning" @click.native="del_show(o, field)">删除</mm_btn>
 									</td>
 								</tr>
@@ -73,16 +141,16 @@
 						</mm_table>
 					</mm_body>
 					<footer>
-						<mm_grid col="4" class="mm_data_count">
+						<mm_grid class="mm_data_count">
 							<mm_col>
 								<mm_select v-model="query.size" :options="$to_size()" @change="search()" />
 							</mm_col>
-							<mm_col width="50">
+							<mm_col width="50" style="min-width: 22.5rem;">
 								<mm_pager display="2" v-model="query.page" :count="count / query.size" :func="goTo" :icons="['首页', '上一页', '下一页', '尾页']"></mm_pager>
 							</mm_col>
 							<mm_col>
 								<div class="right plr">
-									<span class="fl">共 {{ count }} 条</span>
+									<span class="mr">共 {{ count }} 条</span>
 									<span>当前</span>
 									<input class="pager_now" v-model.number="page_now" @blur="goTo(page_now)" @change="page_change" />
 									<span>/{{ page_count }}页</span>
@@ -100,22 +168,24 @@
 				</header>
 				<mm_body>
 					<dl>
-						<dt>昵称</dt>
+						<dt>是否可用</dt>
 						<dd>
-							<label>
-								<input type="text" v-model="form.nickname" placeholder="由2-16个字符组成" />
-							</label>
+							<mm_select v-model="form.available" :options="$to_kv(arr_available)" />
 						</dd>
-						<dt>状态</dt>
+						<dt>加解密方式</dt>
 						<dd>
-							<mm_select v-model="form.state" :options="$to_kv(states)" />
+							<mm_select v-model="form.encrypt" :options="$to_kv(arr_encrypt)" />
+						</dd>
+						<dt>持有者</dt>
+						<dd>
+							<mm_select v-model="form.user_id" :options="$to_kv(list_account, 'user_id', 'nickname')" />
 						</dd>
 					</dl>
 				</mm_body>
 				<footer>
 					<div class="mm_group">
 						<button class="btn_default" type="reset" @click="show = false">取消</button>
-						<button class="btn_primary" type="button" @click="set_bath()">提交</button>
+						<button class="btn_primary" type="button" @click="batchSet()">提交</button>
 					</div>
 				</footer>
 			</mm_view>
@@ -131,65 +201,93 @@
 		data() {
 			return {
 				// 列表请求地址
-				url_get_list: "/apis/sys/app_refresh",
-				url_del: "/apis/sys/app_refresh?method=del&",
-				url_set: "/apis/sys/app_refresh?method=set&",
-				field: "refresh_id",
+				url_get_list: "/apis/sys/app",
+				url_del: "/apis/sys/app?method=del&",
+				url_set: "/apis/sys/app?method=set&",
+				field: "app_id",
 				query_set: {
-					"refresh_id": ""
+					"app_id": ""
 				},
-				user_group: [],
 				// 查询条件
 				query: {
-					// 排序
-					orderby: "",
-					// 页码
+					//页码
 					page: 1,
-					// 页面大小
+					//页面大小
 					size: 10,
+					// 应用序号
+					'app_id': 0,
+					// 是否可用
+					'available': '',
+					// 加解密方式——最小值
+					'encrypt_min': '',
+					// 加解密方式——最大值
+					'encrypt_max': '',
+					// 每日允许请求次数——最小值
+					'times_allow_min': 0,
+					// 每日允许请求次数——最大值
+					'times_allow_max': 0,
+					// 今日请求次数——最小值
+					'times_today_min': 0,
+					// 今日请求次数——最大值
+					'times_today_max': 0,
+					// 有效期时长——最小值
+					'max_age_min': 0,
+					// 有效期时长——最大值
+					'max_age_max': 0,
+					// 请求总次数——最小值
+					'times_count_min': 0,
+					// 请求总次数——最大值
+					'times_count_max': 0,
+					// 上次使用时间——开始时间
+					'time_update_min': '',
+					// 上次使用时间——结束时间
+					'time_update_max': '',
+					// 应用名称
+					'name': '',
 					// 关键词
-					keyword: "",
+					'keyword': '',
+					//排序
+					orderby: ""
 				},
 				form: {},
-				// 状态
-				states: ['', '正常', '异常', '已冻结', '已注销'],
-				colors: ['', 'font_success', 'font_warning', 'font_yellow', 'font_default'],
+				//颜色
+				arr_color: ['', '', 'font_yellow', 'font_success', 'font_warning', 'font_primary', 'font_info', 'font_default'],
+				// 是否可用
+				'arr_available': ['否','是'],
+				// 加解密方式
+				'arr_encrypt': ['','明文模式','兼容模式','安全模式'],
+				// 持有者
+				'list_account': [],
 				// 视图模型
 				vm: {}
 			}
 		},
-		methods: {},
-		created() {
-			var _this = this;
-			this.$get('~/apis/user/group?', null, function(json) {
-				if (json.result) {
-					_this.user_group.clear();
-					_this.user_group.addList(json.result.list)
+		methods: {
+			/**
+			 * 获取持有者
+			 * @param {query} 查询条件
+			 */
+			get_account(query){
+				var _this = this;
+				if(!query){
+					query = {
+						field: "user_id,nickname"
+					};
 				}
-			});
+				this.$get('~/apis/user/account?size=0', query, function(json) {
+					if (json.result) {
+						_this.list_account.clear();
+						_this.list_account.addList(json.result.list)
+					}
+				});
+			},
+		},
+		created() {
+			// 获取持有者
+			this.get_account();
 		}
 	}
 </script>
 
 <style>
-	/* 页面 */
-	#sys_app {}
-
-	/* 表单 */
-	#sys_app .mm_form {}
-
-	/* 筛选栏栏 */
-	#sys_app .mm_filter {}
-
-	/* 操作栏 */
-	#sys_app .mm_action {}
-
-	/* 模态窗 */
-	#sys_app .mm_modal {}
-
-	/* 表格 */
-	#sys_app .mm_table {}
-
-	/* 数据统计 */
-	#sys_app .mm_data_count {}
 </style>

@@ -4,7 +4,6 @@
     "add": {
         "body": [
             "display",
-            "channel_id",
             "father_id",
             "name",
             "description",
@@ -31,7 +30,6 @@
         "body": [
             "display",
             "display_add",
-            "channel_id",
             "father_id",
             "name",
             "description",
@@ -96,22 +94,9 @@
             }
         },
         {
-            "name": "channel_id",
-            "title": "频道ID",
-            "description": "",
-            "type": "number",
-            "dataType": "smallint",
-            "number": {
-                "range": [
-                    1,
-                    10000
-                ]
-            }
-        },
-        {
             "name": "father_id",
             "title": "上级分类ID",
-            "description": "",
+            "description": "(cms_article_type.name.type_id)",
             "type": "number",
             "dataType": "smallint",
             "number": {

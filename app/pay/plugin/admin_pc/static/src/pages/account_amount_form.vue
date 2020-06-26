@@ -7,29 +7,29 @@
 						<h5>{{ form[field] ? '修改' : '创建' }}账户余额</h5>
 					</header>
 					<dl>
-						<dt>头像</dt>
+						<dt>美元余额</dt>
 						<dd>
-							<mm_upload_img width="10rem" height="10rem" name="avatar" type="text" v-model="form.avatar"></mm_upload_img>
+							<mm_number v-model="form.usd" :min="0" :max="0" />
 						</dd>
-						<dt>昵称</dt>
+						<dt>人民币余额</dt>
 						<dd>
-							<mm_input type="text" v-model="form.nickname" desc="由2-16个字符组成"></mm_input>
+							<mm_number v-model="form.cny" :min="0" :max="0" />
 						</dd>
-						<dt>会员级别</dt>
+						<dt>美眉币余额</dt>
 						<dd>
-							<mm_select v-model="form.vip" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
+							<mm_number v-model="form.mm" :min="0" :max="0" />
 						</dd>
-						<dt>管理级别</dt>
+						<dt>比特币余额</dt>
 						<dd>
-							<mm_select v-model="form.gm" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
+							<mm_number v-model="form.btc" :min="0" :max="0" />
 						</dd>
-						<dt>商户级别</dt>
+						<dt>以太币余额</dt>
 						<dd>
-							<mm_select v-model="form.mc" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
+							<mm_number v-model="form.eth" :min="0" :max="0" />
 						</dd>
-						<dt>个性签名</dt>
+						<dt>柚子币余额</dt>
 						<dd>
-							<textarea v-model="form.signature" placeholder="由2-16个字符组成"></textarea>
+							<mm_number v-model="form.eos" :min="0" :max="0" />
 						</dd>
 					</dl>
 					<footer>
@@ -54,39 +54,28 @@
 		data() {
 			return {
 				url_submit: "/apis/pay/account_amount?",
-				url_get_obj: "/apis/pay/account_amount",
+				url_get_obj: "/apis/pay/account_amount?method=get_obj",
 				field: "seller_id",
 				query: {
 					"seller_id": 0
 				},
-				form: {}
+				form: {
+						"seller_id": 0,
+						"usd": 0,
+						"cny": 0,
+						"mm": 0,
+						"btc": 0,
+						"eth": 0,
+						"eos": 0,
+				},
 			}
 		},
 		methods: {
-
+		},
+		created() {
 		}
 	}
 </script>
 
 <style>
-	/* 页面 */
-	#pay_account_amount_form {}
-
-	/* 表单 */
-	#pay_account_amount_form .mm_form {}
-
-	/* 筛选栏栏 */
-	#pay_account_amount_form .mm_filter {}
-
-	/* 操作栏 */
-	#pay_account_amount_form .mm_action {}
-
-	/* 模态窗 */
-	#pay_account_amount_form .mm_modal {}
-
-	/* 表格 */
-	#pay_account_amount_form .mm_table {}
-
-	/* 数据统计 */
-	#pay_account_amount_form .mm_data_count {}
 </style>

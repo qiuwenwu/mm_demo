@@ -53,5 +53,6 @@
         "num_winner_add": "`num_winner` = `num_winner` + {0}",
         "num_applicant_add": "`num_applicant` = `num_applicant` + {0}"
     },
-    "field_hide": []
+    "field_hide": [],
+    "format": []
 }

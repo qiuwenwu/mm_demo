@@ -4,8 +4,8 @@
     "table": "bbs_thread",
     "key": "thread_id",
     "orderby_default": "`thread_id` desc",
-    "field_obj": "`thread_id`,`available`,`state`,`type_id`,`channel_id`,`city_id`,`user_id`,`hot`,`praise`,`collect_id`,`title`,`keywords`,`description`,`img`,`url`,`tag`,`content`,`collecter`",
-    "field_default": "`thread_id`,`available`,`state`,`type_id`,`channel_id`,`display`,`city_id`,`user_id`,`hot`,`praise`,`collect_id`,`time_create`,`time_update`,`title`,`keywords`,`description`,`img`,`url`,`tag`,`collecter`",
+    "field_obj": "`thread_id`,`available`,`state`,`type_id`,`channel_id`,`city_id`,`user_id`,`hot`,`praise`,`collect_id`,`title`,`keywords`,`description`,`url`,`tag`,`img`,`content`,`collecter`",
+    "field_default": "`thread_id`,`available`,`state`,`type_id`,`channel_id`,`display`,`city_id`,`user_id`,`hot`,`praise`,`collect_id`,`time_create`,`time_update`,`title`,`keywords`,`description`,`url`,`tag`",
     "query": {
         "state_min": "`state` >= {0}",
         "state_max": "`state` <= {0}",
@@ -35,5 +35,51 @@
         "hot_add": "`hot` = `hot` + {0}",
         "praise_add": "`praise` = `praise` + {0}"
     },
-    "field_hide": []
+    "field_hide": [],
+    "format": [
+        {
+            "key": "available",
+            "title": "是否启用",
+            "list": [
+                "否",
+                "是"
+            ]
+        },
+        {
+            "key": "state",
+            "title": "状态",
+            "list": [
+                "",
+                "正常",
+                "推荐",
+                "认证",
+                "违规",
+                "官方"
+            ]
+        },
+        {
+            "key": "type_id",
+            "title": "主题分类",
+            "table": "bbs_thread_type",
+            "name": "name"
+        },
+        {
+            "key": "channel_id",
+            "title": "频道",
+            "table": "bbs_thread_channel",
+            "name": "name"
+        },
+        {
+            "key": "city_id",
+            "title": "所属城市",
+            "table": "sys_address_city",
+            "name": "name"
+        },
+        {
+            "key": "user_id",
+            "title": "用户",
+            "table": "user_account",
+            "name": "nickname"
+        }
+    ]
 }

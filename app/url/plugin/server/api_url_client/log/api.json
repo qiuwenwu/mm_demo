@@ -1,6 +1,6 @@
 {
     "name": "url_log",
-    "title": "",
+    "title": "链接访问日志",
     "description": "",
     "path": "/api/url/log",
     "method": "GET",

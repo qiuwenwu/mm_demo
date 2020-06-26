@@ -81,7 +81,7 @@
 					<tbody>
 						<tr v-for="(o, k) in list" :key="k" @click="go(o.name)" v-if="isAPI(o.name)">
 							<th>{{ k + 1 }}</th>
-							<td><a class="font_info">{{ o.name }}</a></td>
+							<td><a>{{ o.name }}</a></td>
 							<td>{{ o.title }}</td>
 						</tr>
 					</tbody>

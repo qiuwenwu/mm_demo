@@ -5,8 +5,8 @@
     "key": "group_id",
     "orderby_default": "`display` asc",
     "field_obj": "`group_id`,`level`,`next_group_id`,`exp`,`discount`,`bonus`,`app`,`name`,`description`,`icon`",
-    "field_default": "`group_id`,`display`,`level`,`next_group_id`,`exp`,`discount`,`bonus`,`app`,`name`,`description`,`icon`",
-    "method": "get",
+    "field_default": "`group_id`,`display`,`level`,`next_group_id`,`exp`,`discount`,`bonus`,`app`,`name`,`description`",
+    "method": "get get_obj",
     "query": {
         "display_min": "`display` >= {0}",
         "display_max": "`display` <= {0}",
@@ -31,5 +31,14 @@
         "exp_add": "`exp` = `exp` + {0}",
         "discount_add": "`discount` = `discount` + {0}",
         "bonus_add": "`bonus` = `bonus` + {0}"
-    }
+    },
+    "format": [
+        {
+            "key": "next_group_id",
+            "title": "下级用户组",
+            "table": "user_group",
+            "name": "name",
+            "id": "group_id"
+        }
+    ]
 }

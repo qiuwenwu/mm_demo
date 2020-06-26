@@ -1,5 +1,5 @@
 {
-    "title": "",
+    "title": "号码信息",
     "description": "",
     "name": "number_info",
     "table": "number_info",
@@ -21,13 +21,14 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
         },
         {
             "name": "private",
-            "title": "私有",
+            "title": "是否私有",
             "description": "私有号码为公司专有号码",
             "type": "tinyint",
             "key": false,
@@ -41,13 +42,14 @@
             "max": 1,
             "decimal": 0,
             "default": "0",
+            "map": "0否|1是",
             "join_in": [],
             "join_out": [],
             "position": []
         },
         {
             "name": "heYue",
-            "title": "合约",
+            "title": "是否合约号",
             "description": "",
             "type": "tinyint",
             "key": false,
@@ -61,6 +63,7 @@
             "max": 1,
             "decimal": 0,
             "default": "0",
+            "map": "0否|1是",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -81,6 +84,7 @@
             "max": 1,
             "decimal": 0,
             "default": "0",
+            "map": "0否|1是",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -88,9 +92,9 @@
         {
             "name": "kid",
             "title": "号码种类",
-            "description": "手机号码、固话、400号码、QQ号码、车牌号码",
+            "description": "",
             "type": "smallint",
-            "key": true,
+            "key": false,
             "auto": "",
             "symbol": false,
             "fill_zero": false,
@@ -101,6 +105,7 @@
             "max": 32767,
             "decimal": 0,
             "default": "1",
+            "map": "1手机号码|2固定电话号码|3企业电话号码|4QQ号码|5车牌号码",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -121,6 +126,7 @@
             "max": 8388607,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -141,6 +147,7 @@
             "max": 8388607,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -161,6 +168,7 @@
             "max": 8388607,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -181,6 +189,7 @@
             "max": 8388607,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -188,26 +197,6 @@
         {
             "name": "sid",
             "title": "制式",
-            "description": "联通、移动、电信s",
-            "type": "mediumint",
-            "key": true,
-            "auto": "",
-            "symbol": false,
-            "fill_zero": false,
-            "not_null": 1,
-            "min_length": 0,
-            "max_length": 8,
-            "min": 0,
-            "max": 8388607,
-            "decimal": 0,
-            "default": "0",
-            "join_in": [],
-            "join_out": [],
-            "position": []
-        },
-        {
-            "name": "uid",
-            "title": "处理者用户ID",
             "description": "",
             "type": "mediumint",
             "key": false,
@@ -220,7 +209,29 @@
             "min": 0,
             "max": 8388607,
             "decimal": 0,
+            "default": "0",
+            "map": "1移动|2联通|3电信",
+            "join_in": [],
+            "join_out": [],
+            "position": []
+        },
+        {
+            "name": "user_id",
+            "title": "处理人ID",
+            "description": "",
+            "type": "mediumint",
+            "key": false,
+            "auto": "",
+            "symbol": false,
+            "fill_zero": false,
+            "not_null": 1,
+            "min_length": 0,
+            "max_length": 8,
+            "min": 1,
+            "max": 8388607,
+            "decimal": 0,
             "default": "1",
+            "map": "user_account.nickname",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -241,6 +252,7 @@
             "max": 8388607,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -250,7 +262,7 @@
             "title": "均价",
             "description": "",
             "type": "int",
-            "key": false,
+            "key": true,
             "auto": "",
             "symbol": false,
             "fill_zero": false,
@@ -261,6 +273,7 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "1000",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -281,6 +294,7 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "100",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -301,6 +315,7 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -321,6 +336,7 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -341,6 +357,7 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -361,6 +378,7 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -368,7 +386,7 @@
         {
             "name": "order",
             "title": "订单状态",
-            "description": "1为待售中, 2为已预约, 3为已售出，4为已下架, 5为已删除",
+            "description": "",
             "type": "int",
             "key": false,
             "auto": "",
@@ -381,6 +399,7 @@
             "max": 9,
             "decimal": 0,
             "default": "1",
+            "map": "1待售中|2已预约|3已售出|4已下架|5已删除",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -401,6 +420,7 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -421,6 +441,7 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -441,6 +462,7 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "100",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -461,6 +483,7 @@
             "max": 0,
             "decimal": 0,
             "default": "1970-01-01 00:00:00",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -481,6 +504,7 @@
             "max": 0,
             "decimal": 0,
             "default": "1970-01-01 00:00:00",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -501,6 +525,7 @@
             "max": 0,
             "decimal": 0,
             "default": "1970-01-01 00:00:00",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -510,7 +535,7 @@
             "title": "号码",
             "description": "",
             "type": "varchar",
-            "key": true,
+            "key": false,
             "auto": "",
             "symbol": false,
             "fill_zero": false,
@@ -521,6 +546,7 @@
             "max": 0,
             "decimal": 0,
             "default": "",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -541,6 +567,7 @@
             "max": 0,
             "decimal": 0,
             "default": "",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -561,6 +588,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -581,6 +609,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -601,6 +630,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -621,6 +651,7 @@
             "max": 0,
             "decimal": 0,
             "default": "",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -641,6 +672,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -661,6 +693,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []

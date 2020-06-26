@@ -79,7 +79,7 @@
         {
             "name": "article_id",
             "title": "文章ID",
-            "description": "用于查看文章详情时显示相关评论",
+            "description": "用于查看文章详情时显示相关评论(cms_article.tible)",
             "type": "number",
             "dataType": "int",
             "number": {
@@ -92,7 +92,7 @@
         {
             "name": "user_id",
             "title": "测评人ID",
-            "description": "用于识别是哪个用户测评的",
+            "description": "用于识别是哪个用户测评的(user_account.nickname)",
             "type": "number",
             "dataType": "int",
             "number": {

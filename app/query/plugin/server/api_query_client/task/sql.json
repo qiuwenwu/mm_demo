@@ -5,8 +5,8 @@
     "key": "task_id",
     "orderby_default": "`task_id` desc",
     "field_obj": "`task_id`,`state`,`user_id`,`people_num`,`name`,`note`,`query`,`create_time`,`update_time`",
-    "field_default": "`task_id`,`state`,`user_id`,`people_num`,`name`,`note`,`query`,`create_time`,`update_time`",
-    "method": "get",
+    "field_default": "`task_id`,`state`,`user_id`,`people_num`,`name`,`create_time`,`update_time`",
+    "method": "get get_obj",
     "query": {
         "state_min": "`state` >= {0}",
         "state_max": "`state` <= {0}",
@@ -37,5 +37,24 @@
         "field": "field",
         "count_ret": "count_ret",
         "user_id": "user_id"
-    }
+    },
+    "format": [
+        {
+            "key": "state",
+            "title": "状态",
+            "list": [
+                "",
+                "待抓取",
+                "抓取中",
+                "待测评",
+                "已关闭"
+            ]
+        },
+        {
+            "key": "user_id",
+            "title": "创建者",
+            "table": "user_account",
+            "name": "nickname"
+        }
+    ]
 }

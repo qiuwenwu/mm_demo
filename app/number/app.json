@@ -1,0 +1,11 @@
+{
+	"name": "number",
+	"title": "号码",
+	"description": "号码信息",
+	"version": "1.0",
+	"identifier": "number",
+	"lang_path": "./lang/",
+	"icon": "/img/logo.png",
+	"cmd": "number",
+	"sort": 10
+}

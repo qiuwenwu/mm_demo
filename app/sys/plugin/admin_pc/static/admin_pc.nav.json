@@ -172,6 +172,7 @@
         {
             "title": "系统",
             "name": "sys",
+            "icon": "<i class=\"fa-cog\"></i>",
             "url": "/sys",
             "display": 0,
             "sub": [

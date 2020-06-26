@@ -13,7 +13,7 @@
 				<nav_top></nav_top>
 			</header>
 			<mm_side id="side" :func="set_width">
-				<nav_main></nav_main>
+				<nav_side></nav_side>
 			</mm_side>
 			<mm_main id="main" :style="'margin-left: ' + (width || 200) + 'px;'">
 				<!-- 页签组件 -->
@@ -36,14 +36,14 @@
 <script>
 	import Vue from 'Vue';
 	import nav_top from './components/nav_top.vue'
-	import nav_main from './components/nav_main.vue'
+	import nav_side from './components/nav_side.vue'
 	import nav_quick from './components/nav_quick.vue'
 	import nav_float from './components/nav_float.vue'
 
 	export default {
 		components: {
 			nav_top,
-			nav_main,
+			nav_side,
 			nav_quick,
 			nav_float
 		},
@@ -125,9 +125,8 @@
 
 <style>
 	main {
-		margin: .5rem;
-		width: calc(100% - 1rem);
-		height: calc(100% - 3rem);
+		padding: .5rem;
+		height: calc(100% - 2.5rem);
 	}
 	
 	.mm_side~.mm_main {

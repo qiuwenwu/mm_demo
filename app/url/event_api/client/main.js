@@ -1,4 +1,4 @@
-var api = $.api_admin('url_client', '短域名客户端');
+var api = $.api_admin('url_client', '短链接客户端');
 // 首次启动更新api接口;
 api.update('url');
 

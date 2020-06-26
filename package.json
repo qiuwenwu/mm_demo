@@ -31,7 +31,7 @@
     "loadtest": "*"
   },
   "dependencies": {
-    "mm_os": "^1.0.4"
+    "mm_os": "^1.1.5"
   },
   "repository": {
     "type": "git",

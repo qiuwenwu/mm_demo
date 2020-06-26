@@ -163,7 +163,7 @@
         {
             "name": "city_id",
             "title": "投放城市ID",
-            "description": "",
+            "description": "(sys_address_city)",
             "type": "number",
             "dataType": "mediumint",
             "number": {
@@ -176,7 +176,7 @@
         {
             "name": "area_id",
             "title": "投放地区",
-            "description": "",
+            "description": "(sys_address_area)",
             "type": "number",
             "dataType": "mediumint",
             "number": {
@@ -189,7 +189,7 @@
         {
             "name": "user_id",
             "title": "广告主ID",
-            "description": "表示是谁打的广告",
+            "description": "表示是谁打的广告(user_account.nickname)",
             "type": "number",
             "dataType": "mediumint",
             "number": {

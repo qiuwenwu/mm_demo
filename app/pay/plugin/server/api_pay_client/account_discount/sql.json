@@ -6,7 +6,7 @@
     "orderby_default": "`discount_id` desc",
     "field_obj": "`discount_id`,`state`,`to_user_id`,`seller_id`,`user_id`,`amount`,`fee`,`time_create`,`pay_time`,`time_end`,`time_update`,`platform`,`way`,`institution`,`ip`,`from_user`,`to_user`,`cause`,`note`",
     "field_default": "`discount_id`,`state`,`to_user_id`,`seller_id`,`user_id`,`amount`,`fee`,`time_create`,`pay_time`,`time_end`,`time_update`,`platform`,`way`,`institution`,`ip`,`from_user`,`to_user`,`cause`,`note`",
-    "method": "get",
+    "method": "get get_obj",
     "query": {
         "state_min": "`state` >= {0}",
         "state_max": "`state` <= {0}",
@@ -31,22 +31,42 @@
         "cause": "`cause` like '%{0}%'",
         "note": "`note` like '%{0}%'"
     },
-    "query_default": {
-        "user_id": "`user_id` = {user_id}"
-    },
+    "query_default": {},
     "update": {
         "state_add": "`state` = `state` + {0}",
         "amount_add": "`amount` = `amount` + {0}",
         "fee_add": "`fee` = `fee` + {0}"
     },
-    "filter": {
-        "table": "table",
-        "page": "page",
-        "size": "size",
-        "method": "method",
-        "orderby": "orderby",
-        "field": "field",
-        "count_ret": "count_ret",
-        "user_id": "user_id"
-    }
+    "format": [
+        {
+            "key": "state",
+            "title": "提现状态",
+            "list": [
+                "",
+                "申请中",
+                "转帐中",
+                "已完成",
+                "已拒绝"
+            ]
+        },
+        {
+            "key": "to_user_id",
+            "title": "收款人",
+            "table": "user_account",
+            "name": "nickname",
+            "id": "user_id"
+        },
+        {
+            "key": "seller_id",
+            "title": "商户",
+            "table": "pay_seller",
+            "name": "name"
+        },
+        {
+            "key": "user_id",
+            "title": "审批人",
+            "table": "user_account",
+            "name": "nickname"
+        }
+    ]
 }

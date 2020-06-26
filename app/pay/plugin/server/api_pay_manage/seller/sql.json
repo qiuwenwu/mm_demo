@@ -5,7 +5,7 @@
     "key": "seller_id",
     "orderby_default": "`seller_id` desc",
     "field_obj": "`seller_id`,`institution_state`,`user_id`,`province_id`,`city_id`,`name`,`institution`,`institution_code`,`address`,`business`,`institution_img`",
-    "field_default": "`seller_id`,`institution_state`,`user_id`,`province_id`,`city_id`,`name`,`institution`,`institution_code`,`address`,`business`,`institution_img`",
+    "field_default": "`seller_id`,`institution_state`,`user_id`,`province_id`,`city_id`,`name`,`institution`,`institution_code`,`address`,`business`",
     "query": {
         "institution_state_min": "`institution_state` >= {0}",
         "institution_state_max": "`institution_state` <= {0}",
@@ -20,5 +20,36 @@
     "update": {
         "institution_state_add": "`institution_state` = `institution_state` + {0}"
     },
+    "format": [
+        {
+            "key": "institution_state",
+            "title": "认证状态",
+            "list": [
+                "",
+                "未认证",
+                "认证中",
+                "已认证",
+                "认证失败"
+            ]
+        },
+        {
+            "key": "user_id",
+            "title": "商户持有人",
+            "table": "user_account",
+            "name": "nickname"
+        },
+        {
+            "key": "province_id",
+            "title": "省份",
+            "table": "sys_address_province",
+            "name": "name"
+        },
+        {
+            "key": "city_id",
+            "title": "所在城市",
+            "table": "sys_address_city",
+            "name": "name"
+        }
+    ],
     "field_hide": []
 }

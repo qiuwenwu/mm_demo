@@ -1,0 +1,510 @@
+{
+    "name": "stock_analyse_62",
+    "title": "上证股票分析",
+    "add": {
+        "body": [
+            "score",
+            "weight_1",
+            "weight_4",
+            "weight_7",
+            "extent_1",
+            "extent_4",
+            "extent_7",
+            "action_day",
+            "action_week",
+            "action",
+            "tip",
+            "predict"
+        ],
+        "body_required": [
+            "code"
+        ]
+    },
+    "del": {
+        "query": [],
+        "query_required": []
+    },
+    "set": {
+        "query": [
+            "score_min",
+            "score_max",
+            "weight_1_min",
+            "weight_1_max",
+            "weight_4_min",
+            "weight_4_max",
+            "weight_7_min",
+            "weight_7_max",
+            "extent_1_min",
+            "extent_1_max",
+            "extent_4_min",
+            "extent_4_max",
+            "extent_7_min",
+            "extent_7_max"
+        ],
+        "query_required": [],
+        "body": [
+            "code",
+            "score",
+            "score_add",
+            "weight_1",
+            "weight_1_add",
+            "weight_4",
+            "weight_4_add",
+            "weight_7",
+            "weight_7_add",
+            "extent_1",
+            "extent_1_add",
+            "extent_4",
+            "extent_4_add",
+            "extent_7",
+            "extent_7_add",
+            "action_day",
+            "action_week",
+            "action",
+            "tip",
+            "predict"
+        ],
+        "body_required": [],
+        "body_not": []
+    },
+    "get": {
+        "query": [
+            "datetime_min",
+            "datetime_max",
+            "score_min",
+            "score_max",
+            "weight_1_min",
+            "weight_1_max",
+            "weight_4_min",
+            "weight_4_max",
+            "weight_7_min",
+            "weight_7_max",
+            "extent_1_min",
+            "extent_1_max",
+            "extent_4_min",
+            "extent_4_max",
+            "extent_7_min",
+            "extent_7_max",
+            "create_time_min",
+            "create_time_max",
+            "update_time_min",
+            "update_time_max"
+        ],
+        "query_required": []
+    },
+    "list": [
+        {
+            "name": "code",
+            "title": "股票代码",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {
+                "notEmpty": 1
+            }
+        },
+        {
+            "name": "datetime",
+            "title": "当日时间",
+            "description": "指股票当天",
+            "type": "string",
+            "dataType": "datetime",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "datetime_min",
+            "title": "当日时间——开始时间",
+            "description": "指股票当天",
+            "type": "string",
+            "dataType": "datetime",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "datetime_max",
+            "title": "当日时间——结束时间",
+            "description": "指股票当天",
+            "type": "string",
+            "dataType": "datetime",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "score",
+            "title": "人工得分",
+            "description": "",
+            "type": "number",
+            "dataType": "smallint",
+            "number": {
+                "max": 99
+            }
+        },
+        {
+            "name": "score_min",
+            "title": "人工得分——最小值",
+            "description": "",
+            "type": "number",
+            "dataType": "smallint",
+            "number": {
+                "max": 99
+            }
+        },
+        {
+            "name": "score_max",
+            "title": "人工得分——最大值",
+            "description": "",
+            "type": "number",
+            "dataType": "smallint",
+            "number": {
+                "max": 99
+            }
+        },
+        {
+            "name": "weight_1",
+            "title": "1日权重",
+            "description": "由各技术分析累加获得，正分看涨，负分看跌。负5分以上大跌，负3-4分看跌，负1-2分看淡，0分未知，1-2分看好，3-4分看涨，5分以上大涨",
+            "type": "number",
+            "dataType": "smallint",
+            "number": {
+                "range": [
+                    -99,
+                    99
+                ]
+            }
+        },
+        {
+            "name": "weight_1_min",
+            "title": "1日权重——最小值",
+            "description": "由各技术分析累加获得，正分看涨，负分看跌。负5分以上大跌，负3-4分看跌，负1-2分看淡，0分未知，1-2分看好，3-4分看涨，5分以上大涨",
+            "type": "number",
+            "dataType": "smallint",
+            "number": {
+                "range": [
+                    -99,
+                    99
+                ]
+            }
+        },
+        {
+            "name": "weight_1_max",
+            "title": "1日权重——最大值",
+            "description": "由各技术分析累加获得，正分看涨，负分看跌。负5分以上大跌，负3-4分看跌，负1-2分看淡，0分未知，1-2分看好，3-4分看涨，5分以上大涨",
+            "type": "number",
+            "dataType": "smallint",
+            "number": {
+                "range": [
+                    -99,
+                    99
+                ]
+            }
+        },
+        {
+            "name": "weight_4",
+            "title": "4日权重",
+            "description": "由各技术分析累加获得，正分看涨，负分看跌。",
+            "type": "number",
+            "dataType": "smallint",
+            "number": {
+                "range": [
+                    -99,
+                    99
+                ]
+            }
+        },
+        {
+            "name": "weight_4_min",
+            "title": "4日权重——最小值",
+            "description": "由各技术分析累加获得，正分看涨，负分看跌。",
+            "type": "number",
+            "dataType": "smallint",
+            "number": {
+                "range": [
+                    -99,
+                    99
+                ]
+            }
+        },
+        {
+            "name": "weight_4_max",
+            "title": "4日权重——最大值",
+            "description": "由各技术分析累加获得，正分看涨，负分看跌。",
+            "type": "number",
+            "dataType": "smallint",
+            "number": {
+                "range": [
+                    -99,
+                    99
+                ]
+            }
+        },
+        {
+            "name": "weight_7",
+            "title": "7日权重",
+            "description": "由各技术分析累加获得，正分看涨，负分看跌。",
+            "type": "number",
+            "dataType": "smallint",
+            "number": {
+                "range": [
+                    -99,
+                    99
+                ]
+            }
+        },
+        {
+            "name": "weight_7_min",
+            "title": "7日权重——最小值",
+            "description": "由各技术分析累加获得，正分看涨，负分看跌。",
+            "type": "number",
+            "dataType": "smallint",
+            "number": {
+                "range": [
+                    -99,
+                    99
+                ]
+            }
+        },
+        {
+            "name": "weight_7_max",
+            "title": "7日权重——最大值",
+            "description": "由各技术分析累加获得，正分看涨，负分看跌。",
+            "type": "number",
+            "dataType": "smallint",
+            "number": {
+                "range": [
+                    -99,
+                    99
+                ]
+            }
+        },
+        {
+            "name": "extent_1",
+            "title": "1日涨跌",
+            "description": "取当日所有涨跌之和的平均值",
+            "type": "number",
+            "dataType": "double",
+            "number": {
+                "range": [
+                    -100,
+                    100
+                ]
+            }
+        },
+        {
+            "name": "extent_1_min",
+            "title": "1日涨跌——最小值",
+            "description": "取当日所有涨跌之和的平均值",
+            "type": "number",
+            "dataType": "double",
+            "number": {
+                "range": [
+                    -100,
+                    100
+                ]
+            }
+        },
+        {
+            "name": "extent_1_max",
+            "title": "1日涨跌——最大值",
+            "description": "取当日所有涨跌之和的平均值",
+            "type": "number",
+            "dataType": "double",
+            "number": {
+                "range": [
+                    -100,
+                    100
+                ]
+            }
+        },
+        {
+            "name": "extent_4",
+            "title": "4日涨跌",
+            "description": "取第4日所有涨跌之和的平均值",
+            "type": "number",
+            "dataType": "double",
+            "number": {
+                "range": [
+                    -100,
+                    100
+                ]
+            }
+        },
+        {
+            "name": "extent_4_min",
+            "title": "4日涨跌——最小值",
+            "description": "取第4日所有涨跌之和的平均值",
+            "type": "number",
+            "dataType": "double",
+            "number": {
+                "range": [
+                    -100,
+                    100
+                ]
+            }
+        },
+        {
+            "name": "extent_4_max",
+            "title": "4日涨跌——最大值",
+            "description": "取第4日所有涨跌之和的平均值",
+            "type": "number",
+            "dataType": "double",
+            "number": {
+                "range": [
+                    -100,
+                    100
+                ]
+            }
+        },
+        {
+            "name": "extent_7",
+            "title": "7日涨跌",
+            "description": "取第7日所有涨跌之和的平均值",
+            "type": "number",
+            "dataType": "double",
+            "number": {
+                "range": [
+                    -100,
+                    100
+                ]
+            }
+        },
+        {
+            "name": "extent_7_min",
+            "title": "7日涨跌——最小值",
+            "description": "取第7日所有涨跌之和的平均值",
+            "type": "number",
+            "dataType": "double",
+            "number": {
+                "range": [
+                    -100,
+                    100
+                ]
+            }
+        },
+        {
+            "name": "extent_7_max",
+            "title": "7日涨跌——最大值",
+            "description": "取第7日所有涨跌之和的平均值",
+            "type": "number",
+            "dataType": "double",
+            "number": {
+                "range": [
+                    -100,
+                    100
+                ]
+            }
+        },
+        {
+            "name": "create_time",
+            "title": "创建时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "create_time_min",
+            "title": "创建时间——开始时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "create_time_max",
+            "title": "创建时间——结束时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "update_time",
+            "title": "更新时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "update_time_min",
+            "title": "更新时间——开始时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "update_time_max",
+            "title": "更新时间——结束时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "action_day",
+            "title": "做T建议",
+            "description": "买、卖、留",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "action_week",
+            "title": "长线建议",
+            "description": "买、卖、留",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "action",
+            "title": "综合建议",
+            "description": "买、卖、留",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "tip",
+            "title": "分析提示",
+            "description": "技术分析，公式的名称集合",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "predict",
+            "title": "预言",
+            "description": "告知今日、近日和后市发展情况",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        }
+    ]
+}

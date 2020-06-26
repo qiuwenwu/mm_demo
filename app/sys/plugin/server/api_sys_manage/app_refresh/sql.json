@@ -15,5 +15,13 @@
         "refresh_token": "`refresh_token` like '%{0}%'"
     },
     "update": {},
-    "field_hide": []
+    "field_hide": [],
+    "format": [
+        {
+            "key": "user_id",
+            "title": "用户",
+            "table": "user_account",
+            "name": "nickname"
+        }
+    ]
 }

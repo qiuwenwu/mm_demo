@@ -21,6 +21,7 @@
             "max": 8388607,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -41,6 +42,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -48,7 +50,7 @@
         {
             "name": "qq_state",
             "title": "QQ认证",
-            "description": "0未认证，1已认证",
+            "description": "",
             "type": "tinyint",
             "key": false,
             "auto": "",
@@ -61,6 +63,7 @@
             "max": 1,
             "decimal": 0,
             "default": "0",
+            "map": "0未认证|1已认证",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -81,6 +84,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -88,7 +92,7 @@
         {
             "name": "wechat_state",
             "title": "微信认证",
-            "description": "0未认证，1已认证",
+            "description": "",
             "type": "tinyint",
             "key": false,
             "auto": "",
@@ -101,6 +105,7 @@
             "max": 1,
             "decimal": 0,
             "default": "0",
+            "map": "0未认证|1已认证",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -121,6 +126,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -128,7 +134,7 @@
         {
             "name": "mm_state",
             "title": "MM认证",
-            "description": "0未认证，1已认证",
+            "description": "",
             "type": "tinyint",
             "key": false,
             "auto": "",
@@ -141,6 +147,7 @@
             "max": 1,
             "decimal": 0,
             "default": "0",
+            "map": "0未认证|1已认证",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -161,6 +168,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -168,7 +176,7 @@
         {
             "name": "baidu_state",
             "title": "百度认证",
-            "description": "0未认证，1已认证",
+            "description": "",
             "type": "tinyint",
             "key": false,
             "auto": "",
@@ -181,6 +189,7 @@
             "max": 1,
             "decimal": 0,
             "default": "0",
+            "map": "0未认证|1已认证",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -201,6 +210,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -208,7 +218,7 @@
         {
             "name": "taobao_state",
             "title": "淘宝认证",
-            "description": "0未认证，1已认证",
+            "description": "",
             "type": "tinyint",
             "key": false,
             "auto": "",
@@ -221,6 +231,7 @@
             "max": 1,
             "decimal": 0,
             "default": "0",
+            "map": "0未认证|1已认证",
             "join_in": [],
             "join_out": [],
             "position": []

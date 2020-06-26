@@ -1,6 +1,6 @@
 {
     "name": "url_info",
-    "title": "",
+    "title": "链接信息",
     "add": {
         "body": [
             "key",

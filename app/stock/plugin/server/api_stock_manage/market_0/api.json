@@ -1,0 +1,18 @@
+{
+    "name": "stock_market_02",
+    "title": "深证行情",
+    "description": "深圳交易所股票每日行情",
+    "path": "/apis/stock/market_0",
+    "method": "ALL",
+    "cache": 0,
+    "client_cache": false,
+    "param_path": "./param.json",
+    "sql_path": "./sql.json",
+    "check_param": true,
+    "oauth": {
+        "scope": true,
+        "signIn": true,
+        "gm": 2,
+        "user_admin": []
+    }
+}

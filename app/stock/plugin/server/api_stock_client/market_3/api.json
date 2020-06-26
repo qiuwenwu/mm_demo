@@ -1,0 +1,12 @@
+{
+    "name": "stock_market_3",
+    "title": "创业板行情",
+    "description": "创业板股票每日行情",
+    "path": "/api/stock/market_3",
+    "method": "GET",
+    "cache": 0,
+    "client_cache": false,
+    "param_path": "./param.json",
+    "sql_path": "./sql.json",
+    "check_param": true
+}

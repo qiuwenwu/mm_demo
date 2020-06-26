@@ -6,7 +6,7 @@
     "orderby_default": "`activity_id` desc",
     "field_obj": "`activity_id`,`period_num`,`period_unit`,`prize_1`,`prize_2`,`prize_3`,`prize_t`,`num_people`,`num_winner`,`time_create`,`time_update`,`time_start`,`time_end`,`name`,`type`,`uin_creator`,`title`,`descrtption`,`content`,`num_applicant`",
     "field_default": "`activity_id`,`period_num`,`period_unit`,`prize_1`,`prize_2`,`prize_3`,`prize_t`,`num_people`,`num_winner`,`time_create`,`time_update`,`time_start`,`time_end`,`name`,`type`,`uin_creator`,`title`,`descrtption`,`num_applicant`",
-    "method": "get",
+    "method": "get get_obj",
     "query": {
         "keyword": "(`name` like '%{0}%' || `title` like '%{0}%')",
         "prize": "(`prize_1` = '{0}' || `prize_2` = '{0}' || `prize_3` = '{0}' || `prize_t` = '{0}')",
@@ -54,5 +54,6 @@
         "num_people_add": "`num_people` = `num_people` + {0}",
         "num_winner_add": "`num_winner` = `num_winner` + {0}",
         "num_applicant_add": "`num_applicant` = `num_applicant` + {0}"
-    }
+    },
+    "format": []
 }

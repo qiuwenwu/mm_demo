@@ -9,15 +9,27 @@
 					<mm_body>
 						<mm_form class="mm_filter">
 							<h5><span>筛选条件</span></h5>
-							<mm_list col="2">
+							<mm_list col="3">
 								<mm_col>
-									<mm_input v-model="query.keyword" title="关键词" desc="用户名 / 手机号 / 邮箱 / 姓名" @blur="search()" />
+									<mm_input v-model="query.keyword" title="关键词" desc="频道名称 / 描述" @blur="search()" />
 								</mm_col>
-								<mm_col width="25">
-									<mm_select v-model="query.user_group" title="用户组" :options="$to_kv(user_group, 'group_id')" @change="search()" />
+								<mm_col>
+									<mm_select v-model="query.available" title="是否启用" :options="$to_kv(arr_available)" @change="search()" />
 								</mm_col>
-								<mm_col width="25">
-									<mm_select v-model="query.state" title="状态" :options="$to_kv(states)" @change="search()" />
+								<mm_col>
+									<mm_select v-model="query.hide" title="是否隐藏" :options="$to_kv(arr_hide)" @change="search()" />
+								</mm_col>
+								<mm_col>
+									<mm_select v-model="query.can_comment" title="是否可评论" :options="$to_kv(arr_can_comment)" @change="search()" />
+								</mm_col>
+								<mm_col>
+									<mm_select v-model="query.father_id" title="上级" :options="$to_kv(list_thread_channel, 'channel_id', 'name')" @change="search()" />
+								</mm_col>
+								<mm_col>
+									<mm_select v-model="query.city_id" title="所属城市" :options="$to_kv(list_address_city, 'city_id', 'name')" @change="search()" />
+								</mm_col>
+								<mm_col>
+									<mm_btn class="btn_primary-x" type="reset" @click.native="reset();search()">重置</mm_btn>
 								</mm_col>
 							</mm_list>
 						</mm_form>
@@ -32,38 +44,76 @@
 							<thead>
 								<tr>
 									<th scope="col" class="th_selected"><input type="checkbox" :checked="select_state" @click="select_all()" /></th>
-									<th scope="col" class="th_id">#</th>
-									<th scope="col" class="th_username">
-										<mm_reverse title="用户名" v-model="query.orderby" field="username" :func="search"></mm_reverse>
+									<th scope="col" class="th_id"><span>#</span></th>
+									<th scope="col">
+										<mm_reverse title="是否启用" v-model="query.orderby" field="available" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_nickname">
-										<mm_reverse title="昵称" v-model="query.orderby" field="nickname" :func="search"></mm_reverse>
+									<th scope="col">
+										<mm_reverse title="是否隐藏" v-model="query.orderby" field="hide" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_name">
-										<mm_reverse title="用户组" v-model="query.orderby" field="user_group" :func="search"></mm_reverse>
+									<th scope="col">
+										<mm_reverse title="是否可评论" v-model="query.orderby" field="can_comment" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_phone">
-										<mm_reverse title="手机" v-model="query.orderby" field="phone" :func="search"></mm_reverse>
+									<th scope="col">
+										<mm_reverse title="显示顺序" v-model="query.orderby" field="display" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_email">
-										<mm_reverse title="邮箱" v-model="query.orderby" field="email" :func="search"></mm_reverse>
+									<th scope="col">
+										<mm_reverse title="上级" v-model="query.orderby" field="father_id" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_state">
-										<mm_reverse title="状态" v-model="query.orderby" field="state" :func="search"></mm_reverse>
+									<th scope="col">
+										<mm_reverse title="所属城市" v-model="query.orderby" field="city_id" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_handle">操作</th>
+									<th scope="col">
+										<mm_reverse title="频道名称" v-model="query.orderby" field="name" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="风格模板" v-model="query.orderby" field="template" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="描述" v-model="query.orderby" field="description" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="外链地址" v-model="query.orderby" field="url" :func="search"></mm_reverse>
+									</th>
+									<th scope="col" class="th_handle"><span>操作</span></th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr v-for="(o, idx) in list" :key="idx">
+								<tr v-for="(o, idx) in list" :key="idx" :class="{'active': select == idx}" @click="selected(idx)">
 									<th scope="row"><input type="checkbox" :checked="select_has(o[field])" @click="select_change(o[field])" /></th>
-									<th scope="row">{{ o[field] }}</th>
-									<td><span class="name">{{ o.username }}</span></td>
-									<td><span class="name">{{ o.nickname }}</span></td>
-									<td><span class="name">{{ get_name(user_group, o.user_group, 'group_id') }}</span></td>
-									<td><span class="time">{{ o.phone }}</span></td>
-									<td><span class="email">{{ o.email }}</span></td>
-									<td><span class="state" v-bind:class="colors[o.state]">{{ states[o.state] }}</span></td>
+									<td>
+										<span>{{ o.channel_id }}</span>
+									</td>
+									<td>
+										<mm_switch v-model="o.available" @click.native="set(o)" />
+									</td>
+									<td>
+										<mm_switch v-model="o.hide" @click.native="set(o)" />
+									</td>
+									<td>
+										<mm_switch v-model="o.can_comment" @click.native="set(o)" />
+									</td>
+									<td>
+										<input class="td_display" v-model.number="o.display" @blur="set(o)" min="0" max="1000" />
+									</td>
+									<td>
+										<span>{{ get_name(list_thread_channel, o.father_id, 'channel_id', 'name') }}</span>
+									</td>
+									<td>
+										<span>{{ get_name(list_address_city, o.city_id, 'city_id', 'name') }}</span>
+									</td>
+									<td>
+										<span>{{ o.name }}</span>
+									</td>
+									<td>
+										<span>{{ o.template }}</span>
+									</td>
+									<td>
+										<span>{{ o.description }}</span>
+									</td>
+									<td>
+										<span>{{ o.url }}</span>
+									</td>
 									<td>
 										<mm_btn class="btn_primary" :url="'./thread_channel_form?channel_id=' + o[field]">修改</mm_btn>
 										<mm_btn class="btn_warning" @click.native="del_show(o, field)">删除</mm_btn>
@@ -73,16 +123,16 @@
 						</mm_table>
 					</mm_body>
 					<footer>
-						<mm_grid col="4" class="mm_data_count">
+						<mm_grid class="mm_data_count">
 							<mm_col>
 								<mm_select v-model="query.size" :options="$to_size()" @change="search()" />
 							</mm_col>
-							<mm_col width="50">
+							<mm_col width="50" style="min-width: 22.5rem;">
 								<mm_pager display="2" v-model="query.page" :count="count / query.size" :func="goTo" :icons="['首页', '上一页', '下一页', '尾页']"></mm_pager>
 							</mm_col>
 							<mm_col>
 								<div class="right plr">
-									<span class="fl">共 {{ count }} 条</span>
+									<span class="mr">共 {{ count }} 条</span>
 									<span>当前</span>
 									<input class="pager_now" v-model.number="page_now" @blur="goTo(page_now)" @change="page_change" />
 									<span>/{{ page_count }}页</span>
@@ -100,15 +150,25 @@
 				</header>
 				<mm_body>
 					<dl>
-						<dt>昵称</dt>
+						<dt>是否启用</dt>
 						<dd>
-							<label>
-								<input type="text" v-model="form.nickname" placeholder="由2-16个字符组成" />
-							</label>
+							<mm_select v-model="form.available" :options="$to_kv(arr_available)" />
 						</dd>
-						<dt>状态</dt>
+						<dt>是否隐藏</dt>
 						<dd>
-							<mm_select v-model="form.state" :options="$to_kv(states)" />
+							<mm_select v-model="form.hide" :options="$to_kv(arr_hide)" />
+						</dd>
+						<dt>是否可评论</dt>
+						<dd>
+							<mm_select v-model="form.can_comment" :options="$to_kv(arr_can_comment)" />
+						</dd>
+						<dt>上级</dt>
+						<dd>
+							<mm_select v-model="form.father_id" :options="$to_kv(list_thread_channel, 'channel_id', 'name')" />
+						</dd>
+						<dt>所属城市</dt>
+						<dd>
+							<mm_select v-model="form.city_id" :options="$to_kv(list_address_city, 'city_id', 'name')" />
 						</dd>
 					</dl>
 				</mm_body>
@@ -138,58 +198,96 @@
 				query_set: {
 					"channel_id": ""
 				},
-				user_group: [],
 				// 查询条件
 				query: {
-					// 排序
-					orderby: "",
-					// 页码
+					//页码
 					page: 1,
-					// 页面大小
+					//页面大小
 					size: 10,
+					// 频道ID
+					'channel_id': 0,
+					// 是否启用
+					'available': '',
+					// 是否隐藏
+					'hide': '',
+					// 是否可评论
+					'can_comment': '',
+					// 显示顺序——最小值
+					'display_min': 0,
+					// 显示顺序——最大值
+					'display_max': 0,
+					// 频道名称
+					'name': '',
+					// 描述
+					'description': '',
 					// 关键词
-					keyword: "",
+					'keyword': '',
+					//排序
+					orderby: ""
 				},
 				form: {},
-				// 状态
-				states: ['', '正常', '异常', '已冻结', '已注销'],
-				colors: ['', 'font_success', 'font_warning', 'font_yellow', 'font_default'],
+				//颜色
+				arr_color: ['', '', 'font_yellow', 'font_success', 'font_warning', 'font_primary', 'font_info', 'font_default'],
+				// 是否启用
+				'arr_available': ['否','是'],
+				// 是否隐藏
+				'arr_hide': ['否','是'],
+				// 是否可评论
+				'arr_can_comment': ['否','是'],
+				// 上级
+				'list_thread_channel': [],
+				// 所属城市
+				'list_address_city': [],
 				// 视图模型
 				vm: {}
 			}
 		},
-		methods: {},
-		created() {
-			var _this = this;
-			this.$get('~/apis/user/group?', null, function(json) {
-				if (json.result) {
-					_this.user_group.clear();
-					_this.user_group.addList(json.result.list)
+		methods: {
+			/**
+			 * 获取上级
+			 * @param {query} 查询条件
+			 */
+			get_thread_channel(query){
+				var _this = this;
+				if(!query){
+					query = {
+						field: "channel_id,name"
+					};
 				}
-			});
+				this.$get('~/apis/bbs/thread_channel?size=0', query, function(json) {
+					if (json.result) {
+						_this.list_thread_channel.clear();
+						_this.list_thread_channel.addList(json.result.list)
+					}
+				});
+			},
+			/**
+			 * 获取所属城市
+			 * @param {query} 查询条件
+			 */
+			get_address_city(query){
+				var _this = this;
+				if(!query){
+					query = {
+						field: "city_id,name"
+					};
+				}
+				this.$get('~/apis/sys/address_city?size=0', query, function(json) {
+					if (json.result) {
+						_this.list_address_city.clear();
+						_this.list_address_city.addList(json.result.list)
+					}
+				});
+			},
+		},
+		created() {
+			// 获取上级
+			this.get_thread_channel();
+			// 获取所属城市
+			this.get_address_city();
 		}
 	}
 </script>
 
 <style>
-	/* 页面 */
-	#bbs_thread_channel {}
-
-	/* 表单 */
-	#bbs_thread_channel .mm_form {}
-
-	/* 筛选栏栏 */
-	#bbs_thread_channel .mm_filter {}
-
-	/* 操作栏 */
-	#bbs_thread_channel .mm_action {}
-
-	/* 模态窗 */
-	#bbs_thread_channel .mm_modal {}
-
-	/* 表格 */
-	#bbs_thread_channel .mm_table {}
-
-	/* 数据统计 */
-	#bbs_thread_channel .mm_data_count {}
 </style>

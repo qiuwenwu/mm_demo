@@ -4,9 +4,9 @@
     "table": "bbs_thread_type",
     "key": "type_id",
     "orderby_default": "`display` asc",
-    "field_obj": "`type_id`,`father_id`,`channel_id`,`name`,`icon`,`description`",
-    "field_default": "`type_id`,`display`,`father_id`,`channel_id`,`name`,`icon`,`description`",
-    "method": "get",
+    "field_obj": "`type_id`,`father_id`,`name`,`icon`,`description`",
+    "field_default": "`type_id`,`display`,`father_id`,`name`,`description`",
+    "method": "get get_obj",
     "query": {
         "display_min": "`display` >= {0}",
         "display_max": "`display` <= {0}",
@@ -18,5 +18,14 @@
     "query_default": {},
     "update": {
         "display_add": "`display` = `display` + {0}"
-    }
+    },
+    "format": [
+        {
+            "key": "father_id",
+            "title": "上级分类",
+            "table": "bbs_thread_type",
+            "name": "name",
+            "id": "type_id"
+        }
+    ]
 }

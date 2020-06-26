@@ -1,0 +1,30 @@
+{
+    "name": "coin_subscribe",
+    "title": "数字货币订阅",
+    "table": "coin_subscribe",
+    "key": "subscribe_id",
+    "orderby_default": "`subscribe_id` desc",
+    "field_obj": "`subscribe_id`,`user_id`,`time1`,`time2`,`time3`,`way`,`stocks`",
+    "field_default": "`subscribe_id`,`user_id`,`time1`,`time2`,`time3`,`way`,`stocks`",
+    "method": "get get_obj",
+    "query": {
+        "time1_min": "`time1` >= '{0}'",
+        "time1_max": "`time1` <= '{0}'",
+        "time2_min": "`time2` >= '{0}'",
+        "time2_max": "`time2` <= '{0}'",
+        "time3_min": "`time3` >= '{0}'",
+        "time3_max": "`time3` <= '{0}'",
+        "way": "`way` like '%{0}%'",
+        "stocks": "`stocks` like '%{0}%'"
+    },
+    "query_default": {},
+    "update": {},
+    "format": [
+        {
+            "key": "user_id",
+            "title": "订阅用户",
+            "table": "user_account",
+            "name": "nickname"
+        }
+    ]
+}

@@ -7,26 +7,46 @@
 						<h5>{{ form[field] ? '修改' : '创建' }}社交账户</h5>
 					</header>
 					<dl>
-						<dt>MM号</dt>
-						<dd><mm_input type="text" v-model="form.mm"></mm_input></dd>
-						<dt>MM认证</dt>
-						<dd><mm_switch v-model="form.mm_state"></mm_switch></dd>
 						<dt>QQ号</dt>
-						<dd><mm_input type="text" v-model="form.qq"></mm_input></dd>
+						<dd>
+							<mm_input v-model="form.qq" :minlength="0" :maxlength="0" placeholder="" />
+						</dd>
 						<dt>QQ认证</dt>
-						<dd><mm_switch v-model="form.qq_state"></mm_switch></dd>
+						<dd>
+							<mm_switch v-model="form.qq_state" />
+						</dd>
 						<dt>微信号</dt>
-						<dd><mm_input type="text" v-model="form.wechat"></mm_input></dd>
+						<dd>
+							<mm_input v-model="form.wechat" :minlength="0" :maxlength="0" placeholder="" />
+						</dd>
 						<dt>微信认证</dt>
-						<dd><mm_switch v-model="form.wechat_state"></mm_switch></dd>
+						<dd>
+							<mm_switch v-model="form.wechat_state" />
+						</dd>
+						<dt>MM号</dt>
+						<dd>
+							<mm_input v-model="form.mm" :minlength="0" :maxlength="0" placeholder="" />
+						</dd>
+						<dt>MM认证</dt>
+						<dd>
+							<mm_switch v-model="form.mm_state" />
+						</dd>
 						<dt>百度账号</dt>
-						<dd><mm_input type="text" v-model="form.baidu"></mm_input></dd>
+						<dd>
+							<mm_input v-model="form.baidu" :minlength="0" :maxlength="0" placeholder="" />
+						</dd>
 						<dt>百度认证</dt>
-						<dd><mm_switch v-model="form.baidu_state"></mm_switch></dd>
+						<dd>
+							<mm_switch v-model="form.baidu_state" />
+						</dd>
 						<dt>淘宝账号</dt>
-						<dd><mm_input type="text" v-model="form.taobao"></mm_input></dd>
+						<dd>
+							<mm_input v-model="form.taobao" :minlength="0" :maxlength="0" placeholder="" />
+						</dd>
 						<dt>淘宝认证</dt>
-						<dd><mm_switch v-model="form.taobao_state"></mm_switch></dd>
+						<dd>
+							<mm_switch v-model="form.taobao_state" />
+						</dd>
 					</dl>
 					<footer>
 						<div class="mm_group">
@@ -40,85 +60,52 @@
 	</main>
 </template>
 
-<script>
-import mixin from '/src/mixins/page.js';
 
-export default {
-	mixins: [mixin],
-	components: {},
-	data() {
-		return {
-			url_submit: '/apis/user/sns?',
-			url_get_obj: '/apis/user/sns',
-			field: 'user_id',
-			query: {
-				user_id: 0
-			},
-			form: {
-				user_id:0,
-				// QQ号
-				qq: '',
+<script>
+	import mixin from '/src/mixins/page.js';
+
+	export default {
+		mixins: [mixin],
+		components: {},
+		data() {
+			return {
+				url_submit: "/apis/user/sns?",
+				url_get_obj: "/apis/user/sns?method=get_obj",
+				field: "user_id",
+				query: {
+					"user_id": 0
+				},
+				form: {
+						"user_id": 0,
+						"qq": '',
+						"qq_state": 0,
+						"wechat": '',
+						"wechat_state": 0,
+						"mm": '',
+						"mm_state": 0,
+						"baidu": '',
+						"baidu_state": 0,
+						"taobao": '',
+						"taobao_state": 0,
+				},
 				// QQ认证
-				qq_state: 0,
-				// 微信号
-				wechat: '',
+				'arr_qq_state': ['未认证','已认证'],
 				// 微信认证
-				wechat_state: 0,
-				// MM号
-				mm: '',
+				'arr_wechat_state': ['未认证','已认证'],
 				// MM认证
-				mm_state: 0,
-				// 百度账号
-				baidu: '',
+				'arr_mm_state': ['未认证','已认证'],
 				// 百度认证
-				baidu_state: 0,
-				// 淘宝账号
-				taobao: '',
+				'arr_baidu_state': ['未认证','已认证'],
 				// 淘宝认证
-				taobao_state: 0
+				'arr_taobao_state': ['未认证','已认证'],
 			}
-		};
-	},
-	methods: {
-		submit_before(param){
-			var pm = Object.assign({},param);
-			pm.qq_state += "";
-			pm.mm_state += "";
-			pm.wechat_state += "";
-			pm.baidu_state += "";
-			pm.taobao_state += "";
-			return pm;
+		},
+		methods: {
+		},
+		created() {
 		}
 	}
-};
 </script>
 
 <style>
-/* 页面 */
-#user_sns_form {
-}
-
-/* 表单 */
-#user_sns_form .mm_form {
-}
-
-/* 筛选栏栏 */
-#user_sns_form .mm_filter {
-}
-
-/* 操作栏 */
-#user_sns_form .mm_action {
-}
-
-/* 模态窗 */
-#user_sns_form .mm_modal {
-}
-
-/* 表格 */
-#user_sns_form .mm_table {
-}
-
-/* 数据统计 */
-#user_sns_form .mm_data_count {
-}
 </style>

@@ -1,12 +1,12 @@
 {
     "name": "url_share",
-    "title": "",
+    "title": "链接分享",
     "table": "url_share",
     "key": "share_id",
     "orderby_default": "`share_id` desc",
     "field_obj": "`share_id`,`user_id`,`key`,`url_redirect`,`time_create`,`time_update`",
     "field_default": "`share_id`,`user_id`,`key`,`url_redirect`,`time_create`,`time_update`",
-    "method": "get",
+    "method": "get get_obj",
     "query": {
         "key": "`key` like '%{0}%'",
         "url_redirect": "`url_redirect` like '%{0}%'",
@@ -15,18 +15,14 @@
         "time_update_min": "`time_update` >= '{0}'",
         "time_update_max": "`time_update` <= '{0}'"
     },
-    "query_default": {
-        "user_id": "`user_id` = {user_id}"
-    },
+    "query_default": {},
     "update": {},
-    "filter": {
-        "table": "table",
-        "page": "page",
-        "size": "size",
-        "method": "method",
-        "orderby": "orderby",
-        "field": "field",
-        "count_ret": "count_ret",
-        "user_id": "user_id"
-    }
+    "format": [
+        {
+            "key": "user_id",
+            "title": "创建者",
+            "table": "user_account",
+            "name": "nickname"
+        }
+    ]
 }

@@ -1,6 +1,6 @@
 {
     "name": "url_share_log",
-    "title": "",
+    "title": "链接分享日志",
     "add": {
         "body": [
             "key",
@@ -131,7 +131,7 @@
         {
             "name": "user_id",
             "title": "分享者ID",
-            "description": "一般为网红的账号",
+            "description": "一般为网红的账号(user_account.nickname)",
             "type": "number",
             "dataType": "int",
             "number": {

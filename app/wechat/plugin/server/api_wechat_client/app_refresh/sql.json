@@ -6,7 +6,7 @@
     "orderby_default": "`refresh_id` desc",
     "field_obj": "`refresh_id`,`user_id`,`appid`,`refresh_token`,`create_time`,`update_time`",
     "field_default": "`refresh_id`,`user_id`,`appid`,`refresh_token`,`create_time`,`update_time`",
-    "method": "get",
+    "method": "get get_obj",
     "query": {
         "appid": "`appid` like '%{0}%'",
         "refresh_token": "`refresh_token` like '%{0}%'",
@@ -28,5 +28,13 @@
         "field": "field",
         "count_ret": "count_ret",
         "user_id": "user_id"
-    }
+    },
+    "format": [
+        {
+            "key": "user_id",
+            "title": "用户",
+            "table": "user_account",
+            "name": "nickname"
+        }
+    ]
 }

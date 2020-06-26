@@ -1,0 +1,10 @@
+{
+	"target": "/api/coin/*",
+	"name": "coin_client",
+	"title": "数字货币客户端调用的接口事件",
+	"description": "用于数字货币访问服务端时调用的接口",
+	"stage": "main",
+	"func_file": "./main.js",
+	"sort": 99,
+	"end": true
+}

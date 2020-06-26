@@ -4,32 +4,80 @@
 			<mm_col width="33">
 				<mm_form class="card">
 					<header class="arrow">
-						<h5>{{ form[field] ? '修改' : '创建' }}应用刷新</h5>
+						<h5>{{ form[field] ? '修改' : '创建' }}应用信息</h5>
 					</header>
 					<dl>
-						<dt>头像</dt>
+						<dt>是否可用</dt>
 						<dd>
-							<mm_upload_img width="10rem" height="10rem" name="avatar" type="text" v-model="form.avatar"></mm_upload_img>
+							<mm_switch v-model="form.available" />
 						</dd>
-						<dt>昵称</dt>
+						<dt>加解密方式</dt>
 						<dd>
-							<mm_input type="text" v-model="form.nickname" desc="由2-16个字符组成"></mm_input>
+							<mm_select v-model="form.encrypt" :options="$to_kv(arr_encrypt)" />
 						</dd>
-						<dt>会员级别</dt>
+						<dt>每日允许请求次数</dt>
 						<dd>
-							<mm_select v-model="form.vip" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
+							<mm_number v-model="form.times_allow" :min="0" :max="32767" />
 						</dd>
-						<dt>管理级别</dt>
+						<dt>今日请求次数</dt>
 						<dd>
-							<mm_select v-model="form.gm" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
+							<mm_number v-model="form.times_today" :min="0" :max="32767" />
 						</dd>
-						<dt>商户级别</dt>
+						<dt>有效期时长</dt>
 						<dd>
-							<mm_select v-model="form.mc" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
+							<mm_number v-model="form.max_age" :min="0" :max="32767" />
 						</dd>
-						<dt>个性签名</dt>
+						<dt>持有者</dt>
 						<dd>
-							<textarea v-model="form.signature" placeholder="由2-16个字符组成"></textarea>
+							<mm_select v-model="form.user_id" :options="$to_kv(list_account, 'user_id', 'nickname')" />
+						</dd>
+						<dt>请求总次数</dt>
+						<dd>
+							<mm_number v-model="form.times_count" :min="0" :max="2147483647" />
+						</dd>
+						<dt class="required">应用名称</dt>
+						<dd>
+							<mm_input v-model="form.name" :minlength="0" :maxlength="0" placeholder="用于用户登陆时显示授权应用" :required="true"/>
+						</dd>
+						<dt class="required">应用ID</dt>
+						<dd>
+							<mm_input v-model="form.appid" :minlength="0" :maxlength="0" placeholder="用于应用授权访问时的账号" :required="true"/>
+						</dd>
+						<dt>消息访问令牌</dt>
+						<dd>
+							<mm_input v-model="form.token" :minlength="0" :maxlength="0" placeholder="用于访问应用时验证身份" />
+						</dd>
+						<dt>消息加密钥匙</dt>
+						<dd>
+							<mm_input v-model="form.encoding_aes_key" :minlength="0" :maxlength="0" placeholder="用于给应用发送消息时的加密钥匙" />
+						</dd>
+						<dt class="required">应用密钥</dt>
+						<dd>
+							<mm_input v-model="form.appsecret" :minlength="0" :maxlength="0" placeholder="用于应用授权访问时的密码" :required="true"/>
+						</dd>
+						<dt>应用图标</dt>
+						<dd>
+							<mm_upload_img width="10rem" height="10rem" name="icon" type="text" v-model="form.icon" />
+						</dd>
+						<dt>消息访问地址</dt>
+						<dd>
+							<mm_input v-model="form.url" :minlength="0" :maxlength="0" placeholder="当接收到用户所发消息后回访该地址" />
+						</dd>
+						<dt>访问绑定IP</dt>
+						<dd>
+							<mm_textarea v-model="form.bind_ip" type="text" placeholder="网站授权时确认重定向网址为已授权IP" />
+						</dd>
+						<dt>允许使用的接口</dt>
+						<dd>
+							<mm_textarea v-model="form.scope" type="text" placeholder="多个接口用”，“分隔" />
+						</dd>
+						<dt>不允许使用的接口</dt>
+						<dd>
+							<mm_textarea v-model="form.scope_not" type="text" placeholder="“多个接口用”，“分隔" />
+						</dd>
+						<dt>授权的用户</dt>
+						<dd>
+							<mm_textarea v-model="form.users" type="text" placeholder="" />
 						</dd>
 					</dl>
 					<footer>
@@ -53,40 +101,67 @@
 		components: {},
 		data() {
 			return {
-				url_submit: "/apis/sys/app_refresh?",
-				url_get_obj: "/apis/sys/app_refresh",
-				field: "refresh_id",
+				url_submit: "/apis/sys/app?",
+				url_get_obj: "/apis/sys/app?method=get_obj",
+				field: "app_id",
 				query: {
-					"refresh_id": 0
+					"app_id": 0
 				},
-				form: {}
+				form: {
+						"app_id": 0,
+						"available": 0,
+						"encrypt": 0,
+						"times_allow": 0,
+						"times_today": 0,
+						"max_age": 0,
+						"user_id": 0,
+						"times_count": 0,
+						"name": '',
+						"appid": '',
+						"token": '',
+						"encoding_aes_key": '',
+						"appsecret": '',
+						"icon": '',
+						"url": '',
+						"bind_ip": '',
+						"scope": '',
+						"scope_not": '',
+						"users": '',
+				},
+				// 是否可用
+				'arr_available': ['否','是'],
+				// 加解密方式
+				'arr_encrypt': ['','明文模式','兼容模式','安全模式'],
+				// 持有者
+				'list_account': [],
 			}
 		},
 		methods: {
-
+				/**
+				 * 获取持有者
+				 * @param {query} 查询条件
+				 */
+				get_account(query){
+					var _this = this;
+					if(!query){
+						query = {
+							field: "user_id,nickname"
+						};
+					}
+					this.$get('~/apis/user/account?size=0', query, function(json) {
+						if (json.result) {
+							_this.list_account.clear();
+							_this.list_account.addList(json.result.list)
+						}
+					});
+				},
+		},
+		created() {
+			// 获取持有者
+			this.get_account();
 		}
 	}
 </script>
 
 <style>
-	/* 页面 */
-	#sys_app_form {}
-
-	/* 表单 */
-	#sys_app_form .mm_form {}
-
-	/* 筛选栏栏 */
-	#sys_app_form .mm_filter {}
-
-	/* 操作栏 */
-	#sys_app_form .mm_action {}
-
-	/* 模态窗 */
-	#sys_app_form .mm_modal {}
-
-	/* 表格 */
-	#sys_app_form .mm_table {}
-
-	/* 数据统计 */
-	#sys_app_form .mm_data_count {}
 </style>

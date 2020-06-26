@@ -1,6 +1,6 @@
 {
 	"name": "wechat",
-	"title": "微信应用",
+	"title": "微信",
 	"description": "微信调用的应用",
 	"version": "1.0",
 	"identifier": "wechat",

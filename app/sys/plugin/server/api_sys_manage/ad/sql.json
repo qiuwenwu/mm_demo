@@ -43,5 +43,25 @@
         "fee_add": "`fee` = `fee` + {0}",
         "fee_max_add": "`fee_max` = `fee_max` + {0}"
     },
-    "field_hide": []
+    "field_hide": [],
+    "format": [
+        {
+            "key": "city_id",
+            "title": "投放城市",
+            "table": "sys_address_city",
+            "name": "name"
+        },
+        {
+            "key": "area_id",
+            "title": "投放地区",
+            "table": "sys_address_area",
+            "name": "name"
+        },
+        {
+            "key": "user_id",
+            "title": "广告主",
+            "table": "user_account",
+            "name": "nickname"
+        }
+    ]
 }

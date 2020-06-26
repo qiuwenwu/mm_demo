@@ -7,29 +7,17 @@
 						<h5>{{ form[field] ? '修改' : '创建' }}城市</h5>
 					</header>
 					<dl>
-						<dt>头像</dt>
+						<dt>显示位置</dt>
 						<dd>
-							<mm_upload_img width="10rem" height="10rem" name="avatar" type="text" v-model="form.avatar"></mm_upload_img>
+							<mm_select v-model="form.show" :options="$to_kv(arr_show)" />
 						</dd>
-						<dt>昵称</dt>
+						<dt>所属省份</dt>
 						<dd>
-							<mm_input type="text" v-model="form.nickname" desc="由2-16个字符组成"></mm_input>
+							<mm_select v-model="form.province_id" :options="$to_kv(list_address_province, 'province_id', 'name')" />
 						</dd>
-						<dt>会员级别</dt>
+						<dt class="required">城市名称</dt>
 						<dd>
-							<mm_select v-model="form.vip" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
-						</dd>
-						<dt>管理级别</dt>
-						<dd>
-							<mm_select v-model="form.gm" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
-						</dd>
-						<dt>商户级别</dt>
-						<dd>
-							<mm_select v-model="form.mc" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
-						</dd>
-						<dt>个性签名</dt>
-						<dd>
-							<textarea v-model="form.signature" placeholder="由2-16个字符组成"></textarea>
+							<mm_input v-model="form.name" :minlength="0" :maxlength="0" placeholder="" :required="true"/>
 						</dd>
 					</dl>
 					<footer>
@@ -54,39 +42,49 @@
 		data() {
 			return {
 				url_submit: "/apis/sys/address_city?",
-				url_get_obj: "/apis/sys/address_city",
-				field: "uid",
+				url_get_obj: "/apis/sys/address_city?method=get_obj",
+				field: "city_id",
 				query: {
-					"uid": 0
+					"city_id": 0
 				},
-				form: {}
+				form: {
+						"city_id": 0,
+						"show": 0,
+						"province_id": 0,
+						"name": '',
+				},
+				// 显示位置
+				'arr_show': ['仅表单可见','表单和搜索可见','均可见'],
+				// 所属省份
+				'list_address_province': [],
 			}
 		},
 		methods: {
-
+				/**
+				 * 获取所属省份
+				 * @param {query} 查询条件
+				 */
+				get_address_province(query){
+					var _this = this;
+					if(!query){
+						query = {
+							field: "province_id,name"
+						};
+					}
+					this.$get('~/apis/sys/address_province?size=0', query, function(json) {
+						if (json.result) {
+							_this.list_address_province.clear();
+							_this.list_address_province.addList(json.result.list)
+						}
+					});
+				},
+		},
+		created() {
+			// 获取所属省份
+			this.get_address_province();
 		}
 	}
 </script>
 
 <style>
-	/* 页面 */
-	#sys_address_city_form {}
-
-	/* 表单 */
-	#sys_address_city_form .mm_form {}
-
-	/* 筛选栏栏 */
-	#sys_address_city_form .mm_filter {}
-
-	/* 操作栏 */
-	#sys_address_city_form .mm_action {}
-
-	/* 模态窗 */
-	#sys_address_city_form .mm_modal {}
-
-	/* 表格 */
-	#sys_address_city_form .mm_table {}
-
-	/* 数据统计 */
-	#sys_address_city_form .mm_data_count {}
 </style>

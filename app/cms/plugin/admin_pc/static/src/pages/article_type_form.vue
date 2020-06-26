@@ -7,29 +7,21 @@
 						<h5>{{ form[field] ? '修改' : '创建' }}文章分类</h5>
 					</header>
 					<dl>
-						<dt>头像</dt>
+						<dt>上级分类</dt>
 						<dd>
-							<mm_upload_img width="10rem" height="10rem" name="avatar" type="text" v-model="form.avatar"></mm_upload_img>
+							<mm_select v-model="form.father_id" :options="$to_kv(list_article_type, 'type_id', 'name')" />
 						</dd>
-						<dt>昵称</dt>
+						<dt>分类名称</dt>
 						<dd>
-							<mm_input type="text" v-model="form.nickname" desc="由2-16个字符组成"></mm_input>
+							<mm_input v-model="form.name" :minlength="0" :maxlength="0" placeholder="" />
 						</dd>
-						<dt>会员级别</dt>
+						<dt>分类描述</dt>
 						<dd>
-							<mm_select v-model="form.vip" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
+							<mm_input v-model="form.description" :minlength="0" :maxlength="0" placeholder="" />
 						</dd>
-						<dt>管理级别</dt>
+						<dt>分类图标</dt>
 						<dd>
-							<mm_select v-model="form.gm" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
-						</dd>
-						<dt>商户级别</dt>
-						<dd>
-							<mm_select v-model="form.mc" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
-						</dd>
-						<dt>个性签名</dt>
-						<dd>
-							<textarea v-model="form.signature" placeholder="由2-16个字符组成"></textarea>
+							<mm_upload_img width="10rem" height="10rem" name="icon" type="text" v-model="form.icon" />
 						</dd>
 					</dl>
 					<footer>
@@ -54,39 +46,48 @@
 		data() {
 			return {
 				url_submit: "/apis/cms/article_type?",
-				url_get_obj: "/apis/cms/article_type",
+				url_get_obj: "/apis/cms/article_type?method=get_obj",
 				field: "type_id",
 				query: {
 					"type_id": 0
 				},
-				form: {}
+				form: {
+						"type_id": 0,
+						"father_id": 0,
+						"name": '',
+						"description": '',
+						"icon": '',
+				},
+				// 上级分类
+				'list_article_type': [],
 			}
 		},
 		methods: {
-
+				/**
+				 * 获取上级分类
+				 * @param {query} 查询条件
+				 */
+				get_article_type(query){
+					var _this = this;
+					if(!query){
+						query = {
+							field: "type_id,name"
+						};
+					}
+					this.$get('~/apis/cms/article_type?size=0', query, function(json) {
+						if (json.result) {
+							_this.list_article_type.clear();
+							_this.list_article_type.addList(json.result.list)
+						}
+					});
+				},
+		},
+		created() {
+			// 获取上级分类
+			this.get_article_type();
 		}
 	}
 </script>
 
 <style>
-	/* 页面 */
-	#cms_article_type_form {}
-
-	/* 表单 */
-	#cms_article_type_form .mm_form {}
-
-	/* 筛选栏栏 */
-	#cms_article_type_form .mm_filter {}
-
-	/* 操作栏 */
-	#cms_article_type_form .mm_action {}
-
-	/* 模态窗 */
-	#cms_article_type_form .mm_modal {}
-
-	/* 表格 */
-	#cms_article_type_form .mm_table {}
-
-	/* 数据统计 */
-	#cms_article_type_form .mm_data_count {}
 </style>

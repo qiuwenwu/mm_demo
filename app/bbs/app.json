@@ -1,0 +1,11 @@
+{
+	"name": "bbs",
+	"title": "社区",
+	"description": "聊天、交友等信息",
+	"version": "1.0",
+	"identifier": "bbs",
+	"lang_path": "./lang/",
+	"icon": "/img/logo.png",
+	"cmd": "bbs",
+	"sort": 10
+}

@@ -8,19 +8,65 @@
 					</header>
 					<dl>
 						<dt>等级</dt>
-						<dd><mm_number v-model="form.level" :min="0" :max="1000" ></mm_number></dd>
+						<dd>
+							<mm_number v-model="form.level" :min="0" :max="1000" />
+						</dd>
 						<dt>IQ智商</dt>
-						<dd><mm_number v-model="form.iq" :min="80" :max="200" ></mm_number></dd>
+						<dd>
+							<mm_number v-model="form.iq" :min="80" :max="200" />
+						</dd>
 						<dt>信用度</dt>
-						<dd><mm_number v-model="form.credit" :min="0" :max="2147483647" ></mm_number></dd>
+						<dd>
+							<mm_number v-model="form.credit" :min="0" :max="2147483647" />
+						</dd>
 						<dt>积分</dt>
-						<dd><mm_number v-model="form.credit_points" :min="0" :max="2147483647" ></mm_number></dd>
+						<dd>
+							<mm_number v-model="form.credit_points" :min="0" :max="2147483647" />
+						</dd>
 						<dt>经验值</dt>
-						<dd><mm_number v-model="form.exp" :min="0" :max="2147483647" ></mm_number></dd>
+						<dd>
+							<mm_number v-model="form.exp" :min="0" :max="2147483647" />
+						</dd>
+						<dt>拓展积分1</dt>
+						<dd>
+							<mm_number v-model="form.extcredits1" :min="0" :max="2147483647" />
+						</dd>
+						<dt>拓展积分2</dt>
+						<dd>
+							<mm_number v-model="form.extcredits2" :min="0" :max="2147483647" />
+						</dd>
+						<dt>拓展积分3</dt>
+						<dd>
+							<mm_number v-model="form.extcredits3" :min="0" :max="2147483647" />
+						</dd>
+						<dt>拓展积分4</dt>
+						<dd>
+							<mm_number v-model="form.extcredits4" :min="0" :max="2147483647" />
+						</dd>
+						<dt>拓展积分5</dt>
+						<dd>
+							<mm_number v-model="form.extcredits5" :min="0" :max="2147483647" />
+						</dd>
+						<dt>拓展积分6</dt>
+						<dd>
+							<mm_number v-model="form.extcredits6" :min="0" :max="2147483647" />
+						</dd>
+						<dt>拓展积分7</dt>
+						<dd>
+							<mm_number v-model="form.extcredits7" :min="0" :max="2147483647" />
+						</dd>
+						<dt>拓展积分8</dt>
+						<dd>
+							<mm_number v-model="form.extcredits8" :min="0" :max="2147483647" />
+						</dd>
 						<dt>钱</dt>
-						<dd><mm_number v-model="form.money" ></mm_number></dd>
+						<dd>
+							<mm_number v-model="form.money" :min="0" :max="0" />
+						</dd>
 						<dt>货币</dt>
-						<dd><mm_number v-model="form.coin" ></mm_number></dd>
+						<dd>
+							<mm_number v-model="form.coin" :min="0" :max="0" />
+						</dd>
 					</dl>
 					<footer>
 						<div class="mm_group">
@@ -34,85 +80,47 @@
 	</main>
 </template>
 
-<script>
-import mixin from '/src/mixins/page.js';
 
-export default {
-	mixins: [mixin],
-	components: {},
-	data() {
-		return {
-			url_submit: '/apis/user/count?',
-			url_get_obj: '/apis/user/count',
-			field: 'user_id',
-			query: {
-				user_id: 0
-			},
-			form: {
-				user_id: 0,
-				// 等级
-				level: 0,
-				// IQ智商
-				iq: 0,
-				// 信用度
-				credit: 0,
-				// 积分
-				credit_points: 0,
-				// 经验值
-				exp: 0,
-				// 拓展积分1
-				extcredits1: 0,
-				// 拓展积分2
-				extcredits2: 0,
-				// 拓展积分3
-				extcredits3: 0,
-				// 拓展积分4
-				extcredits4: 0,
-				// 拓展积分5
-				extcredits5: 0,
-				// 拓展积分6
-				extcredits6: 0,
-				// 拓展积分7
-				extcredits7: 0,
-				// 拓展积分8
-				extcredits8: 0,
-				// 钱
-				money: 0,
-				// 货币
-				coin: 0
+<script>
+	import mixin from '/src/mixins/page.js';
+
+	export default {
+		mixins: [mixin],
+		components: {},
+		data() {
+			return {
+				url_submit: "/apis/user/count?",
+				url_get_obj: "/apis/user/count?method=get_obj",
+				field: "user_id",
+				query: {
+					"user_id": 0
+				},
+				form: {
+						"user_id": 0,
+						"level": 0,
+						"iq": 0,
+						"credit": 0,
+						"credit_points": 0,
+						"exp": 0,
+						"extcredits1": 0,
+						"extcredits2": 0,
+						"extcredits3": 0,
+						"extcredits4": 0,
+						"extcredits5": 0,
+						"extcredits6": 0,
+						"extcredits7": 0,
+						"extcredits8": 0,
+						"money": 0,
+						"coin": 0,
+				},
 			}
-		};
-	},
-	methods: {}
-};
+		},
+		methods: {
+		},
+		created() {
+		}
+	}
 </script>
 
 <style>
-/* 页面 */
-#user_count_form {
-}
-
-/* 表单 */
-#user_count_form .mm_form {
-}
-
-/* 筛选栏栏 */
-#user_count_form .mm_filter {
-}
-
-/* 操作栏 */
-#user_count_form .mm_action {
-}
-
-/* 模态窗 */
-#user_count_form .mm_modal {
-}
-
-/* 表格 */
-#user_count_form .mm_table {
-}
-
-/* 数据统计 */
-#user_count_form .mm_data_count {
-}
 </style>

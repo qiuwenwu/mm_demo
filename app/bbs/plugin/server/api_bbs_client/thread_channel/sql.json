@@ -4,9 +4,9 @@
     "table": "bbs_thread_channel",
     "key": "channel_id",
     "orderby_default": "`display` asc",
-    "field_obj": "`channel_id`,`available`,`hide`,`can_comment`,`father_id`,`city_id`,`type`,`name`,`template`,`description`,`icon`,`url`",
-    "field_default": "`channel_id`,`available`,`hide`,`can_comment`,`display`,`father_id`,`city_id`,`type`,`name`,`template`,`description`,`icon`,`url`",
-    "method": "get",
+    "field_obj": "`channel_id`,`available`,`hide`,`can_comment`,`father_id`,`city_id`,`name`,`template`,`description`,`icon`,`url`",
+    "field_default": "`channel_id`,`available`,`hide`,`can_comment`,`display`,`father_id`,`city_id`,`name`,`template`,`description`,`url`",
+    "method": "get get_obj",
     "query": {
         "display_min": "`display` >= {0}",
         "display_max": "`display` <= {0}",
@@ -21,5 +21,44 @@
     "query_default": {},
     "update": {
         "display_add": "`display` = `display` + {0}"
-    }
+    },
+    "format": [
+        {
+            "key": "available",
+            "title": "是否启用",
+            "list": [
+                "否",
+                "是"
+            ]
+        },
+        {
+            "key": "hide",
+            "title": "是否隐藏",
+            "list": [
+                "否",
+                "是"
+            ]
+        },
+        {
+            "key": "can_comment",
+            "title": "是否可评论",
+            "list": [
+                "否",
+                "是"
+            ]
+        },
+        {
+            "key": "father_id",
+            "title": "上级",
+            "table": "bbs_thread_channel",
+            "name": "name",
+            "id": "channel_id"
+        },
+        {
+            "key": "city_id",
+            "title": "所属城市",
+            "table": "sys_address_city",
+            "name": "name"
+        }
+    ]
 }

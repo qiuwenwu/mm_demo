@@ -7,26 +7,42 @@
 						<h5>{{ form[field] ? '修改' : '创建' }}用户组</h5>
 					</header>
 					<dl>
-						<dt>图标</dt>
-						<dd><mm_upload_img width="10rem" height="10rem" name="icon" type="text" v-model="form.icon"></mm_upload_img></dd>
-						<dt>用户名称</dt>
-						<dd><mm_input type="text" v-model="form.name"></mm_input></dd>
-						<dt>显示顺序</dt>
-						<dd><mm_number v-model="form.display"></mm_number></dd>
 						<dt>等级划分</dt>
-						<dd><mm_number v-model="form.level"></mm_number></dd>
+						<dd>
+							<mm_number v-model="form.level" :min="0" :max="1000" />
+						</dd>
 						<dt>下级用户组</dt>
-						<dd><mm_select v-model="form.next_group_id" :options="next_group"></mm_select></dd>
+						<dd>
+							<mm_select v-model="form.next_group_id" :options="$to_kv(list_group, 'group_id', 'name')" />
+						</dd>
 						<dt>升级所需经验</dt>
-						<dd><mm_number v-model="form.exp"></mm_number></dd>
+						<dd>
+							<mm_number v-model="form.exp" :min="0" :max="2147483647" />
+						</dd>
 						<dt>折扣</dt>
-						<dd><mm_number v-model="form.discount"></mm_number></dd>
+						<dd>
+							<mm_number v-model="form.discount" :min="0" :max="0" />
+						</dd>
 						<dt>奖励比例</dt>
-						<dd><mm_number type="text" v-model="form.bonus"></mm_number></dd>
+						<dd>
+							<mm_number v-model="form.bonus" :min="0" :max="0" />
+						</dd>
 						<dt>应用</dt>
-						<dd><mm_input type="text" v-model="form.app"></mm_input></dd>
+						<dd>
+							<mm_input v-model="form.app" :minlength="0" :maxlength="0" placeholder="用于区分用户组使用范围，cms内容管理系统 / bbs社区 / mall商城" />
+						</dd>
+						<dt class="required">名称</dt>
+						<dd>
+							<mm_input v-model="form.name" :minlength="0" :maxlength="0" placeholder="" :required="true"/>
+						</dd>
 						<dt>描述</dt>
-						<dd><textarea v-model="form.description"></textarea></dd>
+						<dd>
+							<mm_input v-model="form.description" :minlength="0" :maxlength="0" placeholder="描述该用户组的特点或权限范围" />
+						</dd>
+						<dt>图标</dt>
+						<dd>
+							<mm_upload_img width="10rem" height="10rem" name="icon" type="text" v-model="form.icon" />
+						</dd>
 					</dl>
 					<footer>
 						<div class="mm_group">
@@ -40,85 +56,63 @@
 	</main>
 </template>
 
-<script>
-import mixin from '/src/mixins/page.js';
 
-export default {
-	mixins: [mixin],
-	components: {},
-	data() {
-		return {
-			url_submit: '/apis/user/group?',
-			url_get_obj: '/apis/user/group',
-			field: 'group_id',
-			query: {
-				group_id: 0
-			},
-			form: {
-				group_id: 0,
-				// 用户名称
-				name: '',
-				// 显示顺序
-				display: 0,
-				// 等级划分
-				level: 0,
-				// 下级用户组ID
-				next_group_id: 0,
-				// 升级所需经验
-				exp: 0,
-				// 折扣
-				discount: 0,
-				// 奖励比例
-				bonus: 0,
-				// 应用
-				app: '',
-				// 描述
-				description: '',
-				// 图标
-				icon: ''
-			},
-			next_group: [
-				{
-					name: "样本",
-					value: 0
+<script>
+	import mixin from '/src/mixins/page.js';
+
+	export default {
+		mixins: [mixin],
+		components: {},
+		data() {
+			return {
+				url_submit: "/apis/user/group?",
+				url_get_obj: "/apis/user/group?method=get_obj",
+				field: "group_id",
+				query: {
+					"group_id": 0
 				},
-				{
-					name: "样本2",
-					value: 1
-				}
-			]
-		};
-	},
-	methods: {}
-};
+				form: {
+						"group_id": 0,
+						"level": 0,
+						"next_group_id": 0,
+						"exp": 0,
+						"discount": 0,
+						"bonus": 0,
+						"app": '',
+						"name": '',
+						"description": '',
+						"icon": '',
+				},
+				// 下级用户组
+				'list_group': [],
+			}
+		},
+		methods: {
+				/**
+				 * 获取下级用户组
+				 * @param {query} 查询条件
+				 */
+				get_group(query){
+					var _this = this;
+					if(!query){
+						query = {
+							field: "group_id,name"
+						};
+					}
+					this.$get('~/apis/user/group?size=0', query, function(json) {
+						if (json.result) {
+							_this.list_group.clear();
+							_this.list_group.addList(json.result.list)
+						}
+					});
+				},
+		},
+		created() {
+			// 获取下级用户组
+			this.get_group();
+		}
+	}
 </script>
 
 <style>
-/* 页面 */
-#user_group_form {
-}
-
-/* 表单 */
-#user_group_form .mm_form {
-}
-
-/* 筛选栏栏 */
-#user_group_form .mm_filter {
-}
-
-/* 操作栏 */
-#user_group_form .mm_action {
-}
-
-/* 模态窗 */
-#user_group_form .mm_modal {
-}
-
-/* 表格 */
-#user_group_form .mm_table {
-}
-
-/* 数据统计 */
-#user_group_form .mm_data_count {
-}
 </style>

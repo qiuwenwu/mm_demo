@@ -104,7 +104,7 @@
         {
             "name": "end",
             "title": "结束会话",
-            "description": "1已结束,0为未结束会话,如果未结束则查询当前正文",
+            "description": "1已结束,0为未结束会话,如果未结束则查询当前正文(0未结束|1已结束)",
             "type": "number",
             "dataType": "tinyint",
             "number": {

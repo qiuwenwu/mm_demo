@@ -6,7 +6,7 @@
     "orderby_default": "`display` asc",
     "field_obj": "`ad_id`,`city_id`,`area_id`,`user_id`,`times_user`,`times_max`,`times_show`,`times_click`,`fee`,`fee_max`,`name`,`type`,`location`,`fee_way`,`app`,`trade`,`title`,`description`,`img`,`url`,`keywords`",
     "field_default": "`ad_id`,`display`,`city_id`,`area_id`,`user_id`,`times_user`,`times_max`,`times_show`,`times_click`,`fee`,`fee_max`,`name`,`type`,`location`,`fee_way`,`app`,`trade`,`title`,`description`,`img`,`url`,`keywords`",
-    "method": "get",
+    "method": "get get_obj",
     "query": {
         "display_min": "`display` >= {0}",
         "display_max": "`display` <= {0}",
@@ -56,5 +56,25 @@
         "field": "field",
         "count_ret": "count_ret",
         "user_id": "user_id"
-    }
+    },
+    "format": [
+        {
+            "key": "city_id",
+            "title": "投放城市",
+            "table": "sys_address_city",
+            "name": "name"
+        },
+        {
+            "key": "area_id",
+            "title": "投放地区",
+            "table": "sys_address_area",
+            "name": "name"
+        },
+        {
+            "key": "user_id",
+            "title": "广告主",
+            "table": "user_account",
+            "name": "nickname"
+        }
+    ]
 }

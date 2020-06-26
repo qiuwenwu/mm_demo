@@ -5,7 +5,7 @@
     "key": "app_id",
     "orderby_default": "`app_id` desc",
     "field_obj": "`app_id`,`available`,`encrypt`,`times_allow`,`times_today`,`max_age`,`user_id`,`times_count`,`name`,`appid`,`token`,`encoding_aes_key`,`appsecret`,`icon`,`url`,`bind_ip`,`scope`,`scope_not`,`users`",
-    "field_default": "`app_id`,`available`,`encrypt`,`times_allow`,`times_today`,`max_age`,`user_id`,`times_count`,`time_update`,`name`,`appid`,`token`,`encoding_aes_key`,`appsecret`,`icon`,`url`,`bind_ip`,`scope`,`scope_not`,`users`",
+    "field_default": "`app_id`,`available`,`encrypt`,`times_allow`,`times_today`,`max_age`,`user_id`,`times_count`,`time_update`,`name`,`appid`,`token`,`encoding_aes_key`,`appsecret`,`url`",
     "query": {
         "encrypt_min": "`encrypt` >= {0}",
         "encrypt_max": "`encrypt` <= {0}",
@@ -39,5 +39,31 @@
         "max_age_add": "`max_age` = `max_age` + {0}",
         "times_count_add": "`times_count` = `times_count` + {0}"
     },
-    "field_hide": []
+    "field_hide": [],
+    "format": [
+        {
+            "key": "available",
+            "title": "是否可用",
+            "list": [
+                "否",
+                "是"
+            ]
+        },
+        {
+            "key": "encrypt",
+            "title": "加解密方式",
+            "list": [
+                "",
+                "明文模式",
+                "兼容模式",
+                "安全模式"
+            ]
+        },
+        {
+            "key": "user_id",
+            "title": "持有者",
+            "table": "user_account",
+            "name": "nickname"
+        }
+    ]
 }

@@ -63,7 +63,7 @@
         {
             "name": "task_id",
             "title": "查询任务ID",
-            "description": "用于批测判断",
+            "description": "用于批测判断(query_article.title)",
             "type": "number",
             "dataType": "smallint",
             "number": {

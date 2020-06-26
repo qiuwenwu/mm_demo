@@ -96,7 +96,7 @@
         {
             "name": "state",
             "title": "提现状态",
-            "description": "1申请中，2转帐中，3已完成，4已拒绝",
+            "description": "(1申请中|2转帐中|3已完成|4已拒绝)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -106,7 +106,7 @@
         {
             "name": "state_min",
             "title": "提现状态——最小值",
-            "description": "1申请中，2转帐中，3已完成，4已拒绝",
+            "description": "(1申请中|2转帐中|3已完成|4已拒绝)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -116,7 +116,7 @@
         {
             "name": "state_max",
             "title": "提现状态——最大值",
-            "description": "1申请中，2转帐中，3已完成，4已拒绝",
+            "description": "(1申请中|2转帐中|3已完成|4已拒绝)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -126,7 +126,7 @@
         {
             "name": "to_user_id",
             "title": "收款人",
-            "description": "如果是商户收款，可选填",
+            "description": "如果是商户收款，可选填(user_account.nickname.user_id)",
             "type": "number",
             "dataType": "mediumint",
             "number": {
@@ -139,7 +139,7 @@
         {
             "name": "seller_id",
             "title": "商户ID",
-            "description": "商户收款的ID",
+            "description": "商户收款的ID(pay_seller)",
             "type": "number",
             "dataType": "mediumint",
             "number": {
@@ -152,7 +152,7 @@
         {
             "name": "user_id",
             "title": "审批人",
-            "description": "转账申请处理负责人，即由谁放款的",
+            "description": "转账申请处理负责人，即由谁放款的(user_account.nickname)",
             "type": "number",
             "dataType": "mediumint",
             "number": {

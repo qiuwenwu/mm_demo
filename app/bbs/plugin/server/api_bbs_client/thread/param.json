@@ -15,9 +15,9 @@
             "collect_id",
             "keywords",
             "description",
-            "img",
             "url",
             "tag",
+            "img",
             "content",
             "collecter"
         ],
@@ -69,9 +69,9 @@
             "title",
             "keywords",
             "description",
-            "img",
             "url",
             "tag",
+            "img",
             "content",
             "collecter"
         ],
@@ -120,7 +120,7 @@
         {
             "name": "available",
             "title": "是否启用",
-            "description": "启用后前台才会显示该主题",
+            "description": "启用后前台才会显示该主题(0否|1是)",
             "type": "number",
             "dataType": "tinyint",
             "number": {
@@ -130,7 +130,7 @@
         {
             "name": "state",
             "title": "状态",
-            "description": "1正常，2推荐，3认证，4官方，5违规",
+            "description": "(1正常|2推荐|3认证|4违规|5官方)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -143,7 +143,7 @@
         {
             "name": "state_min",
             "title": "状态——最小值",
-            "description": "1正常，2推荐，3认证，4官方，5违规",
+            "description": "(1正常|2推荐|3认证|4违规|5官方)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -156,7 +156,7 @@
         {
             "name": "state_max",
             "title": "状态——最大值",
-            "description": "1正常，2推荐，3认证，4官方，5违规",
+            "description": "(1正常|2推荐|3认证|4违规|5官方)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -169,7 +169,7 @@
         {
             "name": "type_id",
             "title": "主题分类ID",
-            "description": "用来搜索指定类型的主题",
+            "description": "用来搜索指定类型的主题(bbs_thread_type)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -182,7 +182,7 @@
         {
             "name": "channel_id",
             "title": "频道ID",
-            "description": "该主题所属频道，仅该频道列表可以看到该主题",
+            "description": "该主题所属频道，仅该频道列表可以看到该主题(bbs_thread_channel)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -225,7 +225,7 @@
         {
             "name": "city_id",
             "title": "所属城市ID",
-            "description": "对于一些地方主题，可以通过该ID筛看",
+            "description": "对于一些地方主题，可以通过该ID筛看(sys_address_city)",
             "type": "number",
             "dataType": "mediumint",
             "number": {
@@ -238,7 +238,7 @@
         {
             "name": "user_id",
             "title": "用户ID",
-            "description": "编辑这篇主题到本站的用户ID",
+            "description": "编辑这篇主题到本站的用户ID(user_account.nickname)",
             "type": "number",
             "dataType": "mediumint",
             "number": {
@@ -414,14 +414,6 @@
             "string": {}
         },
         {
-            "name": "img",
-            "title": "封面图",
-            "description": "用于显示于主题列表页，多个封面图用换行分隔",
-            "type": "string",
-            "dataType": "varchar",
-            "string": {}
-        },
-        {
             "name": "url",
             "title": "来源地址",
             "description": "用于跳转到发布该主题的网站",
@@ -437,6 +429,14 @@
             "description": "用于标注主题所属相关内容，多个标签用空格隔开",
             "type": "string",
             "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "img",
+            "title": "封面图",
+            "description": "用于显示于主题列表页，多个封面图用换行分隔",
+            "type": "string",
+            "dataType": "text",
             "string": {}
         },
         {

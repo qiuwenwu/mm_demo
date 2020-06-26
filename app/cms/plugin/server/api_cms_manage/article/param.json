@@ -16,10 +16,10 @@
             "author",
             "keywords",
             "description",
-            "img",
             "source",
             "url",
             "tag",
+            "img",
             "content",
             "collecter"
         ],
@@ -72,10 +72,10 @@
             "title",
             "keywords",
             "description",
-            "img",
             "source",
             "url",
             "tag",
+            "img",
             "content",
             "collecter"
         ],
@@ -124,7 +124,7 @@
         {
             "name": "available",
             "title": "是否启用",
-            "description": "启用后前台才会显示该文章",
+            "description": "启用后前台才会显示该文章(0否|1是)",
             "type": "number",
             "dataType": "tinyint",
             "number": {
@@ -134,7 +134,7 @@
         {
             "name": "state",
             "title": "状态",
-            "description": "1正常，2推荐，3认证，4官方，5违规",
+            "description": "(1正常|2推荐|3认证|4违规|5官方)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -147,7 +147,7 @@
         {
             "name": "state_min",
             "title": "状态——最小值",
-            "description": "1正常，2推荐，3认证，4官方，5违规",
+            "description": "(1正常|2推荐|3认证|4违规|5官方)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -160,7 +160,7 @@
         {
             "name": "state_max",
             "title": "状态——最大值",
-            "description": "1正常，2推荐，3认证，4官方，5违规",
+            "description": "(1正常|2推荐|3认证|4违规|5官方)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -173,7 +173,7 @@
         {
             "name": "type_id",
             "title": "文章分类ID",
-            "description": "用来搜索指定类型的文章",
+            "description": "用来搜索指定类型的文章(cms_article_type)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -216,7 +216,7 @@
         {
             "name": "channel_id",
             "title": "频道ID",
-            "description": "该文章所属频道，仅该频道列表可以看到该文章",
+            "description": "该文章所属频道，仅该频道列表可以看到该文章(cms_article_channel)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -229,7 +229,7 @@
         {
             "name": "user_id",
             "title": "用户ID",
-            "description": "编辑这篇文章到本站的用户ID",
+            "description": "编辑这篇文章到本站的用户ID(user_account.nickname)",
             "type": "number",
             "dataType": "mediumint",
             "number": {
@@ -242,7 +242,7 @@
         {
             "name": "city_id",
             "title": "所属城市ID",
-            "description": "对于一些地方文章，可以通过该ID筛看",
+            "description": "对于一些地方文章，可以通过该ID筛看(sys_address_city)",
             "type": "number",
             "dataType": "mediumint",
             "number": {
@@ -426,14 +426,6 @@
             "string": {}
         },
         {
-            "name": "img",
-            "title": "封面图",
-            "description": "用于显示于文章列表页，多个封面图用换行分隔",
-            "type": "string",
-            "dataType": "varchar",
-            "string": {}
-        },
-        {
             "name": "source",
             "title": "来源",
             "description": "文章的出处",
@@ -459,6 +451,14 @@
             "description": "用于标注文章所属相关内容，多个标签用空格隔开",
             "type": "string",
             "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "img",
+            "title": "封面图",
+            "description": "用于显示于文章列表页，多个封面图用换行分隔",
+            "type": "string",
+            "dataType": "text",
             "string": {}
         },
         {

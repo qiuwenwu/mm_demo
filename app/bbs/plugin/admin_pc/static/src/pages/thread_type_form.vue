@@ -7,29 +7,21 @@
 						<h5>{{ form[field] ? '修改' : '创建' }}主题分类</h5>
 					</header>
 					<dl>
-						<dt>头像</dt>
+						<dt>上级分类</dt>
 						<dd>
-							<mm_upload_img width="10rem" height="10rem" name="avatar" type="text" v-model="form.avatar"></mm_upload_img>
+							<mm_select v-model="form.father_id" :options="$to_kv(list_thread_type, 'type_id', 'name')" />
 						</dd>
-						<dt>昵称</dt>
+						<dt>分类名称</dt>
 						<dd>
-							<mm_input type="text" v-model="form.nickname" desc="由2-16个字符组成"></mm_input>
+							<mm_input v-model="form.name" :minlength="0" :maxlength="0" placeholder="" />
 						</dd>
-						<dt>会员级别</dt>
+						<dt>分类图标</dt>
 						<dd>
-							<mm_select v-model="form.vip" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
+							<mm_upload_img width="10rem" height="10rem" name="icon" type="text" v-model="form.icon" />
 						</dd>
-						<dt>管理级别</dt>
+						<dt>分类描述</dt>
 						<dd>
-							<mm_select v-model="form.gm" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
-						</dd>
-						<dt>商户级别</dt>
-						<dd>
-							<mm_select v-model="form.mc" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
-						</dd>
-						<dt>个性签名</dt>
-						<dd>
-							<textarea v-model="form.signature" placeholder="由2-16个字符组成"></textarea>
+							<mm_input v-model="form.description" :minlength="0" :maxlength="0" placeholder="" />
 						</dd>
 					</dl>
 					<footer>
@@ -54,39 +46,48 @@
 		data() {
 			return {
 				url_submit: "/apis/bbs/thread_type?",
-				url_get_obj: "/apis/bbs/thread_type",
+				url_get_obj: "/apis/bbs/thread_type?method=get_obj",
 				field: "type_id",
 				query: {
 					"type_id": 0
 				},
-				form: {}
+				form: {
+						"type_id": 0,
+						"father_id": 0,
+						"name": '',
+						"icon": '',
+						"description": '',
+				},
+				// 上级分类
+				'list_thread_type': [],
 			}
 		},
 		methods: {
-
+				/**
+				 * 获取上级分类
+				 * @param {query} 查询条件
+				 */
+				get_thread_type(query){
+					var _this = this;
+					if(!query){
+						query = {
+							field: "type_id,name"
+						};
+					}
+					this.$get('~/apis/bbs/thread_type?size=0', query, function(json) {
+						if (json.result) {
+							_this.list_thread_type.clear();
+							_this.list_thread_type.addList(json.result.list)
+						}
+					});
+				},
+		},
+		created() {
+			// 获取上级分类
+			this.get_thread_type();
 		}
 	}
 </script>
 
 <style>
-	/* 页面 */
-	#bbs_thread_type_form {}
-
-	/* 表单 */
-	#bbs_thread_type_form .mm_form {}
-
-	/* 筛选栏栏 */
-	#bbs_thread_type_form .mm_filter {}
-
-	/* 操作栏 */
-	#bbs_thread_type_form .mm_action {}
-
-	/* 模态窗 */
-	#bbs_thread_type_form .mm_modal {}
-
-	/* 表格 */
-	#bbs_thread_type_form .mm_table {}
-
-	/* 数据统计 */
-	#bbs_thread_type_form .mm_data_count {}
 </style>

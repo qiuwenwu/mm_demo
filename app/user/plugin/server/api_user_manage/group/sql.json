@@ -5,7 +5,7 @@
     "key": "group_id",
     "orderby_default": "`group_id` desc",
     "field_obj": "`group_id`,`level`,`next_group_id`,`exp`,`discount`,`bonus`,`app`,`name`,`description`,`icon`",
-    "field_default": "`group_id`,`display`,`level`,`next_group_id`,`exp`,`discount`,`bonus`,`app`,`name`,`description`,`icon`",
+    "field_default": "`group_id`,`display`,`level`,`next_group_id`,`exp`,`discount`,`bonus`,`app`,`name`,`description`",
     "query": {
         "display_min": "`display` >= {0}",
         "display_max": "`display` <= {0}",
@@ -30,5 +30,14 @@
         "discount_add": "`discount` = `discount` + {0}",
         "bonus_add": "`bonus` = `bonus` + {0}"
     },
-    "field_hide": []
+    "field_hide": [],
+    "format": [
+        {
+            "key": "next_group_id",
+            "title": "下级用户组",
+            "table": "user_group",
+            "name": "name",
+            "id": "group_id"
+        }
+    ]
 }

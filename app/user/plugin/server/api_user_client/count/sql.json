@@ -6,7 +6,7 @@
     "orderby_default": "`user_id` desc",
     "field_obj": "`user_id`,`level`,`iq`,`credit`,`credit_points`,`exp`,`extcredits1`,`extcredits2`,`extcredits3`,`extcredits4`,`extcredits5`,`extcredits6`,`extcredits7`,`extcredits8`,`money`,`coin`",
     "field_default": "`user_id`,`level`,`iq`,`credit`,`credit_points`,`exp`,`extcredits1`,`extcredits2`,`extcredits3`,`extcredits4`,`extcredits5`,`extcredits6`,`extcredits7`,`extcredits8`,`money`,`coin`",
-    "method": "get",
+    "method": "get get_obj",
     "query": {
         "level_min": "`level` >= {0}",
         "level_max": "`level` <= {0}",
@@ -68,5 +68,6 @@
         "field": "field",
         "count_ret": "count_ret",
         "user_id": "user_id"
-    }
+    },
+    "format": []
 }

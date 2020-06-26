@@ -4,7 +4,7 @@
     "table": "wechat_app_refresh",
     "key": "refresh_id",
     "orderby_default": "`refresh_id` desc",
-    "field_obj": "`refresh_id`,`user_id`,`appid`,`refresh_token`,`create_time`,`update_time`",
+    "field_obj": "`refresh_id`,`user_id`,`appid`,`refresh_token`",
     "field_default": "`refresh_id`,`user_id`,`appid`,`refresh_token`,`create_time`,`update_time`",
     "query": {
         "appid": "`appid` like '%{0}%'",
@@ -15,5 +15,13 @@
         "update_time_max": "`update_time` <= '{0}'"
     },
     "update": {},
-    "field_hide": []
+    "field_hide": [],
+    "format": [
+        {
+            "key": "user_id",
+            "title": "用户",
+            "table": "user_account",
+            "name": "nickname"
+        }
+    ]
 }

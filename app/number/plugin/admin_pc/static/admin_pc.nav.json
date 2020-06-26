@@ -1,0 +1,56 @@
+{
+    "name": "admin_pc",
+    "sort": 1,
+    "routes": [
+        {
+            "name": "number",
+            "path": "/number",
+            "redirect": "/number/info"
+        },
+        {
+            "name": "number_info",
+            "path": "/number/info",
+            "component": "/number/admin_pc/src/pages/info.vue",
+            "level": 3,
+            "oauth": {
+                "signIn": true,
+                "gm": 2,
+                "user_admin": []
+            }
+        },
+        {
+            "name": "number_info_form",
+            "path": "/number/info_form",
+            "component": "/number/admin_pc/src/pages/info_form.vue",
+            "level": 4,
+            "oauth": {
+                "signIn": true,
+                "gm": 2,
+                "user_admin": []
+            }
+        }
+    ],
+    "top": [],
+    "left": [],
+    "bottom": [],
+    "right": [],
+    "desktop": [],
+    "quick": [],
+    "main": [
+        {
+            "title": "号码",
+            "name": "number",
+            "icon": "<i class=\"fa-phone\"></i>",
+            "url": "/number",
+            "display": 0,
+            "sub": [
+                {
+                    "title": "号码信息",
+                    "show": false,
+                    "name": "number_info",
+                    "url": "/number/info"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,161 @@
+{
+    "name": "url_share_log2",
+    "title": "链接分享日志",
+    "add": {
+        "body": [
+            "key",
+            "user_id",
+            "query",
+            "ip"
+        ],
+        "body_required": []
+    },
+    "del": {
+        "query": [],
+        "query_required": [
+            "log_id"
+        ]
+    },
+    "set": {
+        "query": [
+            "log_id"
+        ],
+        "query_required": [],
+        "body": [
+            "key",
+            "user_id",
+            "query",
+            "ip"
+        ],
+        "body_required": [],
+        "body_not": []
+    },
+    "get": {
+        "query": [
+            "log_id",
+            "time_create_min",
+            "time_create_max",
+            "time_update_min",
+            "time_update_max"
+        ],
+        "query_required": []
+    },
+    "list": [
+        {
+            "name": "log_id",
+            "title": "网址ID",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "range": [
+                    1,
+                    2147483647
+                ]
+            }
+        },
+        {
+            "name": "key",
+            "title": "网址键",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "time_create",
+            "title": "创建时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "time_create_min",
+            "title": "创建时间——开始时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "time_create_max",
+            "title": "创建时间——结束时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "time_update",
+            "title": "更新时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "time_update_min",
+            "title": "更新时间——开始时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "time_update_max",
+            "title": "更新时间——结束时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "user_id",
+            "title": "分享者ID",
+            "description": "一般为网红的账号(user_account.nickname)",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "range": [
+                    1,
+                    2147483647
+                ]
+            }
+        },
+        {
+            "name": "query",
+            "title": "查询参数",
+            "description": "用来校验推广者身份，平台等",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "ip",
+            "title": "访问源IP",
+            "description": "用来判断是否刷的流量",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        }
+    ]
+}

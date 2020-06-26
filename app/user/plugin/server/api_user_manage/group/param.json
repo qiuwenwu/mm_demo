@@ -157,7 +157,7 @@
         {
             "name": "next_group_id",
             "title": "下级用户组ID",
-            "description": "决定用户升级后所属用户组",
+            "description": "决定用户升级后所属用户组(user_group.name.group_id)",
             "type": "number",
             "dataType": "mediumint",
             "number": {
@@ -255,7 +255,7 @@
         },
         {
             "name": "name",
-            "title": "用户名称",
+            "title": "名称",
             "description": "",
             "type": "string",
             "dataType": "varchar",
@@ -284,7 +284,7 @@
         {
             "name": "keyword",
             "title": "关键词",
-            "description": "用于搜索用户名称(name)、描述(description)",
+            "description": "用于搜索名称(name)、描述(description)",
             "type": "string",
             "dataType": "varchar",
             "string": {}

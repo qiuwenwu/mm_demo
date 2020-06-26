@@ -75,7 +75,7 @@
         {
             "name": "institution_state",
             "title": "认证状态",
-            "description": "1为未认证，2为认证中，3为已认证，4为认证失败",
+            "description": "(1未认证|2认证中|3已认证|4认证失败)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -85,7 +85,7 @@
         {
             "name": "institution_state_min",
             "title": "认证状态——最小值",
-            "description": "1为未认证，2为认证中，3为已认证，4为认证失败",
+            "description": "(1未认证|2认证中|3已认证|4认证失败)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -95,7 +95,7 @@
         {
             "name": "institution_state_max",
             "title": "认证状态——最大值",
-            "description": "1为未认证，2为认证中，3为已认证，4为认证失败",
+            "description": "(1未认证|2认证中|3已认证|4认证失败)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -105,7 +105,7 @@
         {
             "name": "user_id",
             "title": "商户持有人",
-            "description": "",
+            "description": "(user_account.nickname)",
             "type": "number",
             "dataType": "mediumint",
             "number": {
@@ -118,7 +118,7 @@
         {
             "name": "province_id",
             "title": "省份ID",
-            "description": "用户所在地的省份",
+            "description": "用户所在地的省份(sys_address_province)",
             "type": "number",
             "dataType": "int",
             "number": {
@@ -131,7 +131,7 @@
         {
             "name": "city_id",
             "title": "所在城市ID",
-            "description": "",
+            "description": "(sys_address_city)",
             "type": "number",
             "dataType": "int",
             "number": {

@@ -7,7 +7,7 @@
 					<h2>超级美眉</h2>
 				</div>
 				<div class="mm_col_50">
-					<div class="bg_no" >
+					<div class="bg_no">
 						<h6>一个好玩的服务端</h6>
 						<p><a href="http://mm.elins.cn">http://mm.elins.cn</a></p>
 					</div>

@@ -28,5 +28,6 @@
         "eth_add": "`eth` = `eth` + {0}",
         "eos_add": "`eos` = `eos` + {0}"
     },
+    "format": [],
     "field_hide": []
 }

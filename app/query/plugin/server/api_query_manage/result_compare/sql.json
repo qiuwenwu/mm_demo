@@ -4,7 +4,7 @@
     "table": "query_result_compare",
     "key": "compare_id",
     "orderby_default": "`compare_id` desc",
-    "field_obj": "`compare_id`,`task_id`,`user_id`,`result_id_left`,`result_id_right`,`score`,`create_time`,`update_time`",
+    "field_obj": "`compare_id`,`task_id`,`user_id`,`result_id_left`,`result_id_right`,`score`",
     "field_default": "`compare_id`,`task_id`,`user_id`,`result_id_left`,`result_id_right`,`score`,`create_time`,`update_time`",
     "query": {
         "result_id_left_min": "`result_id_left` >= {0}",
@@ -23,5 +23,19 @@
         "result_id_right_add": "`result_id_right` = `result_id_right` + {0}",
         "score_add": "`score` = `score` + {0}"
     },
-    "field_hide": []
+    "field_hide": [],
+    "format": [
+        {
+            "key": "task_id",
+            "title": "任务",
+            "table": "query_article",
+            "name": "title"
+        },
+        {
+            "key": "user_id",
+            "title": "测评人",
+            "table": "user_account",
+            "name": "nickname"
+        }
+    ]
 }

@@ -6,7 +6,7 @@
     "orderby_default": "`contact_id` desc",
     "field_obj": "`contact_id`,`appid`,`account`,`nickname`,`avatar`",
     "field_default": "`contact_id`,`appid`,`account`,`nickname`,`avatar`",
-    "method": "get",
+    "method": "get get_obj",
     "query": {
         "appid": "`appid` like '%{0}%'",
         "account": "`account` like '%{0}%'",
@@ -15,5 +15,6 @@
         "keyword": "(`nickname` like '%{0}%')"
     },
     "query_default": {},
-    "update": {}
+    "update": {},
+    "format": []
 }

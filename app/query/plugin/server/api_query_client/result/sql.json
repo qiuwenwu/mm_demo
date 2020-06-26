@@ -5,8 +5,8 @@
     "key": "result_id",
     "orderby_default": "`result_id` desc",
     "field_obj": "`result_id`,`task_id`,`time`,`engine`,`city`,`query`,`ip`,`html`,`create_time`,`update_time`",
-    "field_default": "`result_id`,`task_id`,`time`,`engine`,`city`,`query`,`ip`,`html`,`create_time`,`update_time`",
-    "method": "get",
+    "field_default": "`result_id`,`task_id`,`time`,`engine`,`city`,`query`,`ip`,`create_time`,`update_time`",
+    "method": "get get_obj",
     "query": {
         "time_min": "`time` >= '{0}'",
         "time_max": "`time` <= '{0}'",
@@ -21,5 +21,13 @@
         "update_time_max": "`update_time` <= '{0}'"
     },
     "query_default": {},
-    "update": {}
+    "update": {},
+    "format": [
+        {
+            "key": "task_id",
+            "title": "查询任务",
+            "table": "query_article",
+            "name": "title"
+        }
+    ]
 }

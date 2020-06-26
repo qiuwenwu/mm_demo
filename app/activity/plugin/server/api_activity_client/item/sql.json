@@ -5,8 +5,8 @@
     "key": "item_id",
     "orderby_default": "`item_id` desc",
     "field_obj": "`item_id`,`price`,`time_create`,`time_update`,`num`,`name`,`type`,`creator_uin`,`title`,`descrtption`,`img_cover`",
-    "field_default": "`item_id`,`price`,`time_create`,`time_update`,`num`,`name`,`type`,`creator_uin`,`title`,`descrtption`,`img_cover`",
-    "method": "get",
+    "field_default": "`item_id`,`price`,`time_create`,`time_update`,`num`,`name`,`type`,`creator_uin`,`title`,`descrtption`",
+    "method": "get get_obj",
     "query": {
         "price_min": "`price` >= {0}",
         "price_max": "`price` <= {0}",
@@ -28,5 +28,6 @@
     "update": {
         "price_add": "`price` = `price` + {0}",
         "num_add": "`num` = `num` + {0}"
-    }
+    },
+    "format": []
 }

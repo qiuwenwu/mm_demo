@@ -4,20 +4,41 @@
 			<mm_col>
 				<mm_view>
 					<header class="arrow">
-						<h5>账户提现</h5>
+						<h5>支付账户</h5>
 					</header>
 					<mm_body>
 						<mm_form class="mm_filter">
 							<h5><span>筛选条件</span></h5>
-							<mm_list col="2">
+							<mm_list col="3">
 								<mm_col>
-									<mm_input v-model="query.keyword" title="关键词" desc="用户名 / 手机号 / 邮箱 / 姓名" @blur="search()" />
+									<mm_input v-model="query.keyword" title="关键词" desc="网银名称" @blur="search()" />
 								</mm_col>
-								<mm_col width="25">
-									<mm_select v-model="query.user_group" title="用户组" :options="$to_kv(user_group, 'group_id')" @change="search()" />
+								<mm_col>
+									<mm_select v-model="query.state" title="状态" :options="$to_kv(arr_state)" @change="search()" />
 								</mm_col>
-								<mm_col width="25">
-									<mm_select v-model="query.state" title="状态" :options="$to_kv(states)" @change="search()" />
+								<mm_col>
+									<mm_select v-model="query.bank_state" title="微信认证" :options="$to_kv(arr_bank_state)" @change="search()" />
+								</mm_col>
+								<mm_col>
+									<mm_select v-model="query.wechat_state" title="微信认证" :options="$to_kv(arr_wechat_state)" @change="search()" />
+								</mm_col>
+								<mm_col>
+									<mm_select v-model="query.alipay_state" title="微信认证" :options="$to_kv(arr_alipay_state)" @change="search()" />
+								</mm_col>
+								<mm_col>
+									<mm_select v-model="query.btc_state" title="比特币地址认证" :options="$to_kv(arr_btc_state)" @change="search()" />
+								</mm_col>
+								<mm_col>
+									<mm_select v-model="query.eth_state" title="以太币地址认证" :options="$to_kv(arr_eth_state)" @change="search()" />
+								</mm_col>
+								<mm_col>
+									<mm_select v-model="query.eos_state" title="柚子币地址认证" :options="$to_kv(arr_eos_state)" @change="search()" />
+								</mm_col>
+								<mm_col>
+									<mm_select v-model="query.mm_state" title="美眉币地址认证" :options="$to_kv(arr_mm_state)" @change="search()" />
+								</mm_col>
+								<mm_col>
+									<mm_btn class="btn_primary-x" type="reset" @click.native="reset();search()">重置</mm_btn>
 								</mm_col>
 							</mm_list>
 						</mm_form>
@@ -32,40 +53,114 @@
 							<thead>
 								<tr>
 									<th scope="col" class="th_selected"><input type="checkbox" :checked="select_state" @click="select_all()" /></th>
-									<th scope="col" class="th_id">#</th>
-									<th scope="col" class="th_username">
-										<mm_reverse title="用户名" v-model="query.orderby" field="username" :func="search"></mm_reverse>
-									</th>
-									<th scope="col" class="th_nickname">
-										<mm_reverse title="昵称" v-model="query.orderby" field="nickname" :func="search"></mm_reverse>
-									</th>
-									<th scope="col" class="th_name">
-										<mm_reverse title="用户组" v-model="query.orderby" field="user_group" :func="search"></mm_reverse>
-									</th>
-									<th scope="col" class="th_phone">
-										<mm_reverse title="手机" v-model="query.orderby" field="phone" :func="search"></mm_reverse>
-									</th>
-									<th scope="col" class="th_email">
-										<mm_reverse title="邮箱" v-model="query.orderby" field="email" :func="search"></mm_reverse>
-									</th>
-									<th scope="col" class="th_state">
+									<th scope="col" class="th_id"><span>#</span></th>
+									<th scope="col">
 										<mm_reverse title="状态" v-model="query.orderby" field="state" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_handle">操作</th>
+									<th scope="col">
+										<mm_reverse title="网银账户" v-model="query.orderby" field="bank" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="网银名称" v-model="query.orderby" field="bank_name" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="微信认证" v-model="query.orderby" field="bank_state" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="收款微信账户" v-model="query.orderby" field="wechat" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="微信认证" v-model="query.orderby" field="wechat_state" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="收款支付宝账户" v-model="query.orderby" field="alipay" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="微信认证" v-model="query.orderby" field="alipay_state" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="比特币地址" v-model="query.orderby" field="btc" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="比特币地址认证" v-model="query.orderby" field="btc_state" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="以太币地址" v-model="query.orderby" field="eth" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="以太币地址认证" v-model="query.orderby" field="eth_state" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="柚子币地址" v-model="query.orderby" field="eos" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="柚子币地址认证" v-model="query.orderby" field="eos_state" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="美眉币地址" v-model="query.orderby" field="mm" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="美眉币地址认证" v-model="query.orderby" field="mm_state" :func="search"></mm_reverse>
+									</th>
+									<th scope="col" class="th_handle"><span>操作</span></th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr v-for="(o, idx) in list" :key="idx">
+								<tr v-for="(o, idx) in list" :key="idx" :class="{'active': select == idx}" @click="selected(idx)">
 									<th scope="row"><input type="checkbox" :checked="select_has(o[field])" @click="select_change(o[field])" /></th>
-									<th scope="row">{{ o[field] }}</th>
-									<td><span class="name">{{ o.username }}</span></td>
-									<td><span class="name">{{ o.nickname }}</span></td>
-									<td><span class="name">{{ get_name(user_group, o.user_group, 'group_id') }}</span></td>
-									<td><span class="time">{{ o.phone }}</span></td>
-									<td><span class="email">{{ o.email }}</span></td>
-									<td><span class="state" v-bind:class="colors[o.state]">{{ states[o.state] }}</span></td>
 									<td>
-										<mm_btn class="btn_primary" :url="'./account_form?discount_id=' + o[field]">修改</mm_btn>
+										<span>{{ o.user_id }}</span>
+									</td>
+									<td>
+										<span v-bind:class="arr_color[o.state]">{{arr_state[o.state] }}</span>
+									</td>
+									<td>
+										<span>{{ o.bank }}</span>
+									</td>
+									<td>
+										<span>{{ o.bank_name }}</span>
+									</td>
+									<td>
+										<mm_switch v-model="o.bank_state" @click.native="set(o)" />
+									</td>
+									<td>
+										<span>{{ o.wechat }}</span>
+									</td>
+									<td>
+										<mm_switch v-model="o.wechat_state" @click.native="set(o)" />
+									</td>
+									<td>
+										<span>{{ o.alipay }}</span>
+									</td>
+									<td>
+										<mm_switch v-model="o.alipay_state" @click.native="set(o)" />
+									</td>
+									<td>
+										<span>{{ o.btc }}</span>
+									</td>
+									<td>
+										<mm_switch v-model="o.btc_state" @click.native="set(o)" />
+									</td>
+									<td>
+										<span>{{ o.eth }}</span>
+									</td>
+									<td>
+										<mm_switch v-model="o.eth_state" @click.native="set(o)" />
+									</td>
+									<td>
+										<span>{{ o.eos }}</span>
+									</td>
+									<td>
+										<mm_switch v-model="o.eos_state" @click.native="set(o)" />
+									</td>
+									<td>
+										<span>{{ o.mm }}</span>
+									</td>
+									<td>
+										<mm_switch v-model="o.mm_state" @click.native="set(o)" />
+									</td>
+									<td>
+										<mm_btn class="btn_primary" :url="'./account_form?user_id=' + o[field]">修改</mm_btn>
 										<mm_btn class="btn_warning" @click.native="del_show(o, field)">删除</mm_btn>
 									</td>
 								</tr>
@@ -73,16 +168,16 @@
 						</mm_table>
 					</mm_body>
 					<footer>
-						<mm_grid col="4" class="mm_data_count">
+						<mm_grid class="mm_data_count">
 							<mm_col>
 								<mm_select v-model="query.size" :options="$to_size()" @change="search()" />
 							</mm_col>
-							<mm_col width="50">
+							<mm_col width="50" style="min-width: 22.5rem;">
 								<mm_pager display="2" v-model="query.page" :count="count / query.size" :func="goTo" :icons="['首页', '上一页', '下一页', '尾页']"></mm_pager>
 							</mm_col>
 							<mm_col>
 								<div class="right plr">
-									<span class="fl">共 {{ count }} 条</span>
+									<span class="mr">共 {{ count }} 条</span>
 									<span>当前</span>
 									<input class="pager_now" v-model.number="page_now" @blur="goTo(page_now)" @change="page_change" />
 									<span>/{{ page_count }}页</span>
@@ -100,15 +195,37 @@
 				</header>
 				<mm_body>
 					<dl>
-						<dt>昵称</dt>
-						<dd>
-							<label>
-								<input type="text" v-model="form.nickname" placeholder="由2-16个字符组成" />
-							</label>
-						</dd>
 						<dt>状态</dt>
 						<dd>
-							<mm_select v-model="form.state" :options="$to_kv(states)" />
+							<mm_select v-model="form.state" :options="$to_kv(arr_state)" />
+						</dd>
+						<dt>微信认证</dt>
+						<dd>
+							<mm_select v-model="form.bank_state" :options="$to_kv(arr_bank_state)" />
+						</dd>
+						<dt>微信认证</dt>
+						<dd>
+							<mm_select v-model="form.wechat_state" :options="$to_kv(arr_wechat_state)" />
+						</dd>
+						<dt>微信认证</dt>
+						<dd>
+							<mm_select v-model="form.alipay_state" :options="$to_kv(arr_alipay_state)" />
+						</dd>
+						<dt>比特币地址认证</dt>
+						<dd>
+							<mm_select v-model="form.btc_state" :options="$to_kv(arr_btc_state)" />
+						</dd>
+						<dt>以太币地址认证</dt>
+						<dd>
+							<mm_select v-model="form.eth_state" :options="$to_kv(arr_eth_state)" />
+						</dd>
+						<dt>柚子币地址认证</dt>
+						<dd>
+							<mm_select v-model="form.eos_state" :options="$to_kv(arr_eos_state)" />
+						</dd>
+						<dt>美眉币地址认证</dt>
+						<dd>
+							<mm_select v-model="form.mm_state" :options="$to_kv(arr_mm_state)" />
 						</dd>
 					</dl>
 				</mm_body>
@@ -131,65 +248,75 @@
 		data() {
 			return {
 				// 列表请求地址
-				url_get_list: "/apis/pay/account_discount",
-				url_del: "/apis/pay/account_discount?method=del&",
-				url_set: "/apis/pay/account_discount?method=set&",
-				field: "discount_id",
+				url_get_list: "/apis/pay/account",
+				url_del: "/apis/pay/account?method=del&",
+				url_set: "/apis/pay/account?method=set&",
+				field: "user_id",
 				query_set: {
-					"discount_id": ""
+					"user_id": ""
 				},
-				user_group: [],
 				// 查询条件
 				query: {
-					// 排序
-					orderby: "",
-					// 页码
+					//页码
 					page: 1,
-					// 页面大小
+					//页面大小
 					size: 10,
+					// 用户ID
+					'user_id': 0,
+					// 状态——最小值
+					'state_min': '',
+					// 状态——最大值
+					'state_max': '',
+					// 网银名称
+					'bank_name': '',
+					// 微信认证
+					'bank_state': '',
+					// 微信认证
+					'wechat_state': '',
+					// 微信认证
+					'alipay_state': '',
+					// 比特币地址认证
+					'btc_state': '',
+					// 以太币地址认证
+					'eth_state': '',
+					// 柚子币地址认证
+					'eos_state': '',
+					// 美眉币地址认证
+					'mm_state': '',
 					// 关键词
-					keyword: "",
+					'keyword': '',
+					//排序
+					orderby: ""
 				},
 				form: {},
+				//颜色
+				arr_color: ['', '', 'font_yellow', 'font_success', 'font_warning', 'font_primary', 'font_info', 'font_default'],
 				// 状态
-				states: ['', '正常', '异常', '已冻结', '已注销'],
-				colors: ['', 'font_success', 'font_warning', 'font_yellow', 'font_default'],
+				'arr_state': ['','正常','异常','冻结','注销'],
+				// 微信认证
+				'arr_bank_state': ['未认证','已认证'],
+				// 微信认证
+				'arr_wechat_state': ['未认证','已认证'],
+				// 微信认证
+				'arr_alipay_state': ['未认证','已认证'],
+				// 比特币地址认证
+				'arr_btc_state': ['未认证','已认证'],
+				// 以太币地址认证
+				'arr_eth_state': ['未认证','已认证'],
+				// 柚子币地址认证
+				'arr_eos_state': ['未认证','已认证'],
+				// 美眉币地址认证
+				'arr_mm_state': ['未认证','已认证'],
 				// 视图模型
 				vm: {}
 			}
 		},
-		methods: {},
+		methods: {
+		},
 		created() {
-			var _this = this;
-			this.$get('~/apis/user/group?', null, function(json) {
-				if (json.result) {
-					_this.user_group.clear();
-					_this.user_group.addList(json.result.list)
-				}
-			});
 		}
 	}
 </script>
 
 <style>
-	/* 页面 */
-	#pay_account {}
-
-	/* 表单 */
-	#pay_account .mm_form {}
-
-	/* 筛选栏栏 */
-	#pay_account .mm_filter {}
-
-	/* 操作栏 */
-	#pay_account .mm_action {}
-
-	/* 模态窗 */
-	#pay_account .mm_modal {}
-
-	/* 表格 */
-	#pay_account .mm_table {}
-
-	/* 数据统计 */
-	#pay_account .mm_data_count {}
 </style>

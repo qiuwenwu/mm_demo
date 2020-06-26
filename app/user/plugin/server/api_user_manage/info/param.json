@@ -96,7 +96,7 @@
         {
             "name": "sex",
             "title": "性别",
-            "description": "0未设置、1男、2女",
+            "description": "(0未设置|1男|2女)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -106,7 +106,7 @@
         {
             "name": "sex_min",
             "title": "性别——最小值",
-            "description": "0未设置、1男、2女",
+            "description": "(0未设置|1男|2女)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -116,7 +116,7 @@
         {
             "name": "sex_max",
             "title": "性别——最大值",
-            "description": "0未设置、1男、2女",
+            "description": "(0未设置|1男|2女)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -126,7 +126,7 @@
         {
             "name": "idcard_state",
             "title": "身份实名认证",
-            "description": "1为未认证，2为认证中，3为认证通过",
+            "description": "(1未认证|2认证中|3认证通过)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -136,7 +136,7 @@
         {
             "name": "idcard_state_min",
             "title": "身份实名认证——最小值",
-            "description": "1为未认证，2为认证中，3为认证通过",
+            "description": "(1未认证|2认证中|3认证通过)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -146,7 +146,7 @@
         {
             "name": "idcard_state_max",
             "title": "身份实名认证——最大值",
-            "description": "1为未认证，2为认证中，3为认证通过",
+            "description": "(1未认证|2认证中|3认证通过)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -186,7 +186,7 @@
         {
             "name": "province_id",
             "title": "省份ID",
-            "description": "用户所在地的省份",
+            "description": "用户所在地的省份(sys_address_province)",
             "type": "number",
             "dataType": "int",
             "number": {
@@ -199,7 +199,7 @@
         {
             "name": "city_id",
             "title": "所在城市ID",
-            "description": "",
+            "description": "(sys_address_city)",
             "type": "number",
             "dataType": "int",
             "number": {

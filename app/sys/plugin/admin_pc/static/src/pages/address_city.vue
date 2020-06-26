@@ -9,15 +9,18 @@
 					<mm_body>
 						<mm_form class="mm_filter">
 							<h5><span>筛选条件</span></h5>
-							<mm_list col="2">
+							<mm_list col="3">
 								<mm_col>
-									<mm_input v-model="query.keyword" title="关键词" desc="用户名 / 手机号 / 邮箱 / 姓名" @blur="search()" />
+									<mm_input v-model="query.keyword" title="关键词" desc="城市名称" @blur="search()" />
 								</mm_col>
-								<mm_col width="25">
-									<mm_select v-model="query.user_group" title="用户组" :options="$to_kv(user_group, 'group_id')" @change="search()" />
+								<mm_col>
+									<mm_select v-model="query.show" title="显示位置" :options="$to_kv(arr_show)" @change="search()" />
 								</mm_col>
-								<mm_col width="25">
-									<mm_select v-model="query.state" title="状态" :options="$to_kv(states)" @change="search()" />
+								<mm_col>
+									<mm_select v-model="query.province_id" title="所属省份" :options="$to_kv(list_address_province, 'province_id', 'name')" @change="search()" />
+								</mm_col>
+								<mm_col>
+									<mm_btn class="btn_primary-x" type="reset" @click.native="reset();search()">重置</mm_btn>
 								</mm_col>
 							</mm_list>
 						</mm_form>
@@ -32,40 +35,42 @@
 							<thead>
 								<tr>
 									<th scope="col" class="th_selected"><input type="checkbox" :checked="select_state" @click="select_all()" /></th>
-									<th scope="col" class="th_id">#</th>
-									<th scope="col" class="th_username">
-										<mm_reverse title="用户名" v-model="query.orderby" field="username" :func="search"></mm_reverse>
+									<th scope="col" class="th_id"><span>#</span></th>
+									<th scope="col">
+										<mm_reverse title="显示位置" v-model="query.orderby" field="show" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_nickname">
-										<mm_reverse title="昵称" v-model="query.orderby" field="nickname" :func="search"></mm_reverse>
+									<th scope="col">
+										<mm_reverse title="显示顺序" v-model="query.orderby" field="display" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_name">
-										<mm_reverse title="用户组" v-model="query.orderby" field="user_group" :func="search"></mm_reverse>
+									<th scope="col">
+										<mm_reverse title="所属省份" v-model="query.orderby" field="province_id" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_phone">
-										<mm_reverse title="手机" v-model="query.orderby" field="phone" :func="search"></mm_reverse>
+									<th scope="col">
+										<mm_reverse title="城市名称" v-model="query.orderby" field="name" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_email">
-										<mm_reverse title="邮箱" v-model="query.orderby" field="email" :func="search"></mm_reverse>
-									</th>
-									<th scope="col" class="th_state">
-										<mm_reverse title="状态" v-model="query.orderby" field="state" :func="search"></mm_reverse>
-									</th>
-									<th scope="col" class="th_handle">操作</th>
+									<th scope="col" class="th_handle"><span>操作</span></th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr v-for="(o, idx) in list" :key="idx">
+								<tr v-for="(o, idx) in list" :key="idx" :class="{'active': select == idx}" @click="selected(idx)">
 									<th scope="row"><input type="checkbox" :checked="select_has(o[field])" @click="select_change(o[field])" /></th>
-									<th scope="row">{{ o[field] }}</th>
-									<td><span class="name">{{ o.username }}</span></td>
-									<td><span class="name">{{ o.nickname }}</span></td>
-									<td><span class="name">{{ get_name(user_group, o.user_group, 'group_id') }}</span></td>
-									<td><span class="time">{{ o.phone }}</span></td>
-									<td><span class="email">{{ o.email }}</span></td>
-									<td><span class="state" v-bind:class="colors[o.state]">{{ states[o.state] }}</span></td>
 									<td>
-										<mm_btn class="btn_primary" :url="'./address_city_form?uid=' + o[field]">修改</mm_btn>
+										<span>{{ o.city_id }}</span>
+									</td>
+									<td>
+										<span>{{arr_show[o.show] }}</span>
+									</td>
+									<td>
+										<input class="td_display" v-model.number="o.display" @blur="set(o)" min="0" max="1000" />
+									</td>
+									<td>
+										<span>{{ get_name(list_address_province, o.province_id, 'province_id', 'name') }}</span>
+									</td>
+									<td>
+										<span>{{ o.name }}</span>
+									</td>
+									<td>
+										<mm_btn class="btn_primary" :url="'./address_city_form?city_id=' + o[field]">修改</mm_btn>
 										<mm_btn class="btn_warning" @click.native="del_show(o, field)">删除</mm_btn>
 									</td>
 								</tr>
@@ -73,16 +78,16 @@
 						</mm_table>
 					</mm_body>
 					<footer>
-						<mm_grid col="4" class="mm_data_count">
+						<mm_grid class="mm_data_count">
 							<mm_col>
 								<mm_select v-model="query.size" :options="$to_size()" @change="search()" />
 							</mm_col>
-							<mm_col width="50">
+							<mm_col width="50" style="min-width: 22.5rem;">
 								<mm_pager display="2" v-model="query.page" :count="count / query.size" :func="goTo" :icons="['首页', '上一页', '下一页', '尾页']"></mm_pager>
 							</mm_col>
 							<mm_col>
 								<div class="right plr">
-									<span class="fl">共 {{ count }} 条</span>
+									<span class="mr">共 {{ count }} 条</span>
 									<span>当前</span>
 									<input class="pager_now" v-model.number="page_now" @blur="goTo(page_now)" @change="page_change" />
 									<span>/{{ page_count }}页</span>
@@ -100,22 +105,20 @@
 				</header>
 				<mm_body>
 					<dl>
-						<dt>昵称</dt>
+						<dt>显示位置</dt>
 						<dd>
-							<label>
-								<input type="text" v-model="form.nickname" placeholder="由2-16个字符组成" />
-							</label>
+							<mm_select v-model="form.show" :options="$to_kv(arr_show)" />
 						</dd>
-						<dt>状态</dt>
+						<dt>所属省份</dt>
 						<dd>
-							<mm_select v-model="form.state" :options="$to_kv(states)" />
+							<mm_select v-model="form.province_id" :options="$to_kv(list_address_province, 'province_id', 'name')" />
 						</dd>
 					</dl>
 				</mm_body>
 				<footer>
 					<div class="mm_group">
 						<button class="btn_default" type="reset" @click="show = false">取消</button>
-						<button class="btn_primary" type="button" @click="set_bath()">提交</button>
+						<button class="btn_primary" type="button" @click="batchSet()">提交</button>
 					</div>
 				</footer>
 			</mm_view>
@@ -134,62 +137,70 @@
 				url_get_list: "/apis/sys/address_city",
 				url_del: "/apis/sys/address_city?method=del&",
 				url_set: "/apis/sys/address_city?method=set&",
-				field: "uid",
+				field: "city_id",
 				query_set: {
-					"uid": ""
+					"city_id": ""
 				},
-				user_group: [],
 				// 查询条件
 				query: {
-					// 排序
-					orderby: "",
-					// 页码
+					//页码
 					page: 1,
-					// 页面大小
+					//页面大小
 					size: 10,
+					// 城市ID
+					'city_id': 0,
+					// 显示位置——最小值
+					'show_min': '',
+					// 显示位置——最大值
+					'show_max': '',
+					// 显示顺序——最小值
+					'display_min': 0,
+					// 显示顺序——最大值
+					'display_max': 0,
+					// 城市名称
+					'name': '',
 					// 关键词
-					keyword: "",
+					'keyword': '',
+					//排序
+					orderby: ""
 				},
 				form: {},
-				// 状态
-				states: ['', '正常', '异常', '已冻结', '已注销'],
-				colors: ['', 'font_success', 'font_warning', 'font_yellow', 'font_default'],
+				//颜色
+				arr_color: ['', '', 'font_yellow', 'font_success', 'font_warning', 'font_primary', 'font_info', 'font_default'],
+				// 显示位置
+				'arr_show': ['仅表单可见','表单和搜索可见','均可见'],
+				// 所属省份
+				'list_address_province': [],
 				// 视图模型
 				vm: {}
 			}
 		},
-		methods: {},
-		created() {
-			var _this = this;
-			this.$get('~/apis/user/group?', null, function(json) {
-				if (json.result) {
-					_this.user_group.clear();
-					_this.user_group.addList(json.result.list)
+		methods: {
+			/**
+			 * 获取所属省份
+			 * @param {query} 查询条件
+			 */
+			get_address_province(query){
+				var _this = this;
+				if(!query){
+					query = {
+						field: "province_id,name"
+					};
 				}
-			});
+				this.$get('~/apis/sys/address_province?size=0', query, function(json) {
+					if (json.result) {
+						_this.list_address_province.clear();
+						_this.list_address_province.addList(json.result.list)
+					}
+				});
+			},
+		},
+		created() {
+			// 获取所属省份
+			this.get_address_province();
 		}
 	}
 </script>
 
 <style>
-	/* 页面 */
-	#sys_address_city {}
-
-	/* 表单 */
-	#sys_address_city .mm_form {}
-
-	/* 筛选栏栏 */
-	#sys_address_city .mm_filter {}
-
-	/* 操作栏 */
-	#sys_address_city .mm_action {}
-
-	/* 模态窗 */
-	#sys_address_city .mm_modal {}
-
-	/* 表格 */
-	#sys_address_city .mm_table {}
-
-	/* 数据统计 */
-	#sys_address_city .mm_data_count {}
 </style>

@@ -1,7 +1,7 @@
 {
 	"name": "url",
-	"title": "风水",
-	"description": "用于占卜、测吉凶、能量",
+	"title": "短链接",
+	"description": "用于长连接转短链接和转发",
 	"version": "1.0",
 	"identifier": "url",
 	"lang_path": "./lang/",

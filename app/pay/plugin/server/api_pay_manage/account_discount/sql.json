@@ -35,5 +35,37 @@
         "amount_add": "`amount` = `amount` + {0}",
         "fee_add": "`fee` = `fee` + {0}"
     },
+    "format": [
+        {
+            "key": "state",
+            "title": "提现状态",
+            "list": [
+                "",
+                "申请中",
+                "转帐中",
+                "已完成",
+                "已拒绝"
+            ]
+        },
+        {
+            "key": "to_user_id",
+            "title": "收款人",
+            "table": "user_account",
+            "name": "nickname",
+            "id": "user_id"
+        },
+        {
+            "key": "seller_id",
+            "title": "商户",
+            "table": "pay_seller",
+            "name": "name"
+        },
+        {
+            "key": "user_id",
+            "title": "审批人",
+            "table": "user_account",
+            "name": "nickname"
+        }
+    ],
     "field_hide": []
 }

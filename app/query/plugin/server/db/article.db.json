@@ -21,6 +21,7 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -41,6 +42,7 @@
             "max": 32767,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -61,6 +63,7 @@
             "max": 0,
             "decimal": 0,
             "default": "",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -81,6 +84,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -101,6 +105,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -121,6 +126,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -141,6 +147,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -161,6 +168,7 @@
             "max": 0,
             "decimal": 0,
             "default": "CURRENT_TIMESTAMP",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -181,6 +189,7 @@
             "max": 0,
             "decimal": 0,
             "default": "CURRENT_TIMESTAMP",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []

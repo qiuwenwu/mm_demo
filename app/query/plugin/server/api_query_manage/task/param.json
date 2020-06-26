@@ -76,7 +76,7 @@
         {
             "name": "state",
             "title": "状态",
-            "description": "1待抓取、2抓取中、3待测评、4已关闭",
+            "description": "(1待抓取|2抓取中|3待测评|4已关闭)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -86,7 +86,7 @@
         {
             "name": "state_min",
             "title": "状态——最小值",
-            "description": "1待抓取、2抓取中、3待测评、4已关闭",
+            "description": "(1待抓取|2抓取中|3待测评|4已关闭)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -96,7 +96,7 @@
         {
             "name": "state_max",
             "title": "状态——最大值",
-            "description": "1待抓取、2抓取中、3待测评、4已关闭",
+            "description": "(1待抓取|2抓取中|3待测评|4已关闭)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -106,7 +106,7 @@
         {
             "name": "user_id",
             "title": "创建者ID",
-            "description": "",
+            "description": "(user_account.nickname)",
             "type": "number",
             "dataType": "int",
             "number": {

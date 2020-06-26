@@ -6,7 +6,7 @@
     "orderby_default": "`seller_id` desc",
     "field_obj": "`seller_id`,`usd`,`cny`,`mm`,`btc`,`eth`,`eos`",
     "field_default": "`seller_id`,`usd`,`cny`,`mm`,`btc`,`eth`,`eos`",
-    "method": "get",
+    "method": "get get_obj",
     "query": {
         "usd_min": "`usd` >= {0}",
         "usd_max": "`usd` <= {0}",
@@ -29,5 +29,6 @@
         "btc_add": "`btc` = `btc` + {0}",
         "eth_add": "`eth` = `eth` + {0}",
         "eos_add": "`eos` = `eos` + {0}"
-    }
+    },
+    "format": []
 }

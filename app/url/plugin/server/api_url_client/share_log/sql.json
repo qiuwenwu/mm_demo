@@ -1,12 +1,12 @@
 {
     "name": "url_share_log",
-    "title": "",
+    "title": "链接分享日志",
     "table": "url_share_log",
     "key": "log_id",
     "orderby_default": "`log_id` desc",
     "field_obj": "`log_id`,`key`,`time_create`,`time_update`,`user_id`,`query`,`ip`",
     "field_default": "`log_id`,`key`,`time_create`,`time_update`,`user_id`,`query`,`ip`",
-    "method": "get",
+    "method": "get get_obj",
     "query": {
         "key": "`key` like '%{0}%'",
         "time_create_min": "`time_create` >= '{0}'",
@@ -16,18 +16,14 @@
         "query": "`query` like '%{0}%'",
         "ip": "`ip` like '%{0}%'"
     },
-    "query_default": {
-        "user_id": "`user_id` = {user_id}"
-    },
+    "query_default": {},
     "update": {},
-    "filter": {
-        "table": "table",
-        "page": "page",
-        "size": "size",
-        "method": "method",
-        "orderby": "orderby",
-        "field": "field",
-        "count_ret": "count_ret",
-        "user_id": "user_id"
-    }
+    "format": [
+        {
+            "key": "user_id",
+            "title": "分享者",
+            "table": "user_account",
+            "name": "nickname"
+        }
+    ]
 }

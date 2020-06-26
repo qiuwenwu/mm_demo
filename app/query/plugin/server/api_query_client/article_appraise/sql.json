@@ -6,7 +6,7 @@
     "orderby_default": "`appraise_id` desc",
     "field_obj": "`appraise_id`,`task_id`,`article_id`,`user_id`,`score`,`important`,`create_time`,`update_time`",
     "field_default": "`appraise_id`,`task_id`,`article_id`,`user_id`,`score`,`important`,`create_time`,`update_time`",
-    "method": "get",
+    "method": "get get_obj",
     "query": {
         "score_min": "`score` >= {0}",
         "score_max": "`score` <= {0}",
@@ -30,5 +30,19 @@
         "field": "field",
         "count_ret": "count_ret",
         "user_id": "user_id"
-    }
+    },
+    "format": [
+        {
+            "key": "article_id",
+            "title": "文章",
+            "table": "cms_article",
+            "name": "tible"
+        },
+        {
+            "key": "user_id",
+            "title": "测评人",
+            "table": "user_account",
+            "name": "nickname"
+        }
+    ]
 }

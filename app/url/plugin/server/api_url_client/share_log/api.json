@@ -1,6 +1,6 @@
 {
     "name": "url_share_log",
-    "title": "",
+    "title": "链接分享日志",
     "description": "",
     "path": "/api/url/share_log",
     "method": "GET",

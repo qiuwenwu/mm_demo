@@ -7,7 +7,6 @@
 						<h5>超级美眉</h5>
 					</header>
 					<mm_body>
-						
 					</mm_body>
 				</mm_view>
 			</mm_col>

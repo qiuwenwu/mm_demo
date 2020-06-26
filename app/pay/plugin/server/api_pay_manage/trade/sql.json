@@ -4,7 +4,7 @@
     "table": "pay_trade",
     "key": "trade_id",
     "orderby_default": "`trade_id` desc",
-    "field_obj": "`trade_id`,`state`,`from_user_id`,`to_user_id`,`seller_id`,`total`,`amount`,`fee`,`pay_time`,`platform`,`way`,`app`,`institution`,`title`,`transaction_id`,`ip`,`from_user`,`to_user`,`description`,`note`,`content`,`create_time`,`end_time`,`update_time`",
+    "field_obj": "`trade_id`,`state`,`from_user_id`,`to_user_id`,`seller_id`,`total`,`amount`,`fee`,`pay_time`,`platform`,`way`,`app`,`institution`,`title`,`transaction_id`,`ip`,`from_user`,`to_user`,`description`,`note`,`content`,`end_time`",
     "field_default": "`trade_id`,`state`,`from_user_id`,`to_user_id`,`seller_id`,`total`,`amount`,`fee`,`pay_time`,`platform`,`way`,`app`,`institution`,`title`,`transaction_id`,`ip`,`from_user`,`to_user`,`description`,`note`,`create_time`,`end_time`,`update_time`",
     "query": {
         "state_min": "`state` >= {0}",
@@ -43,5 +43,38 @@
         "amount_add": "`amount` = `amount` + {0}",
         "fee_add": "`fee` = `fee` + {0}"
     },
+    "format": [
+        {
+            "key": "state",
+            "title": "付款状态",
+            "list": [
+                "",
+                "待付款",
+                "待确认",
+                "已完成",
+                "已取消"
+            ]
+        },
+        {
+            "key": "from_user_id",
+            "title": "付款人",
+            "table": "user_account",
+            "name": "nickname",
+            "id": "user_id"
+        },
+        {
+            "key": "to_user_id",
+            "title": "收款人",
+            "table": "user_account",
+            "name": "nickname",
+            "id": "user_id"
+        },
+        {
+            "key": "seller_id",
+            "title": "商户",
+            "table": "pay_seller",
+            "name": "name"
+        }
+    ],
     "field_hide": []
 }

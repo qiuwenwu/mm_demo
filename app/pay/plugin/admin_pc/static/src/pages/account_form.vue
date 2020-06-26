@@ -4,32 +4,72 @@
 			<mm_col width="33">
 				<mm_form class="card">
 					<header class="arrow">
-						<h5>{{ form[field] ? '修改' : '创建' }}账户提现</h5>
+						<h5>{{ form[field] ? '修改' : '创建' }}支付账户</h5>
 					</header>
 					<dl>
-						<dt>头像</dt>
+						<dt>状态</dt>
 						<dd>
-							<mm_upload_img width="10rem" height="10rem" name="avatar" type="text" v-model="form.avatar"></mm_upload_img>
+							<mm_select v-model="form.state" :options="$to_kv(arr_state)" />
 						</dd>
-						<dt>昵称</dt>
+						<dt>网银账户</dt>
 						<dd>
-							<mm_input type="text" v-model="form.nickname" desc="由2-16个字符组成"></mm_input>
+							<mm_input v-model="form.bank" :minlength="0" :maxlength="0" placeholder="" />
 						</dd>
-						<dt>会员级别</dt>
+						<dt>网银名称</dt>
 						<dd>
-							<mm_select v-model="form.vip" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
+							<mm_input v-model="form.bank_name" :minlength="0" :maxlength="0" placeholder="含支行" />
 						</dd>
-						<dt>管理级别</dt>
+						<dt>微信认证</dt>
 						<dd>
-							<mm_select v-model="form.gm" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
+							<mm_switch v-model="form.bank_state" />
 						</dd>
-						<dt>商户级别</dt>
+						<dt>收款微信账户</dt>
 						<dd>
-							<mm_select v-model="form.mc" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
+							<mm_input v-model="form.wechat" :minlength="0" :maxlength="0" placeholder="" />
 						</dd>
-						<dt>个性签名</dt>
+						<dt>微信认证</dt>
 						<dd>
-							<textarea v-model="form.signature" placeholder="由2-16个字符组成"></textarea>
+							<mm_switch v-model="form.wechat_state" />
+						</dd>
+						<dt>收款支付宝账户</dt>
+						<dd>
+							<mm_input v-model="form.alipay" :minlength="0" :maxlength="0" placeholder="" />
+						</dd>
+						<dt>微信认证</dt>
+						<dd>
+							<mm_switch v-model="form.alipay_state" />
+						</dd>
+						<dt>比特币地址</dt>
+						<dd>
+							<mm_input v-model="form.btc" :minlength="0" :maxlength="0" placeholder="" />
+						</dd>
+						<dt>比特币地址认证</dt>
+						<dd>
+							<mm_switch v-model="form.btc_state" />
+						</dd>
+						<dt>以太币地址</dt>
+						<dd>
+							<mm_input v-model="form.eth" :minlength="0" :maxlength="0" placeholder="" />
+						</dd>
+						<dt>以太币地址认证</dt>
+						<dd>
+							<mm_switch v-model="form.eth_state" />
+						</dd>
+						<dt>柚子币地址</dt>
+						<dd>
+							<mm_input v-model="form.eos" :minlength="0" :maxlength="0" placeholder="" />
+						</dd>
+						<dt>柚子币地址认证</dt>
+						<dd>
+							<mm_switch v-model="form.eos_state" />
+						</dd>
+						<dt>美眉币地址</dt>
+						<dd>
+							<mm_input v-model="form.mm" :minlength="0" :maxlength="0" placeholder="" />
+						</dd>
+						<dt>美眉币地址认证</dt>
+						<dd>
+							<mm_switch v-model="form.mm_state" />
 						</dd>
 					</dl>
 					<footer>
@@ -53,40 +93,55 @@
 		components: {},
 		data() {
 			return {
-				url_submit: "/apis/pay/account_discount?",
-				url_get_obj: "/apis/pay/account_discount",
-				field: "discount_id",
+				url_submit: "/apis/pay/account?",
+				url_get_obj: "/apis/pay/account?method=get_obj",
+				field: "user_id",
 				query: {
-					"discount_id": 0
+					"user_id": 0
 				},
-				form: {}
+				form: {
+						"user_id": 0,
+						"state": 0,
+						"bank": '',
+						"bank_name": '',
+						"bank_state": 0,
+						"wechat": '',
+						"wechat_state": 0,
+						"alipay": '',
+						"alipay_state": 0,
+						"btc": '',
+						"btc_state": 0,
+						"eth": '',
+						"eth_state": 0,
+						"eos": '',
+						"eos_state": 0,
+						"mm": '',
+						"mm_state": 0,
+				},
+				// 状态
+				'arr_state': ['','正常','异常','冻结','注销'],
+				// 微信认证
+				'arr_bank_state': ['未认证','已认证'],
+				// 微信认证
+				'arr_wechat_state': ['未认证','已认证'],
+				// 微信认证
+				'arr_alipay_state': ['未认证','已认证'],
+				// 比特币地址认证
+				'arr_btc_state': ['未认证','已认证'],
+				// 以太币地址认证
+				'arr_eth_state': ['未认证','已认证'],
+				// 柚子币地址认证
+				'arr_eos_state': ['未认证','已认证'],
+				// 美眉币地址认证
+				'arr_mm_state': ['未认证','已认证'],
 			}
 		},
 		methods: {
-
+		},
+		created() {
 		}
 	}
 </script>
 
 <style>
-	/* 页面 */
-	#pay_account_form {}
-
-	/* 表单 */
-	#pay_account_form .mm_form {}
-
-	/* 筛选栏栏 */
-	#pay_account_form .mm_filter {}
-
-	/* 操作栏 */
-	#pay_account_form .mm_action {}
-
-	/* 模态窗 */
-	#pay_account_form .mm_modal {}
-
-	/* 表格 */
-	#pay_account_form .mm_table {}
-
-	/* 数据统计 */
-	#pay_account_form .mm_data_count {}
 </style>

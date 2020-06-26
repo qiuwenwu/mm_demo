@@ -21,6 +21,7 @@
             "max": 8388607,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -28,7 +29,7 @@
         {
             "name": "sex",
             "title": "性别",
-            "description": "0未设置、1男、2女",
+            "description": "",
             "type": "smallint",
             "key": false,
             "auto": "",
@@ -41,6 +42,7 @@
             "max": 2,
             "decimal": 0,
             "default": "0",
+            "map": "0未设置|1男|2女",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -48,7 +50,7 @@
         {
             "name": "idcard_state",
             "title": "身份实名认证",
-            "description": "1为未认证，2为认证中，3为认证通过",
+            "description": "",
             "type": "smallint",
             "key": false,
             "auto": "",
@@ -61,6 +63,7 @@
             "max": 10,
             "decimal": 0,
             "default": "0",
+            "map": "1未认证|2认证中|3认证通过",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -81,6 +84,7 @@
             "max": 150,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -101,6 +105,7 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "0",
+            "map": "sys_address_province",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -121,6 +126,7 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "0",
+            "map": "sys_address_city",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -141,6 +147,7 @@
             "max": 0,
             "decimal": 0,
             "default": "1970-01-01",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -161,6 +168,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -181,6 +189,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -201,6 +210,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -221,6 +231,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -241,6 +252,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -261,6 +273,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -281,6 +294,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -301,6 +315,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -321,6 +336,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -341,6 +357,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []

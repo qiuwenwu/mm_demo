@@ -6,7 +6,7 @@
     "orderby_default": "`user_id` desc",
     "field_obj": "`user_id`,`state`,`bank`,`bank_name`,`bank_state`,`wechat`,`wechat_state`,`alipay`,`alipay_state`,`btc`,`btc_state`,`eth`,`eth_state`,`eos`,`eos_state`,`mm`,`mm_state`",
     "field_default": "`user_id`,`state`,`bank`,`bank_name`,`bank_state`,`wechat`,`wechat_state`,`alipay`,`alipay_state`,`btc`,`btc_state`,`eth`,`eth_state`,`eos`,`eos_state`,`mm`,`mm_state`",
-    "method": "get",
+    "method": "get get_obj",
     "query": {
         "state_min": "`state` >= {0}",
         "state_max": "`state` <= {0}",
@@ -20,20 +20,77 @@
         "mm": "`mm` like '%{0}%'",
         "keyword": "(`bank_name` like '%{0}%')"
     },
-    "query_default": {
-        "user_id": "`user_id` = {user_id}"
-    },
+    "query_default": {},
     "update": {
         "state_add": "`state` = `state` + {0}"
     },
-    "filter": {
-        "table": "table",
-        "page": "page",
-        "size": "size",
-        "method": "method",
-        "orderby": "orderby",
-        "field": "field",
-        "count_ret": "count_ret",
-        "user_id": "user_id"
-    }
+    "format": [
+        {
+            "key": "state",
+            "title": "状态",
+            "list": [
+                "",
+                "正常",
+                "异常",
+                "冻结",
+                "注销"
+            ]
+        },
+        {
+            "key": "bank_state",
+            "title": "微信认证",
+            "list": [
+                "未认证",
+                "已认证"
+            ]
+        },
+        {
+            "key": "wechat_state",
+            "title": "微信认证",
+            "list": [
+                "未认证",
+                "已认证"
+            ]
+        },
+        {
+            "key": "alipay_state",
+            "title": "微信认证",
+            "list": [
+                "未认证",
+                "已认证"
+            ]
+        },
+        {
+            "key": "btc_state",
+            "title": "比特币地址认证",
+            "list": [
+                "未认证",
+                "已认证"
+            ]
+        },
+        {
+            "key": "eth_state",
+            "title": "以太币地址认证",
+            "list": [
+                "未认证",
+                "已认证"
+            ]
+        },
+        {
+            "key": "eos_state",
+            "title": "柚子币地址认证",
+            "list": [
+                "未认证",
+                "已认证"
+            ]
+        },
+        {
+            "key": "mm_state",
+            "title": "美眉币地址认证",
+            "list": [
+                "未认证",
+                "已认证"
+            ]
+        }
+    ]
 }

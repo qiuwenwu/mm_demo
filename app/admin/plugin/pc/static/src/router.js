@@ -3,9 +3,9 @@ define(["Vue", "VueRouter", "mm_sdk", "nav"], function(Vue, VueRouter, mm_sdk, n
 
 	Vue.use(VueRouter);
 	var routes = [{
-		path: "/",
+		path: "/not_power",
 		component: function component(resolve) {
-			return require(["vue!./pages/index.vue"], resolve);
+			return require(["vue!./pages/not_power.vue"], resolve);
 		}
 	}, {
 		path: "/404",

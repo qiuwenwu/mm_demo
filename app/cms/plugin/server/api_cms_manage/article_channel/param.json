@@ -15,7 +15,6 @@
             "url"
         ],
         "body_required": [
-            "type",
             "name"
         ]
     },
@@ -46,7 +45,6 @@
             "display_add",
             "father_id",
             "city_id",
-            "type",
             "name",
             "template",
             "description",
@@ -87,7 +85,7 @@
         {
             "name": "available",
             "title": "是否启用",
-            "description": "启用后才可以看到该频道",
+            "description": "启用后才可以看到该频道。(0否|1是)",
             "type": "number",
             "dataType": "tinyint",
             "number": {
@@ -97,7 +95,7 @@
         {
             "name": "hide",
             "title": "是否隐藏",
-            "description": "隐藏非管理员该频道无法查看. 0为不隐藏，1为隐藏",
+            "description": "隐藏非管理员该频道无法查看。(0否|1是)",
             "type": "number",
             "dataType": "tinyint",
             "number": {
@@ -107,7 +105,7 @@
         {
             "name": "can_comment",
             "title": "是否可评论",
-            "description": "不可评论则用户只能看，无法点评。0为不可评论，1为可评论",
+            "description": "不可评论则用户只能看，无法点评。(0否|1是)",
             "type": "number",
             "dataType": "tinyint",
             "number": {
@@ -147,7 +145,7 @@
         {
             "name": "father_id",
             "title": "上级ID",
-            "description": "在频道列表操作时，当上级频道展开时，才显示该频道",
+            "description": "在频道列表操作时，当上级频道展开时，才显示该频道(cms_article_channel.name.channel_id)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -160,7 +158,7 @@
         {
             "name": "city_id",
             "title": "所属城市",
-            "description": "一些地方频道，可以通过该条判断是否可查看",
+            "description": "一些地方频道，可以通过该条判断是否可查看。(sys_address_city)",
             "type": "number",
             "dataType": "mediumint",
             "number": {
@@ -168,16 +166,6 @@
                     1,
                     8388607
                 ]
-            }
-        },
-        {
-            "name": "type",
-            "title": "频道类型",
-            "description": "question问答、info资讯、news新闻、article文章、activity活动",
-            "type": "string",
-            "dataType": "varchar",
-            "string": {
-                "notEmpty": 1
             }
         },
         {

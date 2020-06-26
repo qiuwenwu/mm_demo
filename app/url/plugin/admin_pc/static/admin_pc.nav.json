@@ -1,0 +1,140 @@
+{
+    "name": "admin_pc",
+    "sort": 1,
+    "routes": [
+        {
+            "name": "url",
+            "path": "/url",
+            "redirect": "/url/info"
+        },
+        {
+            "name": "url_info",
+            "path": "/url/info",
+            "component": "/url/admin_pc/src/pages/info.vue",
+            "level": 3,
+            "oauth": {
+                "signIn": true,
+                "gm": 2,
+                "user_admin": []
+            }
+        },
+        {
+            "name": "url_info_form",
+            "path": "/url/info_form",
+            "component": "/url/admin_pc/src/pages/info_form.vue",
+            "level": 4,
+            "oauth": {
+                "signIn": true,
+                "gm": 2,
+                "user_admin": []
+            }
+        },
+        {
+            "name": "url_log",
+            "path": "/url/log",
+            "component": "/url/admin_pc/src/pages/log.vue",
+            "level": 3,
+            "oauth": {
+                "signIn": true,
+                "gm": 2,
+                "user_admin": []
+            }
+        },
+        {
+            "name": "url_log_form",
+            "path": "/url/log_form",
+            "component": "/url/admin_pc/src/pages/log_form.vue",
+            "level": 4,
+            "oauth": {
+                "signIn": true,
+                "gm": 2,
+                "user_admin": []
+            }
+        },
+        {
+            "name": "url_share",
+            "path": "/url/share",
+            "component": "/url/admin_pc/src/pages/share.vue",
+            "level": 3,
+            "oauth": {
+                "signIn": true,
+                "gm": 2,
+                "user_admin": []
+            }
+        },
+        {
+            "name": "url_share_form",
+            "path": "/url/share_form",
+            "component": "/url/admin_pc/src/pages/share_form.vue",
+            "level": 4,
+            "oauth": {
+                "signIn": true,
+                "gm": 2,
+                "user_admin": []
+            }
+        },
+        {
+            "name": "url_share_log",
+            "path": "/url/share_log",
+            "component": "/url/admin_pc/src/pages/share_log.vue",
+            "level": 2,
+            "oauth": {
+                "signIn": true,
+                "gm": 2,
+                "user_admin": []
+            }
+        },
+        {
+            "name": "url_share_log_form",
+            "path": "/url/share_log_form",
+            "component": "/url/admin_pc/src/pages/share_log_form.vue",
+            "level": 3,
+            "oauth": {
+                "signIn": true,
+                "gm": 2,
+                "user_admin": []
+            }
+        }
+    ],
+    "top": [],
+    "left": [],
+    "bottom": [],
+    "right": [],
+    "desktop": [],
+    "quick": [],
+    "main": [
+        {
+            "title": "短链接",
+            "name": "url",
+            "icon": "<i class=\"fa-share-alt\"></i>",
+            "url": "/url",
+            "display": 0,
+            "sub": [
+                {
+                    "title": "链接信息",
+                    "show": false,
+                    "name": "url_info",
+                    "url": "/url/info"
+                },
+                {
+                    "title": "链接访问日志",
+                    "show": false,
+                    "name": "url_log",
+                    "url": "/url/log"
+                },
+                {
+                    "title": "链接分享",
+                    "show": false,
+                    "name": "url_share",
+                    "url": "/url/share"
+                },
+                {
+                    "title": "链接分享日志",
+                    "show": false,
+                    "name": "url_share_log",
+                    "url": "/url/share_log"
+                }
+            ]
+        }
+    ]
+}

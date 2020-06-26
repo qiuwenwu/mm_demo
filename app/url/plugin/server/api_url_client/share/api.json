@@ -1,6 +1,6 @@
 {
     "name": "url_share",
-    "title": "",
+    "title": "链接分享",
     "description": "",
     "path": "/api/url/share",
     "method": "GET",

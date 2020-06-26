@@ -7,19 +7,18 @@
             "vip",
             "gm",
             "mc",
+            "group_id",
+            "admin_id",
             "referee_id",
             "phone",
             "phone_state",
             "nickname",
             "email",
             "email_state",
-            "user_group",
-            "user_admin",
             "login_ip",
             "signature",
             "avatar",
-            "friends",
-            "admin_group"
+            "friends"
         ],
         "body_required": [
             "salt",
@@ -45,10 +44,12 @@
             "gm_max",
             "mc_min",
             "mc_max",
-            "phone_state",
+            "phone_state_min",
+            "phone_state_max",
             "username",
             "nickname",
-            "email_state",
+            "email_state_min",
+            "email_state_max",
             "keyword"
         ],
         "query_required": [],
@@ -61,23 +62,24 @@
             "gm_add",
             "mc",
             "mc_add",
+            "group_id",
+            "admin_id",
             "referee_id",
             "salt",
             "invite_code",
             "phone",
             "phone_state",
+            "phone_state_add",
             "username",
             "nickname",
             "password",
             "email",
             "email_state",
-            "user_group",
-            "user_admin",
+            "email_state_add",
             "login_ip",
             "signature",
             "avatar",
-            "friends",
-            "admin_group"
+            "friends"
         ],
         "body_required": [],
         "body_not": []
@@ -95,10 +97,12 @@
             "mc_max",
             "login_time_min",
             "login_time_max",
-            "phone_state",
+            "phone_state_min",
+            "phone_state_max",
             "username",
             "nickname",
-            "email_state",
+            "email_state_min",
+            "email_state_max",
             "create_time_min",
             "create_time_max",
             "keyword"
@@ -122,7 +126,7 @@
         {
             "name": "state",
             "title": "账户状态",
-            "description": "1为可用，2为异常，3为已冻结，4为已注销",
+            "description": "(1可用|2异常|3已冻结|4已注销)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -132,7 +136,7 @@
         {
             "name": "state_min",
             "title": "账户状态——最小值",
-            "description": "1为可用，2为异常，3为已冻结，4为已注销",
+            "description": "(1可用|2异常|3已冻结|4已注销)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -142,7 +146,7 @@
         {
             "name": "state_max",
             "title": "账户状态——最大值",
-            "description": "1为可用，2为异常，3为已冻结，4为已注销",
+            "description": "(1可用|2异常|3已冻结|4已注销)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -240,9 +244,35 @@
             }
         },
         {
+            "name": "group_id",
+            "title": "所在用户组",
+            "description": "决定用户身份和权限(user_group)",
+            "type": "number",
+            "dataType": "smallint",
+            "number": {
+                "range": [
+                    1,
+                    32767
+                ]
+            }
+        },
+        {
+            "name": "admin_id",
+            "title": "所在管理组",
+            "description": "决定用户身份和权限(user_admin)",
+            "type": "number",
+            "dataType": "smallint",
+            "number": {
+                "range": [
+                    1,
+                    32767
+                ]
+            }
+        },
+        {
             "name": "referee_id",
             "title": "推荐人ID",
-            "description": "用于推荐注册时积分奖级",
+            "description": "用于推荐注册时积分奖级(user_account.nickname.user_id)",
             "type": "number",
             "dataType": "mediumint",
             "number": {
@@ -317,10 +347,30 @@
         },
         {
             "name": "phone_state",
-            "title": "手机号码认证",
-            "description": "0为未认证，1为认证通过",
+            "title": "手机认证",
+            "description": "(0未认证|1审核中|2已认证)",
             "type": "number",
-            "dataType": "tinyint",
+            "dataType": "smallint",
+            "number": {
+                "max": 1
+            }
+        },
+        {
+            "name": "phone_state_min",
+            "title": "手机认证——最小值",
+            "description": "(0未认证|1审核中|2已认证)",
+            "type": "number",
+            "dataType": "smallint",
+            "number": {
+                "max": 1
+            }
+        },
+        {
+            "name": "phone_state_max",
+            "title": "手机认证——最大值",
+            "description": "(0未认证|1审核中|2已认证)",
+            "type": "number",
+            "dataType": "smallint",
             "number": {
                 "max": 1
             }
@@ -366,28 +416,32 @@
         {
             "name": "email_state",
             "title": "邮箱认证",
-            "description": "0为未认证，1为认证通过",
+            "description": "(0未认证|1审核中|2已认证)",
             "type": "number",
-            "dataType": "tinyint",
+            "dataType": "smallint",
             "number": {
                 "max": 1
             }
         },
         {
-            "name": "user_group",
-            "title": "所在用户组",
-            "description": "多个用户组用“,“分隔",
-            "type": "string",
-            "dataType": "varchar",
-            "string": {}
+            "name": "email_state_min",
+            "title": "邮箱认证——最小值",
+            "description": "(0未认证|1审核中|2已认证)",
+            "type": "number",
+            "dataType": "smallint",
+            "number": {
+                "max": 1
+            }
         },
         {
-            "name": "user_admin",
-            "title": "所在管理组",
-            "description": "多个管理组用“,“分隔",
-            "type": "string",
-            "dataType": "varchar",
-            "string": {}
+            "name": "email_state_max",
+            "title": "邮箱认证——最大值",
+            "description": "(0未认证|1审核中|2已认证)",
+            "type": "number",
+            "dataType": "smallint",
+            "number": {
+                "max": 1
+            }
         },
         {
             "name": "login_ip",
@@ -422,19 +476,11 @@
             "string": {}
         },
         {
-            "name": "admin_group",
-            "title": "所在管理组",
-            "description": "多个管理组用“,“分隔",
-            "type": "string",
-            "dataType": "varchar",
-            "string": {}
-        },
-        {
             "name": "create_time",
             "title": "创建时间",
             "description": "",
             "type": "string",
-            "dataType": "datetime",
+            "dataType": "timestamp",
             "string": {
                 "notEmpty": true,
                 "format": "datetime"
@@ -445,7 +491,7 @@
             "title": "创建时间——开始时间",
             "description": "",
             "type": "string",
-            "dataType": "datetime",
+            "dataType": "timestamp",
             "string": {
                 "notEmpty": true,
                 "format": "datetime"
@@ -456,7 +502,7 @@
             "title": "创建时间——结束时间",
             "description": "",
             "type": "string",
-            "dataType": "datetime",
+            "dataType": "timestamp",
             "string": {
                 "notEmpty": true,
                 "format": "datetime"

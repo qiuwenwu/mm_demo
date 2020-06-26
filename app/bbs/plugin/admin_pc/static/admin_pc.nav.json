@@ -128,6 +128,7 @@
         {
             "title": "社区",
             "name": "bbs",
+            "icon": "<i class=\"fa-university\"></i>",
             "url": "/bbs",
             "display": 0,
             "sub": [

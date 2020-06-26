@@ -79,7 +79,7 @@
         {
             "name": "available",
             "title": "是否启用",
-            "description": "启用则显示该评论",
+            "description": "启用则显示该评论(0否|1是)",
             "type": "number",
             "dataType": "tinyint",
             "number": {
@@ -149,7 +149,7 @@
         {
             "name": "thread_id",
             "title": "所属主题id",
-            "description": "",
+            "description": "(bbs_thread.title)",
             "type": "number",
             "dataType": "mediumint",
             "number": {
@@ -162,7 +162,7 @@
         {
             "name": "user_id",
             "title": "用户ID",
-            "description": "编辑评论的用户ID",
+            "description": "编辑评论的用户ID(user_account.nickname)",
             "type": "number",
             "dataType": "mediumint",
             "number": {

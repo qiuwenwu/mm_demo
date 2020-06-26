@@ -1,6 +1,6 @@
 {
     "name": "url_share",
-    "title": "",
+    "title": "链接分享",
     "add": {
         "body": [
             "user_id",
@@ -55,7 +55,7 @@
         {
             "name": "user_id",
             "title": "创建者ID",
-            "description": "一般为经纪人ID",
+            "description": "一般为经纪人ID(user_account.nickname)",
             "type": "number",
             "dataType": "int",
             "number": {

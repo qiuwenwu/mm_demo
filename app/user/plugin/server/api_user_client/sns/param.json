@@ -88,7 +88,7 @@
         {
             "name": "qq_state",
             "title": "QQ认证",
-            "description": "0未认证，1已认证",
+            "description": "(0未认证|1已认证)",
             "type": "number",
             "dataType": "tinyint",
             "number": {
@@ -111,7 +111,7 @@
         {
             "name": "wechat_state",
             "title": "微信认证",
-            "description": "0未认证，1已认证",
+            "description": "(0未认证|1已认证)",
             "type": "number",
             "dataType": "tinyint",
             "number": {
@@ -134,7 +134,7 @@
         {
             "name": "mm_state",
             "title": "MM认证",
-            "description": "0未认证，1已认证",
+            "description": "(0未认证|1已认证)",
             "type": "number",
             "dataType": "tinyint",
             "number": {
@@ -157,7 +157,7 @@
         {
             "name": "baidu_state",
             "title": "百度认证",
-            "description": "0未认证，1已认证",
+            "description": "(0未认证|1已认证)",
             "type": "number",
             "dataType": "tinyint",
             "number": {
@@ -180,7 +180,7 @@
         {
             "name": "taobao_state",
             "title": "淘宝认证",
-            "description": "0未认证，1已认证",
+            "description": "(0未认证|1已认证)",
             "type": "number",
             "dataType": "tinyint",
             "number": {

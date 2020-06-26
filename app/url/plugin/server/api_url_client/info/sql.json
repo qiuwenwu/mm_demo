@@ -1,12 +1,12 @@
 {
     "name": "url_info",
-    "title": "",
+    "title": "链接信息",
     "table": "url_info",
     "key": "url_id",
     "orderby_default": "`url_id` desc",
     "field_obj": "`url_id`,`key`,`url_redirect`,`time_create`,`time_update`",
     "field_default": "`url_id`,`key`,`url_redirect`,`time_create`,`time_update`",
-    "method": "get",
+    "method": "get get_obj",
     "query": {
         "key": "`key` like '%{0}%'",
         "url_redirect": "`url_redirect` like '%{0}%'",
@@ -16,5 +16,6 @@
         "time_update_max": "`time_update` <= '{0}'"
     },
     "query_default": {},
-    "update": {}
+    "update": {},
+    "format": []
 }

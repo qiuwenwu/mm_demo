@@ -1,0 +1,11 @@
+{
+	"name": "stock",
+	"title": "股票",
+	"description": "股票信息",
+	"version": "1.0",
+	"identifier": "stock",
+	"lang_path": "./lang/",
+	"icon": "/img/logo.png",
+	"cmd": "stock",
+	"sort": 10
+}

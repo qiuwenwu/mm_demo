@@ -74,7 +74,7 @@
         {
             "name": "task_id",
             "title": "任务ID",
-            "description": "用于对应批测任务查询统计",
+            "description": "用于对应批测任务查询统计(query_article.title)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -87,7 +87,7 @@
         {
             "name": "user_id",
             "title": "测评人ID",
-            "description": "用于识别是哪个用户测评的",
+            "description": "用于识别是哪个用户测评的(user_account.nickname)",
             "type": "number",
             "dataType": "int",
             "number": {

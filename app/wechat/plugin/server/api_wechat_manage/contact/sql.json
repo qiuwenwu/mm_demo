@@ -14,5 +14,6 @@
         "keyword": "(`nickname` like '%{0}%')"
     },
     "update": {},
-    "field_hide": []
+    "field_hide": [],
+    "format": []
 }

@@ -7,16 +7,26 @@
 						<h5>{{ form[field] ? '修改' : '创建' }}管理组</h5>
 					</header>
 					<dl>
-						<dt>图标</dt>
-						<dd><mm_upload_img width="10rem" height="10rem" name="icon" type="text" v-model="form.icon"></mm_upload_img></dd>
-						<dt>名称</dt>
-						<dd><mm_input type="text" v-model="form.name" desc="由2-16个字符组成"></mm_input></dd>
-						<dt>显示顺序</dt>
-						<dd><mm_number v-model="form.display" :min="0" :max="1000" ></mm_number></dd>
-						<dt>分类</dt>
-						<dd><mm_input v-model="form.type" ></mm_input></dd>
+						<dt>上级</dt>
+						<dd>
+							<mm_select v-model="form.father_id" :options="$to_kv(list_admin, 'admin_id', 'name')" />
+						</dd>
+						<dt class="required">名称</dt>
+						<dd>
+							<mm_input v-model="form.name" :minlength="0" :maxlength="0" placeholder="" :required="true"/>
+						</dd>
+						<dt>部门</dt>
+						<dd>
+							<mm_input v-model="form.department" :minlength="0" :maxlength="0" placeholder="用于区分管理组织结构" />
+						</dd>
 						<dt>描述</dt>
-						<dd><textarea v-model="form.description"></textarea></dd>
+						<dd>
+							<mm_input v-model="form.description" :minlength="0" :maxlength="0" placeholder="描述该用户组的特点或权限范围" />
+						</dd>
+						<dt>图标</dt>
+						<dd>
+							<mm_upload_img width="10rem" height="10rem" name="icon" type="text" v-model="form.icon" />
+						</dd>
 					</dl>
 					<footer>
 						<div class="mm_group">
@@ -30,66 +40,59 @@
 	</main>
 </template>
 
-<script>
-import mixin from '/src/mixins/page.js';
 
-export default {
-	mixins: [mixin],
-	components: {},
-	data() {
-		return {
-			url_submit: '/apis/user/admin?',
-			url_get_obj: '/apis/user/admin',
-			field: 'admin_id',
-			query: {
-				admin_id: 0
-			},
-			form: {
-				// 管理组ID
-				admin_id: 0,
-				// 管理组名称
-				name: '',
-				// 显示顺序
-				display: 0,
-				// 分类
-				type: '',
-				// 描述
-				description: '',
-				// 图标
-				icon: ''
+<script>
+	import mixin from '/src/mixins/page.js';
+
+	export default {
+		mixins: [mixin],
+		components: {},
+		data() {
+			return {
+				url_submit: "/apis/user/admin?",
+				url_get_obj: "/apis/user/admin?method=get_obj",
+				field: "admin_id",
+				query: {
+					"admin_id": 0
+				},
+				form: {
+						"admin_id": 0,
+						"father_id": 0,
+						"name": '',
+						"department": '',
+						"description": '',
+						"icon": '',
+				},
+				// 上级
+				'list_admin': [],
 			}
-		};
-	},
-	methods: {}
-};
+		},
+		methods: {
+				/**
+				 * 获取上级
+				 * @param {query} 查询条件
+				 */
+				get_admin(query){
+					var _this = this;
+					if(!query){
+						query = {
+							field: "admin_id,name"
+						};
+					}
+					this.$get('~/apis/user/admin?size=0', query, function(json) {
+						if (json.result) {
+							_this.list_admin.clear();
+							_this.list_admin.addList(json.result.list)
+						}
+					});
+				},
+		},
+		created() {
+			// 获取上级
+			this.get_admin();
+		}
+	}
 </script>
 
 <style>
-/* 页面 */
-#user_admin_form {
-}
-
-/* 表单 */
-#user_admin_form .mm_form {
-}
-
-/* 筛选栏栏 */
-#user_admin_form .mm_filter {
-}
-
-/* 操作栏 */
-#user_admin_form .mm_action {
-}
-
-/* 模态窗 */
-#user_admin_form .mm_modal {
-}
-
-/* 表格 */
-#user_admin_form .mm_table {
-}
-
-/* 数据统计 */
-#user_admin_form .mm_data_count {
-}
 </style>

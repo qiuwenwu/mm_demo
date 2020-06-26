@@ -3,8 +3,9 @@
     "title": "管理组",
     "add": {
         "body": [
+            "father_id",
             "display",
-            "type",
+            "department",
             "description",
             "icon"
         ],
@@ -29,10 +30,11 @@
         ],
         "query_required": [],
         "body": [
+            "father_id",
             "display",
             "display_add",
-            "type",
             "name",
+            "department",
             "description",
             "icon"
         ],
@@ -61,6 +63,19 @@
                 "range": [
                     1,
                     1000
+                ]
+            }
+        },
+        {
+            "name": "father_id",
+            "title": "上级ID",
+            "description": "(user_admin.name.admin_id)",
+            "type": "number",
+            "dataType": "smallint",
+            "number": {
+                "range": [
+                    1,
+                    32767
                 ]
             }
         },
@@ -95,22 +110,22 @@
             }
         },
         {
-            "name": "type",
-            "title": "分类",
-            "description": "用于区分用户组使用范围",
-            "type": "string",
-            "dataType": "varchar",
-            "string": {}
-        },
-        {
             "name": "name",
-            "title": "管理组名称",
+            "title": "名称",
             "description": "",
             "type": "string",
             "dataType": "varchar",
             "string": {
                 "notEmpty": 1
             }
+        },
+        {
+            "name": "department",
+            "title": "部门",
+            "description": "用于区分管理组织结构",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
         },
         {
             "name": "description",
@@ -133,7 +148,7 @@
         {
             "name": "keyword",
             "title": "关键词",
-            "description": "用于搜索管理组名称(name)、描述(description)",
+            "description": "用于搜索名称(name)、描述(description)",
             "type": "string",
             "dataType": "varchar",
             "string": {}

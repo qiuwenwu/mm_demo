@@ -56,7 +56,7 @@
         {
             "name": "user_id",
             "title": "用户ID",
-            "description": "表示当前Token绑定的用户uid",
+            "description": "表示当前Token绑定的用户uid(user_account.nickname)",
             "type": "number",
             "dataType": "mediumint",
             "number": {

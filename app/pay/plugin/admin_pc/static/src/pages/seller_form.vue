@@ -7,29 +7,45 @@
 						<h5>{{ form[field] ? '修改' : '创建' }}商户信息</h5>
 					</header>
 					<dl>
-						<dt>头像</dt>
+						<dt>认证状态</dt>
 						<dd>
-							<mm_upload_img width="10rem" height="10rem" name="avatar" type="text" v-model="form.avatar"></mm_upload_img>
+							<mm_select v-model="form.institution_state" :options="$to_kv(arr_institution_state)" />
 						</dd>
-						<dt>昵称</dt>
+						<dt>商户持有人</dt>
 						<dd>
-							<mm_input type="text" v-model="form.nickname" desc="由2-16个字符组成"></mm_input>
+							<mm_select v-model="form.user_id" :options="$to_kv(list_account, 'user_id', 'nickname')" />
 						</dd>
-						<dt>会员级别</dt>
+						<dt>省份</dt>
 						<dd>
-							<mm_select v-model="form.vip" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
+							<mm_select v-model="form.province_id" :options="$to_kv(list_address_province, 'province_id', 'name')" />
 						</dd>
-						<dt>管理级别</dt>
+						<dt>所在城市</dt>
 						<dd>
-							<mm_select v-model="form.gm" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
+							<mm_select v-model="form.city_id" :options="$to_kv(list_address_city, 'city_id', 'name')" />
 						</dd>
-						<dt>商户级别</dt>
+						<dt class="required">商户名称</dt>
 						<dd>
-							<mm_select v-model="form.mc" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
+							<mm_input v-model="form.name" :minlength="0" :maxlength="0" placeholder="" :required="true"/>
 						</dd>
-						<dt>个性签名</dt>
+						<dt>注册企业名</dt>
 						<dd>
-							<textarea v-model="form.signature" placeholder="由2-16个字符组成"></textarea>
+							<mm_input v-model="form.institution" :minlength="0" :maxlength="0" placeholder="" />
+						</dd>
+						<dt>组织机构码</dt>
+						<dd>
+							<mm_input v-model="form.institution_code" :minlength="0" :maxlength="0" placeholder="" />
+						</dd>
+						<dt>详细地址</dt>
+						<dd>
+							<mm_input v-model="form.address" :minlength="0" :maxlength="0" placeholder="商户办公地的详细地址" />
+						</dd>
+						<dt>经营范围</dt>
+						<dd>
+							<mm_input v-model="form.business" :minlength="0" :maxlength="0" placeholder="" />
+						</dd>
+						<dt>营业执照图片</dt>
+						<dd>
+							<mm_upload_img width="10rem" height="10rem" name="institution_img" type="text" v-model="form.institution_img" />
 						</dd>
 					</dl>
 					<footer>
@@ -54,39 +70,100 @@
 		data() {
 			return {
 				url_submit: "/apis/pay/seller?",
-				url_get_obj: "/apis/pay/seller",
+				url_get_obj: "/apis/pay/seller?method=get_obj",
 				field: "seller_id",
 				query: {
 					"seller_id": 0
 				},
-				form: {}
+				form: {
+						"seller_id": 0,
+						"institution_state": 0,
+						"user_id": 0,
+						"province_id": 0,
+						"city_id": 0,
+						"name": '',
+						"institution": '',
+						"institution_code": '',
+						"address": '',
+						"business": '',
+						"institution_img": '',
+				},
+				// 认证状态
+				'arr_institution_state': ['','未认证','认证中','已认证','认证失败'],
+				// 商户持有人
+				'list_account': [],
+				// 省份
+				'list_address_province': [],
+				// 所在城市
+				'list_address_city': [],
 			}
 		},
 		methods: {
-
+				/**
+				 * 获取商户持有人
+				 * @param {query} 查询条件
+				 */
+				get_account(query){
+					var _this = this;
+					if(!query){
+						query = {
+							field: "user_id,nickname"
+						};
+					}
+					this.$get('~/apis/user/account?size=0', query, function(json) {
+						if (json.result) {
+							_this.list_account.clear();
+							_this.list_account.addList(json.result.list)
+						}
+					});
+				},
+				/**
+				 * 获取省份
+				 * @param {query} 查询条件
+				 */
+				get_address_province(query){
+					var _this = this;
+					if(!query){
+						query = {
+							field: "province_id,name"
+						};
+					}
+					this.$get('~/apis/sys/address_province?size=0', query, function(json) {
+						if (json.result) {
+							_this.list_address_province.clear();
+							_this.list_address_province.addList(json.result.list)
+						}
+					});
+				},
+				/**
+				 * 获取所在城市
+				 * @param {query} 查询条件
+				 */
+				get_address_city(query){
+					var _this = this;
+					if(!query){
+						query = {
+							field: "city_id,name"
+						};
+					}
+					this.$get('~/apis/sys/address_city?size=0', query, function(json) {
+						if (json.result) {
+							_this.list_address_city.clear();
+							_this.list_address_city.addList(json.result.list)
+						}
+					});
+				},
+		},
+		created() {
+			// 获取商户持有人
+			this.get_account();
+			// 获取省份
+			this.get_address_province();
+			// 获取所在城市
+			this.get_address_city();
 		}
 	}
 </script>
 
 <style>
-	/* 页面 */
-	#pay_seller_form {}
-
-	/* 表单 */
-	#pay_seller_form .mm_form {}
-
-	/* 筛选栏栏 */
-	#pay_seller_form .mm_filter {}
-
-	/* 操作栏 */
-	#pay_seller_form .mm_action {}
-
-	/* 模态窗 */
-	#pay_seller_form .mm_modal {}
-
-	/* 表格 */
-	#pay_seller_form .mm_table {}
-
-	/* 数据统计 */
-	#pay_seller_form .mm_data_count {}
 </style>

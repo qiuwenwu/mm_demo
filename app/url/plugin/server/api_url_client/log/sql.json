@@ -1,12 +1,12 @@
 {
     "name": "url_log",
-    "title": "",
+    "title": "链接访问日志",
     "table": "url_log",
     "key": "log_id",
     "orderby_default": "`log_id` desc",
     "field_obj": "`log_id`,`key`,`time_create`,`time_update`,`query`,`ip`",
     "field_default": "`log_id`,`key`,`time_create`,`time_update`,`query`,`ip`",
-    "method": "get",
+    "method": "get get_obj",
     "query": {
         "key": "`key` like '%{0}%'",
         "time_create_min": "`time_create` >= '{0}'",
@@ -17,5 +17,6 @@
         "ip": "`ip` like '%{0}%'"
     },
     "query_default": {},
-    "update": {}
+    "update": {},
+    "format": []
 }

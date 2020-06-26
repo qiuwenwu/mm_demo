@@ -1,0 +1,12 @@
+{
+    "name": "stock_analyse_3",
+    "title": "创业板股票分析",
+    "description": "分析创业板的股票",
+    "path": "/api/stock/analyse_3",
+    "method": "GET",
+    "cache": 0,
+    "client_cache": false,
+    "param_path": "./param.json",
+    "sql_path": "./sql.json",
+    "check_param": true
+}

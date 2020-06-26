@@ -150,6 +150,7 @@
         {
             "title": "支付",
             "name": "pay",
+            "icon": "<i class=\"fa-credit-card-alt\"></i>",
             "url": "/pay",
             "display": 0,
             "sub": [

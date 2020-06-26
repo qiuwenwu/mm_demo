@@ -5,8 +5,8 @@
     "key": "comment_id",
     "orderby_default": "`display` asc",
     "field_obj": "`comment_id`,`available`,`score`,`article_id`,`user_id`,`name`,`tag`,`content`,`reply`",
-    "field_default": "`comment_id`,`available`,`score`,`display`,`article_id`,`user_id`,`name`,`tag`,`reply`",
-    "method": "get",
+    "field_default": "`comment_id`,`available`,`score`,`display`,`article_id`,`user_id`,`name`,`tag`",
+    "method": "get get_obj",
     "query": {
         "score_min": "`score` >= {0}",
         "score_max": "`score` <= {0}",
@@ -34,5 +34,27 @@
         "field": "field",
         "count_ret": "count_ret",
         "user_id": "user_id"
-    }
+    },
+    "format": [
+        {
+            "key": "available",
+            "title": "是否启用",
+            "list": [
+                "否",
+                "是"
+            ]
+        },
+        {
+            "key": "article_id",
+            "title": "所属文章",
+            "table": "cms_article",
+            "name": "title"
+        },
+        {
+            "key": "user_id",
+            "title": "用户",
+            "table": "user_account",
+            "name": "nickname"
+        }
+    ]
 }

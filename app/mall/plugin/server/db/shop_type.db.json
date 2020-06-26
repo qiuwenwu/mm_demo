@@ -21,6 +21,7 @@
             "max": 30000,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -41,26 +42,7 @@
             "max": 1000,
             "decimal": 0,
             "default": "100",
-            "join_in": [],
-            "join_out": [],
-            "position": []
-        },
-        {
-            "name": "channel_id",
-            "title": "频道ID",
-            "description": "",
-            "type": "smallint",
-            "key": false,
-            "auto": "",
-            "symbol": false,
-            "fill_zero": false,
-            "not_null": 1,
-            "min_length": 0,
-            "max_length": 5,
-            "min": 1,
-            "max": 10000,
-            "decimal": 0,
-            "default": "0",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -81,6 +63,7 @@
             "max": 32767,
             "decimal": 0,
             "default": "0",
+            "map": "mall_shop_type.name.type_id",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -101,6 +84,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -121,6 +105,7 @@
             "max": 255,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -141,6 +126,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []

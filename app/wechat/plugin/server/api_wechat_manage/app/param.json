@@ -125,7 +125,7 @@
         {
             "name": "encrypt",
             "title": "加解密方式",
-            "description": "0明文模式，1兼容模式，2安全模式",
+            "description": "(0明文模式|1兼容模式|2安全模式)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -135,7 +135,7 @@
         {
             "name": "encrypt_min",
             "title": "加解密方式——最小值",
-            "description": "0明文模式，1兼容模式，2安全模式",
+            "description": "(0明文模式|1兼容模式|2安全模式)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -145,7 +145,7 @@
         {
             "name": "encrypt_max",
             "title": "加解密方式——最大值",
-            "description": "0明文模式，1兼容模式，2安全模式",
+            "description": "(0明文模式|1兼容模式|2安全模式)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -215,7 +215,7 @@
         {
             "name": "max_age",
             "title": "有效期时长",
-            "description": "授权应用可以使用的时长，超时需重新申请（单位：天）",
+            "description": "授权应用可以使用的时长，超时需重新申请。单位：天",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -225,7 +225,7 @@
         {
             "name": "max_age_min",
             "title": "有效期时长——最小值",
-            "description": "授权应用可以使用的时长，超时需重新申请（单位：天）",
+            "description": "授权应用可以使用的时长，超时需重新申请。单位：天",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -235,7 +235,7 @@
         {
             "name": "max_age_max",
             "title": "有效期时长——最大值",
-            "description": "授权应用可以使用的时长，超时需重新申请（单位：天）",
+            "description": "授权应用可以使用的时长，超时需重新申请。单位：天",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -245,7 +245,7 @@
         {
             "name": "user_id",
             "title": "持有者ID",
-            "description": "该客户端所有人的ID",
+            "description": "该客户端所有人的ID(user_account.nickname)",
             "type": "number",
             "dataType": "mediumint",
             "number": {

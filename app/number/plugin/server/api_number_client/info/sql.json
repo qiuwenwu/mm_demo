@@ -1,0 +1,128 @@
+{
+    "name": "number_info",
+    "title": "号码信息",
+    "table": "number_info",
+    "key": "number_id",
+    "orderby_default": "`display` asc",
+    "field_obj": "`number_id`,`private`,`heYue`,`hide`,`kid`,`yid`,`tid`,`cityID`,`gid`,`sid`,`user_id`,`rid`,`average`,`score`,`huaFei`,`maiJia`,`daiLiJia`,`diJia`,`order`,`hot`,`collection`,`createTime`,`topTime`,`updateTime`,`number`,`format`,`activity`,`group`,`desc`,`diXiao`,`log`,`note`",
+    "field_default": "`number_id`,`private`,`heYue`,`hide`,`kid`,`yid`,`tid`,`cityID`,`gid`,`sid`,`user_id`,`rid`,`average`,`score`,`huaFei`,`maiJia`,`daiLiJia`,`diJia`,`order`,`hot`,`collection`,`display`,`createTime`,`topTime`,`updateTime`,`number`,`format`,`activity`,`group`,`desc`,`diXiao`",
+    "method": "get get_obj",
+    "query": {
+        "cityID_min": "`cityID` >= {0}",
+        "cityID_max": "`cityID` <= {0}",
+        "average_min": "`average` >= {0}",
+        "average_max": "`average` <= {0}",
+        "score_min": "`score` >= {0}",
+        "score_max": "`score` <= {0}",
+        "huaFei_min": "`huaFei` >= {0}",
+        "huaFei_max": "`huaFei` <= {0}",
+        "maiJia_min": "`maiJia` >= {0}",
+        "maiJia_max": "`maiJia` <= {0}",
+        "daiLiJia_min": "`daiLiJia` >= {0}",
+        "daiLiJia_max": "`daiLiJia` <= {0}",
+        "diJia_min": "`diJia` >= {0}",
+        "diJia_max": "`diJia` <= {0}",
+        "order_min": "`order` >= {0}",
+        "order_max": "`order` <= {0}",
+        "hot_min": "`hot` >= {0}",
+        "hot_max": "`hot` <= {0}",
+        "collection_min": "`collection` >= {0}",
+        "collection_max": "`collection` <= {0}",
+        "display_min": "`display` >= {0}",
+        "display_max": "`display` <= {0}",
+        "createTime_min": "`createTime` >= '{0}'",
+        "createTime_max": "`createTime` <= '{0}'",
+        "topTime_min": "`topTime` >= '{0}'",
+        "topTime_max": "`topTime` <= '{0}'",
+        "updateTime_min": "`updateTime` >= '{0}'",
+        "updateTime_max": "`updateTime` <= '{0}'",
+        "number": "`number` like '%{0}%'",
+        "format": "`format` like '%{0}%'",
+        "activity": "`activity` like '%{0}%'",
+        "group": "`group` like '%{0}%'",
+        "desc": "`desc` like '%{0}%'",
+        "diXiao": "`diXiao` like '%{0}%'",
+        "log": "`log` like '%{0}%'",
+        "note": "`note` like '%{0}%'"
+    },
+    "query_default": {},
+    "update": {
+        "cityID_add": "`cityID` = `cityID` + {0}",
+        "average_add": "`average` = `average` + {0}",
+        "score_add": "`score` = `score` + {0}",
+        "huaFei_add": "`huaFei` = `huaFei` + {0}",
+        "maiJia_add": "`maiJia` = `maiJia` + {0}",
+        "daiLiJia_add": "`daiLiJia` = `daiLiJia` + {0}",
+        "diJia_add": "`diJia` = `diJia` + {0}",
+        "order_add": "`order` = `order` + {0}",
+        "hot_add": "`hot` = `hot` + {0}",
+        "collection_add": "`collection` = `collection` + {0}",
+        "display_add": "`display` = `display` + {0}"
+    },
+    "format": [
+        {
+            "key": "private",
+            "title": "是否私有",
+            "list": [
+                "否",
+                "是"
+            ]
+        },
+        {
+            "key": "heYue",
+            "title": "是否合约号",
+            "list": [
+                "否",
+                "是"
+            ]
+        },
+        {
+            "key": "hide",
+            "title": "是否隐藏",
+            "list": [
+                "否",
+                "是"
+            ]
+        },
+        {
+            "key": "kid",
+            "title": "号码种类",
+            "list": [
+                "",
+                "手机号码",
+                "固定电话号码",
+                "企业电话号码",
+                "QQ号码",
+                "车牌号码"
+            ]
+        },
+        {
+            "key": "sid",
+            "title": "制式",
+            "list": [
+                "",
+                "移动",
+                "联通",
+                "电信"
+            ]
+        },
+        {
+            "key": "user_id",
+            "title": "处理人",
+            "table": "user_account",
+            "name": "nickname"
+        },
+        {
+            "key": "order",
+            "title": "订单状态",
+            "list": [
+                "",
+                "待售中",
+                "已预约",
+                "已售出",
+                "已下架",
+                "已删除"
+            ]
+        }
+    ]
+}

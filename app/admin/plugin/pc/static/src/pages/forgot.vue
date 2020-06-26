@@ -7,7 +7,6 @@
 					<span class="arrow"></span>
 				</mm_title>
 				<mm_body>
-				
 				</mm_body>
 			</mm_view>
 		</mm_col>

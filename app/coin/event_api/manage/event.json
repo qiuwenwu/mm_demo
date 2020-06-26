@@ -1,0 +1,10 @@
+{
+	"target": "/apis/coin/*",
+	"name": "coin_admin_api",
+	"title": "数字货币管理端调用的接口事件",
+	"description": "用于管理数字货币时调用的接口",
+	"stage": "main",
+	"func_file": "./main.js",
+	"sort": 99,
+	"end": true
+}

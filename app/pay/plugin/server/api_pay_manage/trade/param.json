@@ -120,7 +120,7 @@
         {
             "name": "state",
             "title": "付款状态",
-            "description": "1待付款，2待确认，3已完成，4已取消",
+            "description": "(1待付款|2待确认|3已完成|4已取消)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -130,7 +130,7 @@
         {
             "name": "state_min",
             "title": "付款状态——最小值",
-            "description": "1待付款，2待确认，3已完成，4已取消",
+            "description": "(1待付款|2待确认|3已完成|4已取消)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -140,7 +140,7 @@
         {
             "name": "state_max",
             "title": "付款状态——最大值",
-            "description": "1待付款，2待确认，3已完成，4已取消",
+            "description": "(1待付款|2待确认|3已完成|4已取消)",
             "type": "number",
             "dataType": "smallint",
             "number": {
@@ -150,7 +150,7 @@
         {
             "name": "from_user_id",
             "title": "付款人",
-            "description": "",
+            "description": "(user_account.nickname.user_id)",
             "type": "number",
             "dataType": "mediumint",
             "number": {
@@ -163,7 +163,7 @@
         {
             "name": "to_user_id",
             "title": "收款人",
-            "description": "如果是商户收款，可选填",
+            "description": "如果是商户收款，可选填(user_account.nickname.user_id)",
             "type": "number",
             "dataType": "mediumint",
             "number": {
@@ -176,7 +176,7 @@
         {
             "name": "seller_id",
             "title": "商户ID",
-            "description": "商户收款的ID",
+            "description": "商户收款的ID(pay_seller)",
             "type": "number",
             "dataType": "mediumint",
             "number": {

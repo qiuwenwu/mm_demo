@@ -9,15 +9,21 @@
 					<mm_body>
 						<mm_form class="mm_filter">
 							<h5><span>筛选条件</span></h5>
-							<mm_list col="2">
+							<mm_list col="3">
 								<mm_col>
-									<mm_input v-model="query.keyword" title="关键词" desc="用户名 / 手机号 / 邮箱 / 姓名" @blur="search()" />
+									<mm_select v-model="query.state" title="提现状态" :options="$to_kv(arr_state)" @change="search()" />
 								</mm_col>
-								<mm_col width="25">
-									<mm_select v-model="query.user_group" title="用户组" :options="$to_kv(user_group, 'group_id')" @change="search()" />
+								<mm_col>
+									<mm_select v-model="query.to_user_id" title="收款人" :options="$to_kv(list_account, 'user_id', 'nickname')" @change="search()" />
 								</mm_col>
-								<mm_col width="25">
-									<mm_select v-model="query.state" title="状态" :options="$to_kv(states)" @change="search()" />
+								<mm_col>
+									<mm_select v-model="query.seller_id" title="商户" :options="$to_kv(list_seller, 'seller_id', 'name')" @change="search()" />
+								</mm_col>
+								<mm_col>
+									<mm_select v-model="query.user_id" title="审批人" :options="$to_kv(list_account, 'user_id', 'nickname')" @change="search()" />
+								</mm_col>
+								<mm_col>
+									<mm_btn class="btn_primary-x" type="reset" @click.native="reset();search()">重置</mm_btn>
 								</mm_col>
 							</mm_list>
 						</mm_form>
@@ -32,38 +38,124 @@
 							<thead>
 								<tr>
 									<th scope="col" class="th_selected"><input type="checkbox" :checked="select_state" @click="select_all()" /></th>
-									<th scope="col" class="th_id">#</th>
-									<th scope="col" class="th_username">
-										<mm_reverse title="用户名" v-model="query.orderby" field="username" :func="search"></mm_reverse>
+									<th scope="col" class="th_id"><span>#</span></th>
+									<th scope="col">
+										<mm_reverse title="提现状态" v-model="query.orderby" field="state" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_nickname">
-										<mm_reverse title="昵称" v-model="query.orderby" field="nickname" :func="search"></mm_reverse>
+									<th scope="col">
+										<mm_reverse title="收款人" v-model="query.orderby" field="to_user_id" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_name">
-										<mm_reverse title="用户组" v-model="query.orderby" field="user_group" :func="search"></mm_reverse>
+									<th scope="col">
+										<mm_reverse title="商户" v-model="query.orderby" field="seller_id" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_phone">
-										<mm_reverse title="手机" v-model="query.orderby" field="phone" :func="search"></mm_reverse>
+									<th scope="col">
+										<mm_reverse title="审批人" v-model="query.orderby" field="user_id" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_email">
-										<mm_reverse title="邮箱" v-model="query.orderby" field="email" :func="search"></mm_reverse>
+									<th scope="col">
+										<mm_reverse title="提现金额" v-model="query.orderby" field="amount" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_state">
-										<mm_reverse title="状态" v-model="query.orderby" field="state" :func="search"></mm_reverse>
+									<th scope="col">
+										<mm_reverse title="手续费" v-model="query.orderby" field="fee" :func="search"></mm_reverse>
 									</th>
-									<th scope="col" class="th_handle">操作</th>
+									<th scope="col">
+										<mm_reverse title="创建时间" v-model="query.orderby" field="time_create" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="转账支付时间" v-model="query.orderby" field="pay_time" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="资金到账时间" v-model="query.orderby" field="time_end" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="最后编辑时间" v-model="query.orderby" field="time_update" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="应用平台" v-model="query.orderby" field="platform" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="收款方式" v-model="query.orderby" field="way" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="转账机构" v-model="query.orderby" field="institution" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="发起提现时的IP" v-model="query.orderby" field="ip" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="付款账户" v-model="query.orderby" field="from_user" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="收款账户" v-model="query.orderby" field="to_user" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="拒绝原因" v-model="query.orderby" field="cause" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="商户备注" v-model="query.orderby" field="note" :func="search"></mm_reverse>
+									</th>
+									<th scope="col" class="th_handle"><span>操作</span></th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr v-for="(o, idx) in list" :key="idx">
+								<tr v-for="(o, idx) in list" :key="idx" :class="{'active': select == idx}" @click="selected(idx)">
 									<th scope="row"><input type="checkbox" :checked="select_has(o[field])" @click="select_change(o[field])" /></th>
-									<th scope="row">{{ o[field] }}</th>
-									<td><span class="name">{{ o.username }}</span></td>
-									<td><span class="name">{{ o.nickname }}</span></td>
-									<td><span class="name">{{ get_name(user_group, o.user_group, 'group_id') }}</span></td>
-									<td><span class="time">{{ o.phone }}</span></td>
-									<td><span class="email">{{ o.email }}</span></td>
-									<td><span class="state" v-bind:class="colors[o.state]">{{ states[o.state] }}</span></td>
+									<td>
+										<span>{{ o.discount_id }}</span>
+									</td>
+									<td>
+										<span v-bind:class="arr_color[o.state]">{{arr_state[o.state] }}</span>
+									</td>
+									<td>
+										<span>{{ get_name(list_account, o.to_user_id, 'user_id', 'nickname') }}</span>
+									</td>
+									<td>
+										<span>{{ get_name(list_seller, o.seller_id, 'seller_id', 'name') }}</span>
+									</td>
+									<td>
+										<span>{{ get_name(list_account, o.user_id, 'user_id', 'nickname') }}</span>
+									</td>
+									<td>
+										<span>{{ o.amount }}</span>
+									</td>
+									<td>
+										<span>{{ o.fee }}</span>
+									</td>
+									<td>
+										<span>{{ $to_time(o.time_create, 'yyyy-MM-dd hh:mm') }}</span>
+									</td>
+									<td>
+										<span>{{ $to_time(o.pay_time, 'yyyy-MM-dd hh:mm') }}</span>
+									</td>
+									<td>
+										<span>{{ $to_time(o.time_end, 'yyyy-MM-dd hh:mm') }}</span>
+									</td>
+									<td>
+										<span>{{ $to_time(o.time_update, 'yyyy-MM-dd hh:mm') }}</span>
+									</td>
+									<td>
+										<span>{{ o.platform }}</span>
+									</td>
+									<td>
+										<span>{{ o.way }}</span>
+									</td>
+									<td>
+										<span>{{ o.institution }}</span>
+									</td>
+									<td>
+										<span>{{ o.ip }}</span>
+									</td>
+									<td>
+										<span>{{ o.from_user }}</span>
+									</td>
+									<td>
+										<span>{{ o.to_user }}</span>
+									</td>
+									<td>
+										<span>{{ o.cause }}</span>
+									</td>
+									<td>
+										<span>{{ o.note }}</span>
+									</td>
 									<td>
 										<mm_btn class="btn_primary" :url="'./account_discount_form?discount_id=' + o[field]">修改</mm_btn>
 										<mm_btn class="btn_warning" @click.native="del_show(o, field)">删除</mm_btn>
@@ -73,16 +165,16 @@
 						</mm_table>
 					</mm_body>
 					<footer>
-						<mm_grid col="4" class="mm_data_count">
+						<mm_grid class="mm_data_count">
 							<mm_col>
 								<mm_select v-model="query.size" :options="$to_size()" @change="search()" />
 							</mm_col>
-							<mm_col width="50">
+							<mm_col width="50" style="min-width: 22.5rem;">
 								<mm_pager display="2" v-model="query.page" :count="count / query.size" :func="goTo" :icons="['首页', '上一页', '下一页', '尾页']"></mm_pager>
 							</mm_col>
 							<mm_col>
 								<div class="right plr">
-									<span class="fl">共 {{ count }} 条</span>
+									<span class="mr">共 {{ count }} 条</span>
 									<span>当前</span>
 									<input class="pager_now" v-model.number="page_now" @blur="goTo(page_now)" @change="page_change" />
 									<span>/{{ page_count }}页</span>
@@ -100,15 +192,21 @@
 				</header>
 				<mm_body>
 					<dl>
-						<dt>昵称</dt>
+						<dt>提现状态</dt>
 						<dd>
-							<label>
-								<input type="text" v-model="form.nickname" placeholder="由2-16个字符组成" />
-							</label>
+							<mm_select v-model="form.state" :options="$to_kv(arr_state)" />
 						</dd>
-						<dt>状态</dt>
+						<dt>收款人</dt>
 						<dd>
-							<mm_select v-model="form.state" :options="$to_kv(states)" />
+							<mm_select v-model="form.to_user_id" :options="$to_kv(list_account, 'user_id', 'nickname')" />
+						</dd>
+						<dt>商户</dt>
+						<dd>
+							<mm_select v-model="form.seller_id" :options="$to_kv(list_seller, 'seller_id', 'name')" />
+						</dd>
+						<dt>审批人</dt>
+						<dd>
+							<mm_select v-model="form.user_id" :options="$to_kv(list_account, 'user_id', 'nickname')" />
 						</dd>
 					</dl>
 				</mm_body>
@@ -138,58 +236,126 @@
 				query_set: {
 					"discount_id": ""
 				},
-				user_group: [],
 				// 查询条件
 				query: {
-					// 排序
-					orderby: "",
-					// 页码
+					//页码
 					page: 1,
-					// 页面大小
+					//页面大小
 					size: 10,
-					// 关键词
-					keyword: "",
+					// 提现申请ID
+					'discount_id': 0,
+					// 提现状态——最小值
+					'state_min': '',
+					// 提现状态——最大值
+					'state_max': '',
+					// 提现金额——最小值
+					'amount_min': 0,
+					// 提现金额——最大值
+					'amount_max': 0,
+					// 手续费——最小值
+					'fee_min': 0,
+					// 手续费——最大值
+					'fee_max': 0,
+					// 创建时间——开始时间
+					'time_create_min': '',
+					// 创建时间——结束时间
+					'time_create_max': '',
+					// 转账支付时间——开始时间
+					'pay_time_min': '',
+					// 转账支付时间——结束时间
+					'pay_time_max': '',
+					// 资金到账时间——开始时间
+					'time_end_min': '',
+					// 资金到账时间——结束时间
+					'time_end_max': '',
+					// 最后编辑时间——开始时间
+					'time_update_min': '',
+					// 最后编辑时间——结束时间
+					'time_update_max': '',
+					//排序
+					orderby: ""
 				},
 				form: {},
-				// 状态
-				states: ['', '正常', '异常', '已冻结', '已注销'],
-				colors: ['', 'font_success', 'font_warning', 'font_yellow', 'font_default'],
+				//颜色
+				arr_color: ['', '', 'font_yellow', 'font_success', 'font_warning', 'font_primary', 'font_info', 'font_default'],
+				// 提现状态
+				'arr_state': ['','申请中','转帐中','已完成','已拒绝'],
+				// 收款人
+				'list_account': [],
+				// 商户
+				'list_seller': [],
+				// 审批人
+				'list_account': [],
 				// 视图模型
 				vm: {}
 			}
 		},
-		methods: {},
-		created() {
-			var _this = this;
-			this.$get('~/apis/user/group?', null, function(json) {
-				if (json.result) {
-					_this.user_group.clear();
-					_this.user_group.addList(json.result.list)
+		methods: {
+			/**
+			 * 获取收款人
+			 * @param {query} 查询条件
+			 */
+			get_account(query){
+				var _this = this;
+				if(!query){
+					query = {
+						field: "user_id,nickname"
+					};
 				}
-			});
+				this.$get('~/apis/user/account?size=0', query, function(json) {
+					if (json.result) {
+						_this.list_account.clear();
+						_this.list_account.addList(json.result.list)
+					}
+				});
+			},
+			/**
+			 * 获取商户
+			 * @param {query} 查询条件
+			 */
+			get_seller(query){
+				var _this = this;
+				if(!query){
+					query = {
+						field: "seller_id,name"
+					};
+				}
+				this.$get('~/apis/pay/seller?size=0', query, function(json) {
+					if (json.result) {
+						_this.list_seller.clear();
+						_this.list_seller.addList(json.result.list)
+					}
+				});
+			},
+			/**
+			 * 获取审批人
+			 * @param {query} 查询条件
+			 */
+			get_account(query){
+				var _this = this;
+				if(!query){
+					query = {
+						field: "user_id,nickname"
+					};
+				}
+				this.$get('~/apis/user/account?size=0', query, function(json) {
+					if (json.result) {
+						_this.list_account.clear();
+						_this.list_account.addList(json.result.list)
+					}
+				});
+			},
+		},
+		created() {
+			// 获取收款人
+			this.get_account();
+			// 获取商户
+			this.get_seller();
+			// 获取审批人
+			this.get_account();
 		}
 	}
 </script>
 
 <style>
-	/* 页面 */
-	#pay_account_discount {}
-
-	/* 表单 */
-	#pay_account_discount .mm_form {}
-
-	/* 筛选栏栏 */
-	#pay_account_discount .mm_filter {}
-
-	/* 操作栏 */
-	#pay_account_discount .mm_action {}
-
-	/* 模态窗 */
-	#pay_account_discount .mm_modal {}
-
-	/* 表格 */
-	#pay_account_discount .mm_table {}
-
-	/* 数据统计 */
-	#pay_account_discount .mm_data_count {}
 </style>

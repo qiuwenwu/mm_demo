@@ -5,7 +5,6 @@
         "body": [
             "display",
             "father_id",
-            "channel_id",
             "name",
             "icon",
             "description"
@@ -32,7 +31,6 @@
             "display",
             "display_add",
             "father_id",
-            "channel_id",
             "name",
             "icon",
             "description"
@@ -98,26 +96,13 @@
         {
             "name": "father_id",
             "title": "上级分类ID",
-            "description": "",
+            "description": "(bbs_thread_type.name.type_id)",
             "type": "number",
             "dataType": "smallint",
             "number": {
                 "range": [
                     1,
                     32767
-                ]
-            }
-        },
-        {
-            "name": "channel_id",
-            "title": "频道ID",
-            "description": "",
-            "type": "number",
-            "dataType": "smallint",
-            "number": {
-                "range": [
-                    1,
-                    10000
                 ]
             }
         },

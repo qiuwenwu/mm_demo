@@ -5,7 +5,7 @@
     "key": "id",
     "orderby_default": "`id` desc",
     "field_obj": "`id`,`name`,`age`,`sex`,`kouhao`",
-    "field_default": "`id`,`name`,`age`,`sex`,`kouhao`",
+    "field_default": "`id`,`name`,`age`,`sex`",
     "query": {
         "name": "`name` like '%{0}%'",
         "age_min": "`age` >= {0}",
@@ -16,5 +16,6 @@
     "update": {
         "age_add": "`age` = `age` + {0}"
     },
+    "format": [],
     "field_hide": []
 }

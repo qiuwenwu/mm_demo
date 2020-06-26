@@ -5,7 +5,7 @@
     "key": "action_id",
     "orderby_default": "`action_id` desc",
     "field_obj": "`action_id`,`func_name`,`uin_action`,`method`,`log`",
-    "field_default": "`action_id`,`time_create`,`time_update`,`func_name`,`uin_action`,`method`,`log`",
+    "field_default": "`action_id`,`time_create`,`time_update`,`func_name`,`uin_action`,`method`",
     "query": {
         "time_create_min": "`time_create` >= '{0}'",
         "time_create_max": "`time_create` <= '{0}'",
@@ -18,5 +18,6 @@
         "keyword": "(`func_name` like '%{0}%')"
     },
     "update": {},
-    "field_hide": []
+    "field_hide": [],
+    "format": []
 }

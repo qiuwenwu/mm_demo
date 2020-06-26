@@ -1,0 +1,140 @@
+{
+    "name": "admin_pc",
+    "sort": 1,
+    "routes": [
+        {
+            "name": "wechat",
+            "path": "/wechat",
+            "redirect": "/wechat/app"
+        },
+        {
+            "name": "wechat_app",
+            "path": "/wechat/app",
+            "component": "/wechat/admin_pc/src/pages/app.vue",
+            "level": 3,
+            "oauth": {
+                "signIn": true,
+                "gm": 2,
+                "user_admin": []
+            }
+        },
+        {
+            "name": "wechat_app_form",
+            "path": "/wechat/app_form",
+            "component": "/wechat/admin_pc/src/pages/app_form.vue",
+            "level": 4,
+            "oauth": {
+                "signIn": true,
+                "gm": 2,
+                "user_admin": []
+            }
+        },
+        {
+            "name": "wechat_app_refresh",
+            "path": "/wechat/app_refresh",
+            "component": "/wechat/admin_pc/src/pages/app_refresh.vue",
+            "level": 2,
+            "oauth": {
+                "signIn": true,
+                "gm": 2,
+                "user_admin": []
+            }
+        },
+        {
+            "name": "wechat_app_refresh_form",
+            "path": "/wechat/app_refresh_form",
+            "component": "/wechat/admin_pc/src/pages/app_refresh_form.vue",
+            "level": 3,
+            "oauth": {
+                "signIn": true,
+                "gm": 2,
+                "user_admin": []
+            }
+        },
+        {
+            "name": "wechat_contact",
+            "path": "/wechat/contact",
+            "component": "/wechat/admin_pc/src/pages/contact.vue",
+            "level": 3,
+            "oauth": {
+                "signIn": true,
+                "gm": 2,
+                "user_admin": []
+            }
+        },
+        {
+            "name": "wechat_contact_form",
+            "path": "/wechat/contact_form",
+            "component": "/wechat/admin_pc/src/pages/contact_form.vue",
+            "level": 4,
+            "oauth": {
+                "signIn": true,
+                "gm": 2,
+                "user_admin": []
+            }
+        },
+        {
+            "name": "wechat_message",
+            "path": "/wechat/message",
+            "component": "/wechat/admin_pc/src/pages/message.vue",
+            "level": 3,
+            "oauth": {
+                "signIn": true,
+                "gm": 2,
+                "user_admin": []
+            }
+        },
+        {
+            "name": "wechat_message_form",
+            "path": "/wechat/message_form",
+            "component": "/wechat/admin_pc/src/pages/message_form.vue",
+            "level": 4,
+            "oauth": {
+                "signIn": true,
+                "gm": 2,
+                "user_admin": []
+            }
+        }
+    ],
+    "top": [],
+    "left": [],
+    "bottom": [],
+    "right": [],
+    "desktop": [],
+    "quick": [],
+    "main": [
+        {
+            "title": "微信",
+            "name": "wechat",
+            "icon": "<i class=\"fa-wechat\"></i>",
+            "url": "/wechat",
+            "display": 0,
+            "sub": [
+                {
+                    "title": "微信应用",
+                    "show": false,
+                    "name": "wechat_app",
+                    "url": "/wechat/app"
+                },
+                {
+                    "title": "微信刷新访问牌",
+                    "show": false,
+                    "name": "wechat_app_refresh",
+                    "url": "/wechat/app_refresh"
+                },
+                {
+                    "title": "",
+                    "show": false,
+                    "name": "wechat_contact",
+                    "url": "/wechat/contact"
+                },
+                {
+                    "title": "微信消息",
+                    "show": false,
+                    "name": "wechat_message",
+                    "url": "/wechat/message"
+                }
+            ]
+        }
+    ]
+}

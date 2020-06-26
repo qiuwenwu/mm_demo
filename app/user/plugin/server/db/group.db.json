@@ -21,6 +21,7 @@
             "max": 8388607,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -41,6 +42,7 @@
             "max": 1000,
             "decimal": 0,
             "default": "100",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -61,6 +63,7 @@
             "max": 1000,
             "decimal": 0,
             "default": "1",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -81,6 +84,7 @@
             "max": 8388607,
             "decimal": 0,
             "default": "0",
+            "map": "user_group.name.group_id",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -101,6 +105,7 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -121,6 +126,7 @@
             "max": 0,
             "decimal": 2,
             "default": "0.00",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -141,6 +147,7 @@
             "max": 0,
             "decimal": 2,
             "default": "0.00",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -161,13 +168,14 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
         },
         {
             "name": "name",
-            "title": "用户名称",
+            "title": "名称",
             "description": "",
             "type": "varchar",
             "key": false,
@@ -181,6 +189,7 @@
             "max": 0,
             "decimal": 0,
             "default": "",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -201,6 +210,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -221,6 +231,7 @@
             "max": 255,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []

@@ -46,9 +46,7 @@ var i = 0;
 
 // 添加Get请求
 app.get('/test', async (ctx, db) => {
-	i++;
-	ctx.body = "test" + i;
-	// ctx.redirect("https://www.baidu.com");
+	ctx.body = "/test.json".loadJson();
 });
 
 

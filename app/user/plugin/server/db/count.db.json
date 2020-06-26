@@ -21,8 +21,10 @@
             "max": 8388607,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "level",
@@ -40,8 +42,10 @@
             "max": 1000,
             "decimal": 0,
             "default": "1",
+            "map": "",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "iq",
@@ -59,8 +63,10 @@
             "max": 200,
             "decimal": 0,
             "default": "100",
+            "map": "",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "credit",
@@ -78,8 +84,10 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "100",
+            "map": "",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "credit_points",
@@ -97,8 +105,10 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "exp",
@@ -116,8 +126,10 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "extcredits1",
@@ -135,8 +147,10 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "extcredits2",
@@ -154,8 +168,10 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "extcredits3",
@@ -173,8 +189,10 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "extcredits4",
@@ -192,8 +210,10 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "extcredits5",
@@ -211,8 +231,10 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "extcredits6",
@@ -230,8 +252,10 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "extcredits7",
@@ -249,8 +273,10 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "extcredits8",
@@ -268,8 +294,10 @@
             "max": 2147483647,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "money",
@@ -287,8 +315,10 @@
             "max": 0,
             "decimal": 2,
             "default": "0.00",
+            "map": "",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         },
         {
             "name": "coin",
@@ -306,8 +336,10 @@
             "max": 0,
             "decimal": 8,
             "default": "0.00000000",
+            "map": "",
             "join_in": [],
-            "join_out": []
+            "join_out": [],
+            "position": []
         }
     ]
 }

@@ -4,8 +4,8 @@
     "table": "wechat_message",
     "key": "message_id",
     "orderby_default": "`message_id` desc",
-    "field_obj": "`message_id`,`end`,`stage`,`msgid`,`update_time`,`create_time`,`group`,`msg_type`,`name`,`type`,`cmd`,`appid`,`from_user`,`to_user`,`robot`,`chatid`,`avatar`,`check`,`keyword`,`form`,`content_last`,`content`,`note`",
-    "field_default": "`message_id`,`end`,`stage`,`msgid`,`update_time`,`create_time`,`group`,`msg_type`,`name`,`type`,`cmd`,`appid`,`from_user`,`to_user`,`robot`,`chatid`,`avatar`,`check`,`keyword`,`form`,`note`",
+    "field_obj": "`message_id`,`end`,`stage`,`msgid`,`group`,`msg_type`,`name`,`type`,`cmd`,`appid`,`from_user`,`to_user`,`robot`,`chatid`,`avatar`,`check`,`keyword`,`form`,`content_last`,`content`,`note`",
+    "field_default": "`message_id`,`end`,`stage`,`msgid`,`update_time`,`create_time`,`group`,`msg_type`,`name`,`type`,`cmd`,`appid`,`from_user`,`to_user`,`robot`,`chatid`,`avatar`,`check`,`keyword`",
     "query": {
         "stage_min": "`stage` >= {0}",
         "stage_max": "`stage` <= {0}",
@@ -34,5 +34,15 @@
     "update": {
         "stage_add": "`stage` = `stage` + {0}"
     },
-    "field_hide": []
+    "field_hide": [],
+    "format": [
+        {
+            "key": "end",
+            "title": "结束会话",
+            "list": [
+                "未结束",
+                "已结束"
+            ]
+        }
+    ]
 }

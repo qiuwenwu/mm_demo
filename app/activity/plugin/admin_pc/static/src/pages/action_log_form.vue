@@ -4,32 +4,24 @@
 			<mm_col width="33">
 				<mm_form class="card">
 					<header class="arrow">
-						<h5>用户账户 —— 编辑</h5>
+						<h5>{{ form[field] ? '修改' : '创建' }}活动操作日志</h5>
 					</header>
 					<dl>
-						<dt>头像</dt>
+						<dt>参操函数名</dt>
 						<dd>
-							<mm_upload_img width="10rem" height="10rem" name="avatar" type="text" v-model="form.avatar"></mm_upload_img>
+							<mm_input v-model="form.func_name" :minlength="0" :maxlength="0" placeholder="" />
 						</dd>
-						<dt>昵称</dt>
+						<dt>操作者uin</dt>
 						<dd>
-							<label>
-								<input type="text" v-model="form.nickname" placeholder="由2-16个字符组成" />
-							</label>
+							<mm_input v-model="form.uin_action" :minlength="0" :maxlength="0" placeholder="" />
 						</dd>
-						<dt>会员级别</dt>
+						<dt>操作方法</dt>
 						<dd>
-							<mm_select v-model="form.vip" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
+							<mm_input v-model="form.method" :minlength="0" :maxlength="0" placeholder="" />
 						</dd>
-						<dt>管理级别</dt>
+						<dt>操作记录</dt>
 						<dd>
-							<mm_select v-model="form.gm" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
-						</dd>
-						<dt>商户级别</dt>
-						<dd><mm_select v-model="form.mc" :options="$to_kv(['',1,2,3,4,5])"></mm_select></dd>
-						<dt>个性签名</dt>
-						<dd>
-							<textarea v-model="form.signature" placeholder="由2-16个字符组成" />
+							<mm_textarea v-model="form.log" type="text" placeholder="" />
 						</dd>
 					</dl>
 					<footer>
@@ -46,51 +38,34 @@
 
 
 <script>
-	import mm_upload_img from '/src/components/form/mm_upload_img.vue';
-		
 	import mixin from '/src/mixins/page.js';
-	
+
 	export default {
 		mixins: [mixin],
-		components: {
-			mm_upload_img
-		},
+		components: {},
 		data() {
 			return {
-				url_submit: "/apis/user/account?",
-				url_get_obj: "/apis/user/account",
+				url_submit: "/apis/activity/action_log?",
+				url_get_obj: "/apis/activity/action_log?method=get_obj",
+				field: "action_id",
 				query: {
-					user_id: 0
+					"action_id": 0
 				},
 				form: {
-				}
+						"action_id": 0,
+						"func_name": '',
+						"uin_action": '',
+						"method": '',
+						"log": '',
+				},
 			}
 		},
 		methods: {
-			
+		},
+		created() {
 		}
 	}
 </script>
 
 <style>
-	/* 页面 */
-	#activity_action_log_form {}
-
-	/* 表单 */
-	#activity_action_log_form .mm_form {}
-	
-	/* 筛选栏栏 */
-	#activity_action_log_form .mm_filter {}
-
-	/* 操作栏 */
-	#activity_action_log_form .mm_action {}
-
-	/* 模态窗 */
-	#activity_action_log_form .mm_modal {}
-
-	/* 表格 */
-	#activity_action_log_form .mm_table {}
-
-	/* 数据统计 */
-	#activity_action_log_form .mm_data_count {}
 </style>

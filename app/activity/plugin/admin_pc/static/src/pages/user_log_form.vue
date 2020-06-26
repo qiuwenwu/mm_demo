@@ -4,37 +4,49 @@
 			<mm_col width="33">
 				<mm_form class="card">
 					<header class="arrow">
-						<h5>用户账户 —— 编辑</h5>
+						<h5>{{ form[field] ? '修改' : '创建' }}活动参与记录</h5>
 					</header>
 					<dl>
-						<dt>头像</dt>
+						<dt>领取状态</dt>
 						<dd>
-							<mm_upload_img width="10rem" height="10rem" name="avatar" type="text" v-model="form.avatar"></mm_upload_img>
+							<mm_number v-model="form.state" :min="0" :max="9" />
 						</dd>
-						<dt>昵称</dt>
+						<dt>一等奖</dt>
 						<dd>
-							<label>
-								<input type="text" v-model="form.nickname" placeholder="由2-16个字符组成" />
-							</label>
+							<mm_number v-model="form.prize_1" :min="0" :max="32767" />
 						</dd>
-						<dt>会员级别</dt>
+						<dt>二等奖</dt>
 						<dd>
-							<mm_select v-model="form.vip" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
+							<mm_number v-model="form.prize_2" :min="0" :max="32767" />
 						</dd>
-						<dt>管理级别</dt>
+						<dt>三等奖</dt>
 						<dd>
-							<mm_select v-model="form.gm" :options="$to_kv(['',1,2,3,4,5])"></mm_select>
+							<mm_number v-model="form.prize_3" :min="0" :max="32767" />
 						</dd>
-						<dt>商户级别</dt>
-						<dd><mm_select v-model="form.mc" :options="$to_kv(['',1,2,3,4,5])"></mm_select></dd>
-						<dt>个性签名</dt>
+						<dt>特等奖</dt>
 						<dd>
-							<textarea v-model="form.signature" placeholder="由2-16个字符组成" />
+							<mm_number v-model="form.prize_t" :min="0" :max="32767" />
+						</dd>
+						<dt>活动ID</dt>
+						<dd>
+							<mm_input v-model="form.activity_id" :minlength="0" :maxlength="0" placeholder="用来识别是那个活动" />
+						</dd>
+						<dt>用户唯一标识</dt>
+						<dd>
+							<mm_input v-model="form.uin_user" :minlength="0" :maxlength="0" placeholder="" />
+						</dd>
+						<dt>颁奖者uin</dt>
+						<dd>
+							<mm_input v-model="form.uin_prize_winners" :minlength="0" :maxlength="0" placeholder="" />
+						</dd>
+						<dt>活动证明</dt>
+						<dd>
+							<mm_upload_img width="10rem" height="10rem" name="img_prove" type="text" v-model="form.img_prove" />
 						</dd>
 					</dl>
 					<footer>
 						<div class="mm_group">
-							<button class="btn_default" type="button" @click="cancel">取消</button>l">取消</button>
+							<button class="btn_default" type="button" @click="cancel">取消</button>
 							<button class="btn_primary" type="button" @click="submit()">提交</button>
 						</div>
 					</footer>
@@ -46,51 +58,39 @@
 
 
 <script>
-	import mm_upload_img from '/src/components/form/mm_upload_img.vue';
-		
 	import mixin from '/src/mixins/page.js';
-	
+
 	export default {
 		mixins: [mixin],
-		components: {
-			mm_upload_img
-		},
+		components: {},
 		data() {
 			return {
-				url_submit: "/apis/user/account?",
-				url_get_obj: "/apis/user/account",
+				url_submit: "/apis/activity/user_log?",
+				url_get_obj: "/apis/activity/user_log?method=get_obj",
+				field: "log_id",
 				query: {
-					user_id: 0
+					"log_id": 0
 				},
 				form: {
-				}
+						"log_id": 0,
+						"state": 0,
+						"prize_1": 0,
+						"prize_2": 0,
+						"prize_3": 0,
+						"prize_t": 0,
+						"activity_id": 0,
+						"uin_user": '',
+						"uin_prize_winners": '',
+						"img_prove": '',
+				},
 			}
 		},
 		methods: {
-			
+		},
+		created() {
 		}
 	}
 </script>
 
 <style>
-	/* 页面 */
-	#activity_user_log_form {}
-
-	/* 表单 */
-	#activity_user_log_form .mm_form {}
-	
-	/* 筛选栏栏 */
-	#activity_user_log_form .mm_filter {}
-
-	/* 操作栏 */
-	#activity_user_log_form .mm_action {}
-
-	/* 模态窗 */
-	#activity_user_log_form .mm_modal {}
-
-	/* 表格 */
-	#activity_user_log_form .mm_table {}
-
-	/* 数据统计 */
-	#activity_user_log_form .mm_data_count {}
 </style>

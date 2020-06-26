@@ -9,18 +9,19 @@
             "name": "subscribe_id",
             "title": "订阅ID",
             "description": "",
-            "type": "mediumint",
+            "type": "int",
             "key": true,
             "auto": "auto_increment",
             "symbol": false,
             "fill_zero": false,
             "not_null": 1,
             "min_length": 0,
-            "max_length": 8,
+            "max_length": 11,
             "min": 1,
-            "max": 8388607,
+            "max": 2147483647,
             "decimal": 0,
             "default": "0",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -41,6 +42,7 @@
             "max": 8388607,
             "decimal": 0,
             "default": "0",
+            "map": "user_account.nickname",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -61,6 +63,7 @@
             "max": 0,
             "decimal": 0,
             "default": "10:00:00",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -81,6 +84,7 @@
             "max": 0,
             "decimal": 0,
             "default": "13:00:00",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -101,6 +105,7 @@
             "max": 0,
             "decimal": 0,
             "default": "14:30:00",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -121,6 +126,7 @@
             "max": 0,
             "decimal": 0,
             "default": "wechat",
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
@@ -141,6 +147,7 @@
             "max": 0,
             "decimal": 0,
             "default": null,
+            "map": "",
             "join_in": [],
             "join_out": [],
             "position": []
