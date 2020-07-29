@@ -1,6 +1,6 @@
 {
     "name": "test",
-    "title": "",
+    "title": "测试表",
     "description": "",
     "path": "/api/test",
     "method": "GET",

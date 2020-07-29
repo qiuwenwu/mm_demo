@@ -112,6 +112,47 @@
 							</mm_col>
 						</mm_grid>
 					</mm_view>
+					<mm_view>
+						<h5>常见响应式列</h5>
+						<mm_grid col="1" class="center grid-x">
+							<mm_col class="col-lg-2 col-md-3 col-sm-6">
+								<mm_view>1</mm_view>
+							</mm_col>
+							<mm_col class="col-lg-2 col-md-3 col-sm-6">
+								<mm_view>2</mm_view>
+							</mm_col>
+							<mm_col class="col-lg-2 col-md-3 col-sm-6">
+								<mm_view>3</mm_view>
+							</mm_col>
+							<mm_col class="col-lg-2 col-md-3 col-sm-6">
+								<mm_view>4</mm_view>
+							</mm_col>
+							<mm_col class="col-lg-2 col-md-3 col-sm-6">
+								<mm_view>5</mm_view>
+							</mm_col>
+							<mm_col class="col-lg-2 col-md-3 col-sm-6">
+								<mm_view>6</mm_view>
+							</mm_col>
+							<mm_col class="col-lg-2 col-md-3 col-sm-6">
+								<mm_view>7</mm_view>
+							</mm_col>
+							<mm_col class="col-lg-2 col-md-3 col-sm-6">
+								<mm_view>8</mm_view>
+							</mm_col>
+							<mm_col class="col-lg-2 col-md-3 col-sm-6">
+								<mm_view>9</mm_view>
+							</mm_col>
+							<mm_col class="col-lg-2 col-md-3 col-sm-6">
+								<mm_view>10</mm_view>
+							</mm_col>
+							<mm_col class="col-lg-2 col-md-3 col-sm-6">
+								<mm_view>11</mm_view>
+							</mm_col>
+							<mm_col class="col-lg-2 col-md-3 col-sm-6">
+								<mm_view>12</mm_view>
+							</mm_col>
+						</mm_grid>
+					</mm_view>
 				</mm_col>
 			</mm_grid>
 		</main>

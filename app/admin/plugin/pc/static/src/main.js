@@ -20,6 +20,8 @@ require({
 		clipboard: '/js/clipboard.min',
 		mm_sdk: '/js/mm_sdk',
 		mm_vue: '/js/mm_vue',
+		sortablejs: '/js/sortable.min',
+		vuedraggable: '/js/vuedraggable.min',
 		ui: '/js/mm_vue_ui',
 		nav: '/api/nav.js?scope=admin_pc',
 		store: './store',
@@ -50,7 +52,14 @@ require({
 		},
 		mm_vue: {
 			deps: ['mm_sdk']
-		}
+		},
+		// sortable: {
+		// 	exports: 'sortable'
+		// },
+		// vuedraggable {
+		// 	exports: 'vuedraggable',
+		// 	deps: ['sortable']
+		// }
 	},
 	config: {
 		// vue加载配置
@@ -59,13 +68,14 @@ require({
 			'templateVar': '__template__'
 		}
 	}
-}, ['Vue', 'mm_sdk', 'mm_vue', 'store', 'router', 'ui', 'clipboard', 'vue!./App.vue'], function(Vue, mm_sdk, mm_vue, store, router,
-	ui, clipboard, app) {
+}, ['Vue', 'mm_sdk', 'mm_vue', 'store', 'router', 'ui', 'clipboard', 'vuedraggable', 'vue!./App.vue'], function(Vue, mm_sdk, mm_vue, store, router,
+	ui, clipboard, vuedraggable, app) {
 	// 开启调试模式
 	Vue.config.debug = true;
 	// 使用UI组件
 	Vue.config.devtools = true;
 	
+	Vue.component('draggable', vuedraggable);
 	Vue.use(mm_vue);
 	Vue.use(ui);
 

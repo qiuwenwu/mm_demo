@@ -1,0 +1,27 @@
+{
+    "name": "spiders_qrcode",
+    "title": "抓取二维码",
+    "table": "spiders_qrcode",
+    "key": "qid",
+    "orderby_default": "`qid` desc",
+    "field_obj": "`qid`,`keyword`,`indstry`,`area`,`tag`,`time`,`file`,`title`,`time_create`,`time_update`",
+    "field_default": "`qid`,`keyword`,`indstry`,`area`,`tag`,`time`,`file`,`title`,`time_create`,`time_update`",
+    "method": "get get_obj",
+    "query": {
+        "keyword": "(`tag` like '%{0}%' || `title` like '%{0}%')",
+        "indstry": "`indstry` like '%{0}%'",
+        "area": "`area` like '%{0}%'",
+        "tag": "`tag` like '%{0}%'",
+        "time_min": "`time` >= '{0}'",
+        "time_max": "`time` <= '{0}'",
+        "file": "`file` like '%{0}%'",
+        "title": "`title` like '%{0}%'",
+        "time_create_min": "`time_create` >= '{0}'",
+        "time_create_max": "`time_create` <= '{0}'",
+        "time_update_min": "`time_update` >= '{0}'",
+        "time_update_max": "`time_update` <= '{0}'"
+    },
+    "query_default": {},
+    "update": {},
+    "format": []
+}

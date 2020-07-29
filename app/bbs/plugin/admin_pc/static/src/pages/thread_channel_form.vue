@@ -3,57 +3,60 @@
 		<mm_grid>
 			<mm_col width="33">
 				<mm_form class="card">
-					<header class="arrow">
+					<div class="head arrow">
 						<h5>{{ form[field] ? '修改' : '创建' }}主题板块</h5>
-					</header>
-					<dl>
-						<dt>是否启用</dt>
-						<dd>
-							<mm_switch v-model="form.available" />
-						</dd>
-						<dt>是否隐藏</dt>
-						<dd>
-							<mm_switch v-model="form.hide" />
-						</dd>
-						<dt>是否可评论</dt>
-						<dd>
-							<mm_switch v-model="form.can_comment" />
-						</dd>
-						<dt>上级</dt>
-						<dd>
-							<mm_select v-model="form.father_id" :options="$to_kv(list_thread_channel, 'channel_id', 'name')" />
-						</dd>
-						<dt>所属城市</dt>
-						<dd>
-							<mm_select v-model="form.city_id" :options="$to_kv(list_address_city, 'city_id', 'name')" />
-						</dd>
-						<dt class="required">频道名称</dt>
-						<dd>
-							<mm_input v-model="form.name" :minlength="0" :maxlength="0" placeholder="" :required="true"/>
-						</dd>
-						<dt>风格模板</dt>
-						<dd>
-							<mm_input v-model="form.template" :minlength="0" :maxlength="0" placeholder="频道和主题都使用的样式。question问答 / info资讯 / news新闻 / article文章 / activity活动" />
-						</dd>
-						<dt>描述</dt>
-						<dd>
-							<mm_input v-model="form.description" :minlength="0" :maxlength="0" placeholder="描述该频道的作用" />
-						</dd>
-						<dt>频道图标</dt>
-						<dd>
-							<mm_upload_img width="10rem" height="10rem" name="icon" type="text" v-model="form.icon" />
-						</dd>
-						<dt>外链地址</dt>
-						<dd>
-							<mm_input v-model="form.url" :minlength="0" :maxlength="0" placeholder="如果该频道是跳转到其他网站的情况下，就在该URL上设置" />
-						</dd>
-					</dl>
-					<footer>
+					</div>
+					<div class="body">
+						<dl>
+							<dt>是否启用</dt>
+							<dd>
+								<mm_switch v-model="form.available" />
+							</dd>
+							<dt>是否隐藏</dt>
+							<dd>
+								<mm_switch v-model="form.hide" />
+							</dd>
+							<dt>是否可评论</dt>
+							<dd>
+								<mm_switch v-model="form.can_comment" />
+							</dd>
+							<dt>上级</dt>
+							<dd>
+								<mm_select v-model="form.father_id" :options="$to_kv(list_thread_channel, 'channel_id', 'name')" />
+							</dd>
+							<dt>所属城市</dt>
+							<dd>
+								<mm_select v-model="form.city_id" :options="$to_kv(list_address_city, 'city_id', 'name')" />
+							</dd>
+							<dt class="required">频道名称</dt>
+							<dd>
+								<mm_input v-model="form.name" :minlength="0" :maxlength="0" placeholder=""
+								 :required="true" />
+							</dd>
+							<dt>风格模板</dt>
+							<dd>
+								<mm_input v-model="form.template" :minlength="0" :maxlength="0" placeholder="频道和主题都使用的样式。question问答 / info资讯 / news新闻 / article文章 / activity活动" />
+							</dd>
+							<dt>描述</dt>
+							<dd>
+								<mm_input v-model="form.description" :minlength="0" :maxlength="0" placeholder="描述该频道的作用" />
+							</dd>
+							<dt>频道图标</dt>
+							<dd>
+								<mm_upload_img width="10rem" height="10rem" name="icon" type="text" v-model="form.icon" />
+							</dd>
+							<dt>外链地址</dt>
+							<dd>
+								<mm_input v-model="form.url" :minlength="0" :maxlength="0" placeholder="如果该频道是跳转到其他网站的情况下，就在该URL上设置" />
+							</dd>
+						</dl>
+					</div>
+					<div class="foot">
 						<div class="mm_group">
 							<button class="btn_default" type="button" @click="cancel">取消</button>
 							<button class="btn_primary" type="button" @click="submit()">提交</button>
 						</div>
-					</footer>
+					</div>
 				</mm_form>
 			</mm_col>
 		</mm_grid>
@@ -76,67 +79,67 @@
 					"channel_id": 0
 				},
 				form: {
-						"channel_id": 0,
-						"available": 0,
-						"hide": 0,
-						"can_comment": 0,
-						"father_id": 0,
-						"city_id": 0,
-						"name": '',
-						"template": '',
-						"description": '',
-						"icon": '',
-						"url": '',
+					"channel_id": 0,
+					"available": 0,
+					"hide": 0,
+					"can_comment": 0,
+					"father_id": 0,
+					"city_id": 0,
+					"name": '',
+					"template": '',
+					"description": '',
+					"icon": '',
+					"url": '',
 				},
 				// 是否启用
-				'arr_available': ['否','是'],
+				'arr_available': [ '否' , '是' ],
 				// 是否隐藏
-				'arr_hide': ['否','是'],
+				'arr_hide': [ '否' , '是' ],
 				// 是否可评论
-				'arr_can_comment': ['否','是'],
+				'arr_can_comment': [ '否' , '是' ],
 				// 上级
-				'list_thread_channel': [],
+				'list_thread_channel': [ ],
 				// 所属城市
-				'list_address_city': [],
+				'list_address_city': [ ],
 			}
 		},
 		methods: {
-				/**
-				 * 获取上级
-				 * @param {query} 查询条件
-				 */
-				get_thread_channel(query){
-					var _this = this;
-					if(!query){
-						query = {
-							field: "channel_id,name"
-						};
+			/**
+			 * 获取上级
+			 * @param {query} 查询条件
+			 */
+			get_thread_channel(query) {
+				var _this = this;
+				if (!query) {
+					query = {
+						field: "channel_id,name"
+					};
+				}
+				this.$get('~/apis/bbs/thread_channel?size=0', query, function(json) {
+					if (json.result) {
+						_this.list_thread_channel .clear();
+						_this.list_thread_channel .addList(json.result.list)
 					}
-					this.$get('~/apis/bbs/thread_channel?size=0', query, function(json) {
-						if (json.result) {
-							_this.list_thread_channel.clear();
-							_this.list_thread_channel.addList(json.result.list)
-						}
-					});
-				},
-				/**
-				 * 获取所属城市
-				 * @param {query} 查询条件
-				 */
-				get_address_city(query){
-					var _this = this;
-					if(!query){
-						query = {
-							field: "city_id,name"
-						};
+				});
+			},
+			/**
+			 * 获取所属城市
+			 * @param {query} 查询条件
+			 */
+			get_address_city(query) {
+				var _this = this;
+				if (!query) {
+					query = {
+						field: "city_id,name"
+					};
+				}
+				this.$get('~/apis/sys/address_city?size=0', query, function(json) {
+					if (json.result) {
+						_this.list_address_city .clear();
+						_this.list_address_city .addList(json.result.list)
 					}
-					this.$get('~/apis/sys/address_city?size=0', query, function(json) {
-						if (json.result) {
-							_this.list_address_city.clear();
-							_this.list_address_city.addList(json.result.list)
-						}
-					});
-				},
+				});
+			},
 		},
 		created() {
 			// 获取上级

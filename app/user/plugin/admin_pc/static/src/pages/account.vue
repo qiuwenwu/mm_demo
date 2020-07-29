@@ -11,19 +11,23 @@
 							<h5><span>筛选条件</span></h5>
 							<mm_list col="3">
 								<mm_col>
-									<mm_input v-model="query.keyword" title="关键词" desc="用户名 / 昵称" @blur="search()" />
+									<mm_input v-model="query.keyword" title="关键词" desc="用户名 / 昵称"
+									 @blur="search()" />
 								</mm_col>
 								<mm_col>
 									<mm_select v-model="query.state" title="账户状态" :options="$to_kv(arr_state)" @change="search()" />
 								</mm_col>
 								<mm_col>
-									<mm_select v-model="query.group_id" title="所在用户组" :options="$to_kv(list_group, 'group_id', 'name')" @change="search()" />
+									<mm_select v-model="query.group_id" title="所在用户组" :options="$to_kv(list_group, 'group_id', 'name')"
+									 @change="search()" />
 								</mm_col>
 								<mm_col>
-									<mm_select v-model="query.admin_id" title="所在管理组" :options="$to_kv(list_admin, 'admin_id', 'name')" @change="search()" />
+									<mm_select v-model="query.admin_id" title="所在管理组" :options="$to_kv(list_admin, 'admin_id', 'name')"
+									 @change="search()" />
 								</mm_col>
 								<mm_col>
-									<mm_select v-model="query.referee_id" title="推荐人" :options="$to_kv(list_account, 'user_id', 'nickname')" @change="search()" />
+									<mm_select v-model="query.referee_id" title="推荐人" :options="$to_kv(list_account, 'user_id', 'nickname')"
+									 @change="search()" />
 								</mm_col>
 								<mm_col>
 									<mm_select v-model="query.phone_state" title="手机认证" :options="$to_kv(arr_phone_state)" @change="search()" />
@@ -108,7 +112,7 @@
 									<th scope="col" class="th_handle"><span>操作</span></th>
 								</tr>
 							</thead>
-							<tbody>
+							<draggable v-model="list" tag="tbody" @change="sort_change">
 								<tr v-for="(o, idx) in list" :key="idx" :class="{'active': select == idx}" @click="selected(idx)">
 									<th scope="row"><input type="checkbox" :checked="select_has(o[field])" @click="select_change(o[field])" /></th>
 									<td>
@@ -176,7 +180,7 @@
 										<mm_btn class="btn_warning" @click.native="del_show(o, field)">删除</mm_btn>
 									</td>
 								</tr>
-							</tbody>
+							</draggable>
 						</mm_table>
 					</mm_body>
 					<footer>
@@ -312,17 +316,17 @@
 				//颜色
 				arr_color: ['', '', 'font_yellow', 'font_success', 'font_warning', 'font_primary', 'font_info', 'font_default'],
 				// 账户状态
-				'arr_state': ['','可用','异常','已冻结','已注销'],
+				'arr_state': [ '' , '可用' , '异常' , '已冻结' , '已注销' ],
 				// 所在用户组
-				'list_group': [],
+				'list_group': [ ],
 				// 所在管理组
-				'list_admin': [],
+				'list_admin': [ ],
 				// 推荐人
-				'list_account': [],
+				'list_account': [ ],
 				// 手机认证
-				'arr_phone_state': ['未认证','审核中','已认证'],
+				'arr_phone_state': [ '未认证' , '审核中' , '已认证' ],
 				// 邮箱认证
-				'arr_email_state': ['未认证','审核中','已认证'],
+				'arr_email_state': [ '未认证' , '审核中' , '已认证' ],
 				// 视图模型
 				vm: {}
 			}
@@ -332,17 +336,17 @@
 			 * 获取所在用户组
 			 * @param {query} 查询条件
 			 */
-			get_group(query){
+			get_group(query) {
 				var _this = this;
-				if(!query){
+				if (!query) {
 					query = {
 						field: "group_id,name"
 					};
 				}
 				this.$get('~/apis/user/group?size=0', query, function(json) {
 					if (json.result) {
-						_this.list_group.clear();
-						_this.list_group.addList(json.result.list)
+						_this.list_group .clear();
+						_this.list_group .addList(json.result.list)
 					}
 				});
 			},
@@ -350,17 +354,17 @@
 			 * 获取所在管理组
 			 * @param {query} 查询条件
 			 */
-			get_admin(query){
+			get_admin(query) {
 				var _this = this;
-				if(!query){
+				if (!query) {
 					query = {
 						field: "admin_id,name"
 					};
 				}
 				this.$get('~/apis/user/admin?size=0', query, function(json) {
 					if (json.result) {
-						_this.list_admin.clear();
-						_this.list_admin.addList(json.result.list)
+						_this.list_admin .clear();
+						_this.list_admin .addList(json.result.list)
 					}
 				});
 			},
@@ -368,17 +372,17 @@
 			 * 获取推荐人
 			 * @param {query} 查询条件
 			 */
-			get_account(query){
+			get_account(query) {
 				var _this = this;
-				if(!query){
+				if (!query) {
 					query = {
 						field: "user_id,nickname"
 					};
 				}
 				this.$get('~/apis/user/account?size=0', query, function(json) {
 					if (json.result) {
-						_this.list_account.clear();
-						_this.list_account.addList(json.result.list)
+						_this.list_account .clear();
+						_this.list_account .addList(json.result.list)
 					}
 				});
 			},

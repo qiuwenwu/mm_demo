@@ -4,8 +4,8 @@
     "table": "stock_info",
     "key": "code",
     "orderby_default": "`code` desc",
-    "field_obj": "`code`,`name`,`company`,`description`,`bonus`,`issue_price`,`pe`,`pb`,`profit`,`num`,`time_to_market`",
-    "field_default": "`code`,`name`,`company`,`description`,`bonus`,`issue_price`,`pe`,`pb`,`profit`,`num`,`time_to_market`",
+    "field_obj": "`code`,`name`,`bonus`,`pe`,`pb`,`issue_price`,`profit`,`num`,`time_to_market`,`company`,`description`,`create_time`",
+    "field_default": "`code`,`name`,`bonus`,`pe`,`pb`,`issue_price`,`profit`,`num`,`time_to_market`,`company`,`description`,`create_time`",
     "method": "get get_obj",
     "query": {
         "code": "`code` like '%{0}%'",
@@ -26,7 +26,9 @@
         "num_max": "`num` <= {0}",
         "time_to_market_min": "`time_to_market` >= '{0}'",
         "time_to_market_max": "`time_to_market` <= '{0}'",
-        "keyword": "(`name` like '%{0}%' || `description` like '%{0}%')"
+        "keyword": "(`name` like '%{0}%' || `description` like '%{0}%')",
+        "create_time_min": "`create_time` >= '{0}'",
+        "create_time_max": "`create_time` <= '{0}'"
     },
     "query_default": {},
     "update": {

@@ -1,0 +1,23 @@
+{
+	"name": "stock",
+	"sort": 1,
+	"routes": [{
+			"name": "root",
+			"path": "/stock",
+			"component": "/stock/home_phone/src/pages/index.vue",
+			"level": 1,
+			"oauth": {
+				"signIn": false,
+				"gm": 0,
+				"user_admin": []
+			}
+		}
+	],
+	"top": [],
+	"left": [],
+	"bottom": [],
+	"right": [],
+	"quick": [],
+	"desktop": [],
+	"main": []
+}

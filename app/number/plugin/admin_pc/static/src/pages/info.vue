@@ -26,7 +26,8 @@
 									<mm_select v-model="query.sid" title="制式" :options="$to_kv(arr_sid)" @change="search()" />
 								</mm_col>
 								<mm_col>
-									<mm_select v-model="query.user_id" title="处理人" :options="$to_kv(list_account, 'user_id', 'nickname')" @change="search()" />
+									<mm_select v-model="query.user_id" title="处理人" :options="$to_kv(list_account, 'user_id', 'nickname')"
+									 @change="search()" />
 								</mm_col>
 								<mm_col>
 									<mm_select v-model="query.order" title="订单状态" :options="$to_kv(arr_order)" @change="search()" />
@@ -141,7 +142,7 @@
 									<th scope="col" class="th_handle"><span>操作</span></th>
 								</tr>
 							</thead>
-							<tbody>
+							<draggable v-model="list" tag="tbody" @change="sort_change">
 								<tr v-for="(o, idx) in list" :key="idx" :class="{'active': select == idx}" @click="selected(idx)">
 									<th scope="row"><input type="checkbox" :checked="select_has(o[field])" @click="select_change(o[field])" /></th>
 									<td>
@@ -242,7 +243,7 @@
 										<mm_btn class="btn_warning" @click.native="del_show(o, field)">删除</mm_btn>
 									</td>
 								</tr>
-							</tbody>
+							</draggable>
 						</mm_table>
 					</mm_body>
 					<footer>
@@ -406,19 +407,19 @@
 				//颜色
 				arr_color: ['', '', 'font_yellow', 'font_success', 'font_warning', 'font_primary', 'font_info', 'font_default'],
 				// 是否私有
-				'arr_private': ['否','是'],
+				'arr_private': [ '否' , '是' ],
 				// 是否合约号
-				'arr_heYue': ['否','是'],
+				'arr_heYue': [ '否' , '是' ],
 				// 是否隐藏
-				'arr_hide': ['否','是'],
+				'arr_hide': [ '否' , '是' ],
 				// 号码种类
-				'arr_kid': ['','手机号码','固定电话号码','企业电话号码','QQ号码','车牌号码'],
+				'arr_kid': [ '' , '手机号码' , '固定电话号码' , '企业电话号码' , 'QQ号码' , '车牌号码' ],
 				// 制式
-				'arr_sid': ['','移动','联通','电信'],
+				'arr_sid': [ '' , '移动' , '联通' , '电信' ],
 				// 处理人
-				'list_account': [],
+				'list_account': [ ],
 				// 订单状态
-				'arr_order': ['','待售中','已预约','已售出','已下架','已删除'],
+				'arr_order': [ '' , '待售中' , '已预约' , '已售出' , '已下架' , '已删除' ],
 				// 视图模型
 				vm: {}
 			}
@@ -428,17 +429,17 @@
 			 * 获取处理人
 			 * @param {query} 查询条件
 			 */
-			get_account(query){
+			get_account(query) {
 				var _this = this;
-				if(!query){
+				if (!query) {
 					query = {
 						field: "user_id,nickname"
 					};
 				}
 				this.$get('~/apis/user/account?size=0', query, function(json) {
 					if (json.result) {
-						_this.list_account.clear();
-						_this.list_account.addList(json.result.list)
+						_this.list_account .clear();
+						_this.list_account .addList(json.result.list)
 					}
 				});
 			},

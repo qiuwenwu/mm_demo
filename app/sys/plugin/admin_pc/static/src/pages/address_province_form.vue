@@ -3,25 +3,28 @@
 		<mm_grid>
 			<mm_col width="33">
 				<mm_form class="card">
-					<header class="arrow">
+					<div class="head arrow">
 						<h5>{{ form[field] ? '修改' : '创建' }}省份</h5>
-					</header>
-					<dl>
-						<dt>是否可见</dt>
-						<dd>
-							<mm_select v-model="form.show" :options="$to_kv(arr_show)" />
-						</dd>
-						<dt class="required">省份名称</dt>
-						<dd>
-							<mm_input v-model="form.name" :minlength="0" :maxlength="0" placeholder="" :required="true"/>
-						</dd>
-					</dl>
-					<footer>
+					</div>
+					<div class="body">
+						<dl>
+							<dt>是否可见</dt>
+							<dd>
+								<mm_select v-model="form.show" :options="$to_kv(arr_show)" />
+							</dd>
+							<dt class="required">省份名称</dt>
+							<dd>
+								<mm_input v-model="form.name" :minlength="0" :maxlength="0" placeholder=""
+								 :required="true" />
+							</dd>
+						</dl>
+					</div>
+					<div class="foot">
 						<div class="mm_group">
 							<button class="btn_default" type="button" @click="cancel">取消</button>
 							<button class="btn_primary" type="button" @click="submit()">提交</button>
 						</div>
-					</footer>
+					</div>
 				</mm_form>
 			</mm_col>
 		</mm_grid>
@@ -44,12 +47,12 @@
 					"province_id": 0
 				},
 				form: {
-						"province_id": 0,
-						"show": 0,
-						"name": '',
+					"province_id": 0,
+					"show": 0,
+					"name": '',
 				},
 				// 是否可见
-				'arr_show': ['仅表单可见','表单和搜索可见','均可见'],
+				'arr_show': [ '仅表单可见' , '表单和搜索可见' , '均可见' ],
 			}
 		},
 		methods: {

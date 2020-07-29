@@ -1,0 +1,12 @@
+{
+    "name": "spiders_qrcode",
+    "title": "抓取二维码",
+    "description": "用于抓取微信群二维码，方便扩展人脉",
+    "path": "/api/spiders/qrcode",
+    "method": "GET",
+    "cache": 0,
+    "client_cache": false,
+    "param_path": "./param.json",
+    "sql_path": "./sql.json",
+    "check_param": true
+}

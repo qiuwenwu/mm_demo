@@ -11,7 +11,8 @@
 							<h5><span>筛选条件</span></h5>
 							<mm_list col="3">
 								<mm_col>
-									<mm_input v-model="query.keyword" title="关键词" desc="公式名称 / 公式简介" @blur="search()" />
+									<mm_input v-model="query.keyword" title="关键词" desc="公式名称 / 公式简介"
+									 @blur="search()" />
 								</mm_col>
 								<mm_col>
 									<mm_btn class="btn_primary-x" type="reset" @click.native="reset();search()">重置</mm_btn>
@@ -34,13 +35,13 @@
 										<mm_reverse title="人工得分" v-model="query.orderby" field="score" :func="search"></mm_reverse>
 									</th>
 									<th scope="col">
-										<mm_reverse title="1日权重" v-model="query.orderby" field="weigth_1" :func="search"></mm_reverse>
+										<mm_reverse title="1日权重" v-model="query.orderby" field="weight_1" :func="search"></mm_reverse>
 									</th>
 									<th scope="col">
-										<mm_reverse title="4日权重" v-model="query.orderby" field="weigth_4" :func="search"></mm_reverse>
+										<mm_reverse title="4日权重" v-model="query.orderby" field="weight_4" :func="search"></mm_reverse>
 									</th>
 									<th scope="col">
-										<mm_reverse title="7日权重" v-model="query.orderby" field="weigth_7" :func="search"></mm_reverse>
+										<mm_reverse title="7日权重" v-model="query.orderby" field="weight_7" :func="search"></mm_reverse>
 									</th>
 									<th scope="col">
 										<mm_reverse title="1日涨跌幅度" v-model="query.orderby" field="extent_1" :func="search"></mm_reverse>
@@ -87,7 +88,7 @@
 									<th scope="col" class="th_handle"><span>操作</span></th>
 								</tr>
 							</thead>
-							<tbody>
+							<draggable v-model="list" tag="tbody" @change="sort_change">
 								<tr v-for="(o, idx) in list" :key="idx" :class="{'active': select == idx}" @click="selected(idx)">
 									<th scope="row"><input type="checkbox" :checked="select_has(o[field])" @click="select_change(o[field])" /></th>
 									<td>
@@ -97,13 +98,13 @@
 										<span>{{ o.score }}</span>
 									</td>
 									<td>
-										<span>{{ o.weigth_1 }}</span>
+										<span>{{ o.weight_1 }}</span>
 									</td>
 									<td>
-										<span>{{ o.weigth_4 }}</span>
+										<span>{{ o.weight_4 }}</span>
 									</td>
 									<td>
-										<span>{{ o.weigth_7 }}</span>
+										<span>{{ o.weight_7 }}</span>
 									</td>
 									<td>
 										<span>{{ o.extent_1 }}</span>
@@ -152,7 +153,7 @@
 										<mm_btn class="btn_warning" @click.native="del_show(o, field)">删除</mm_btn>
 									</td>
 								</tr>
-							</tbody>
+							</draggable>
 						</mm_table>
 					</mm_body>
 					<footer>
@@ -224,17 +225,17 @@
 					// 人工得分——最大值
 					'score_max': 0,
 					// 1日权重——最小值
-					'weigth_1_min': 0,
+					'weight_1_min': 0,
 					// 1日权重——最大值
-					'weigth_1_max': 0,
+					'weight_1_max': 0,
 					// 4日权重——最小值
-					'weigth_4_min': 0,
+					'weight_4_min': 0,
 					// 4日权重——最大值
-					'weigth_4_max': 0,
+					'weight_4_max': 0,
 					// 7日权重——最小值
-					'weigth_7_min': 0,
+					'weight_7_min': 0,
 					// 7日权重——最大值
-					'weigth_7_max': 0,
+					'weight_7_max': 0,
 					// 1日涨跌幅度——最小值
 					'extent_1_min': 0,
 					// 1日涨跌幅度——最大值

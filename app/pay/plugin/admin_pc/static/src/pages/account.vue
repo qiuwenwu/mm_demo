@@ -11,7 +11,8 @@
 							<h5><span>筛选条件</span></h5>
 							<mm_list col="3">
 								<mm_col>
-									<mm_input v-model="query.keyword" title="关键词" desc="网银名称" @blur="search()" />
+									<mm_input v-model="query.keyword" title="关键词" desc="网银名称"
+									 @blur="search()" />
 								</mm_col>
 								<mm_col>
 									<mm_select v-model="query.state" title="状态" :options="$to_kv(arr_state)" @change="search()" />
@@ -105,7 +106,7 @@
 									<th scope="col" class="th_handle"><span>操作</span></th>
 								</tr>
 							</thead>
-							<tbody>
+							<draggable v-model="list" tag="tbody" @change="sort_change">
 								<tr v-for="(o, idx) in list" :key="idx" :class="{'active': select == idx}" @click="selected(idx)">
 									<th scope="row"><input type="checkbox" :checked="select_has(o[field])" @click="select_change(o[field])" /></th>
 									<td>
@@ -164,7 +165,7 @@
 										<mm_btn class="btn_warning" @click.native="del_show(o, field)">删除</mm_btn>
 									</td>
 								</tr>
-							</tbody>
+							</draggable>
 						</mm_table>
 					</mm_body>
 					<footer>
@@ -292,21 +293,21 @@
 				//颜色
 				arr_color: ['', '', 'font_yellow', 'font_success', 'font_warning', 'font_primary', 'font_info', 'font_default'],
 				// 状态
-				'arr_state': ['','正常','异常','冻结','注销'],
+				'arr_state': [ '' , '正常' , '异常' , '冻结' , '注销' ],
 				// 微信认证
-				'arr_bank_state': ['未认证','已认证'],
+				'arr_bank_state': [ '未认证' , '已认证' ],
 				// 微信认证
-				'arr_wechat_state': ['未认证','已认证'],
+				'arr_wechat_state': [ '未认证' , '已认证' ],
 				// 微信认证
-				'arr_alipay_state': ['未认证','已认证'],
+				'arr_alipay_state': [ '未认证' , '已认证' ],
 				// 比特币地址认证
-				'arr_btc_state': ['未认证','已认证'],
+				'arr_btc_state': [ '未认证' , '已认证' ],
 				// 以太币地址认证
-				'arr_eth_state': ['未认证','已认证'],
+				'arr_eth_state': [ '未认证' , '已认证' ],
 				// 柚子币地址认证
-				'arr_eos_state': ['未认证','已认证'],
+				'arr_eos_state': [ '未认证' , '已认证' ],
 				// 美眉币地址认证
-				'arr_mm_state': ['未认证','已认证'],
+				'arr_mm_state': [ '未认证' , '已认证' ],
 				// 视图模型
 				vm: {}
 			}

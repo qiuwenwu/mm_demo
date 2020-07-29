@@ -1,6 +1,6 @@
 {
     "name": "test2",
-    "title": "",
+    "title": "测试表",
     "description": "",
     "path": "/apis/test",
     "method": "ALL",

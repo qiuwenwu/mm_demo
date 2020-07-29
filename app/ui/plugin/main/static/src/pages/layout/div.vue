@@ -19,36 +19,36 @@
 						<mm_col width="100">
 							<h5>默认块</h5>
 							<mm_view class="ba">
-								<header>块头</header>
-								<mm_body>
+								<div class="head">块头</div>
+								<div class="body">
 									<p>&nbsp;</p>内容主体<p>&nbsp;</p>
-								</mm_body>
-								<footer>块脚</footer>
+								</div>
+								<div class="foot">块脚</div>
 							</mm_view>
-							
-							<mm_view class="card bn">
-								<header>块头</header>
-								<mm_body>
+
+							<mm_view class="card b-n">
+								<div class="head">块头</div>
+								<div class="body">
 									<p>&nbsp;</p>内容主体<p>&nbsp;</p>
-								</mm_body>
-								<footer>块脚</footer>
+								</div>
+								<div class="foot">块脚</div>
 							</mm_view>
 						</mm_col>
 						<mm_col width="100">
 							<h5>带圆角块</h5>
 							<mm_view class="ba b-a">
-								<header>块头</header>
-								<mm_body>
+								<div class="head">块头</div>
+								<div class="body">
 									<p>&nbsp;</p>内容主体<p>&nbsp;</p>
-								</mm_body>
-								<footer>块脚</footer>
+								</div>
+								<div class="foot">块脚</div>
 							</mm_view>
 							<mm_view class="card">
-								<header>块头</header>
-								<mm_body>
+								<div class="head">块头</div>
+								<div class="body">
 									<p>&nbsp;</p>内容主体<p>&nbsp;</p>
-								</mm_body>
-								<footer>块脚</footer>
+								</div>
+								<div class="foot">块脚</div>
 							</mm_view>
 						</mm_col>
 					</mm_grid>
@@ -62,7 +62,8 @@
 </script>
 
 <style>
-	#page_div header, #page_div footer{
+	#page_div header,
+	#page_div footer {
 		background: #FDFDFD;
 	}
 </style>

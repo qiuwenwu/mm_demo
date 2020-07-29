@@ -1,0 +1,13 @@
+{
+	"title": "每日分析股票走势",
+	"description": "每天早上09:45分析股票, 然后存储到数据库",
+	"name": "analyse_stock",
+	"func_file": "./index.js",
+	"num": 0,
+	"interval": 1000,
+	"wait": 0,
+	"time": "09:45:00",
+	"date_start": "",
+	"date_end": "",
+	"sort": 100
+}

@@ -1,0 +1,222 @@
+{
+    "name": "spiders_qrcode",
+    "title": "抓取二维码",
+    "add": {
+        "body": [
+            "keyword",
+            "indstry",
+            "area",
+            "tag",
+            "file",
+            "title"
+        ],
+        "body_required": []
+    },
+    "del": {
+        "query": [],
+        "query_required": [
+            "qid"
+        ]
+    },
+    "set": {
+        "query": [
+            "qid",
+            "tag",
+            "title",
+            "keyword"
+        ],
+        "query_required": [],
+        "body": [
+            "keyword",
+            "indstry",
+            "area",
+            "tag",
+            "file",
+            "title"
+        ],
+        "body_required": [],
+        "body_not": []
+    },
+    "get": {
+        "query": [
+            "qid",
+            "tag",
+            "time_min",
+            "time_max",
+            "title",
+            "time_create_min",
+            "time_create_max",
+            "time_update_min",
+            "time_update_max",
+            "keyword"
+        ],
+        "query_required": []
+    },
+    "list": [
+        {
+            "name": "qid",
+            "title": "二维码编号",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "keyword",
+            "title": "关键词",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "indstry",
+            "title": "行业",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "area",
+            "title": "地区",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "tag",
+            "title": "标签",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "time",
+            "title": "发布时间",
+            "description": "",
+            "type": "string",
+            "dataType": "datetime",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "time_min",
+            "title": "发布时间——开始时间",
+            "description": "",
+            "type": "string",
+            "dataType": "datetime",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "time_max",
+            "title": "发布时间——结束时间",
+            "description": "",
+            "type": "string",
+            "dataType": "datetime",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "file",
+            "title": "文件路径",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "title",
+            "title": "标题",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "time_create",
+            "title": "创建时间",
+            "description": "",
+            "type": "string",
+            "dataType": "datetime",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "time_create_min",
+            "title": "创建时间——开始时间",
+            "description": "",
+            "type": "string",
+            "dataType": "datetime",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "time_create_max",
+            "title": "创建时间——结束时间",
+            "description": "",
+            "type": "string",
+            "dataType": "datetime",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "time_update",
+            "title": "更新时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "time_update_min",
+            "title": "更新时间——开始时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "time_update_max",
+            "title": "更新时间——结束时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "keyword",
+            "title": "关键词",
+            "description": "用于搜索标签(tag)、标题(title)",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        }
+    ]
+}

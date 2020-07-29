@@ -3,93 +3,96 @@
 		<mm_grid>
 			<mm_col width="33">
 				<mm_form class="card">
-					<header class="arrow">
+					<div class="head arrow">
 						<h5>{{ form[field] ? '修改' : '创建' }}文章</h5>
-					</header>
-					<dl>
-						<dt>是否启用</dt>
-						<dd>
-							<mm_switch v-model="form.available" />
-						</dd>
-						<dt>状态</dt>
-						<dd>
-							<mm_select v-model="form.state" :options="$to_kv(arr_state)" />
-						</dd>
-						<dt>文章分类</dt>
-						<dd>
-							<mm_select v-model="form.type_id" :options="$to_kv(list_article_type, 'type_id', 'name')" />
-						</dd>
-						<dt>频道</dt>
-						<dd>
-							<mm_select v-model="form.channel_id" :options="$to_kv(list_article_channel, 'channel_id', 'name')" />
-						</dd>
-						<dt>用户</dt>
-						<dd>
-							<mm_select v-model="form.user_id" :options="$to_kv(list_account, 'user_id', 'nickname')" />
-						</dd>
-						<dt>所属城市</dt>
-						<dd>
-							<mm_select v-model="form.city_id" :options="$to_kv(list_address_city, 'city_id', 'name')" />
-						</dd>
-						<dt>热度</dt>
-						<dd>
-							<mm_number v-model="form.hot" :min="0" :max="1000000000" />
-						</dd>
-						<dt>点赞次数</dt>
-						<dd>
-							<mm_number v-model="form.praise" :min="0" :max="1000000000" />
-						</dd>
-						<dt>采集规则ID</dt>
-						<dd>
-							<mm_input v-model="form.collect_id" :minlength="0" :maxlength="0" placeholder="如果文章是通过采集的方式获得，那么具有采集ID" />
-						</dd>
-						<dt>作者</dt>
-						<dd>
-							<mm_input v-model="form.author" :minlength="0" :maxlength="0" placeholder="写出该文章的人" />
-						</dd>
-						<dt class="required">标题</dt>
-						<dd>
-							<mm_input v-model="form.title" :minlength="0" :maxlength="0" placeholder="用于文章和html的&#60;title&#62;标签中" :required="true"/>
-						</dd>
-						<dt>关键词</dt>
-						<dd>
-							<mm_input v-model="form.keywords" :minlength="0" :maxlength="0" placeholder="引擎收录" />
-						</dd>
-						<dt>描述</dt>
-						<dd>
-							<mm_input v-model="form.description" :minlength="0" :maxlength="0" placeholder="用于文章提纲和搜索引擎收录" />
-						</dd>
-						<dt>来源</dt>
-						<dd>
-							<mm_input v-model="form.source" :minlength="0" :maxlength="0" placeholder="文章的出处" />
-						</dd>
-						<dt>来源地址</dt>
-						<dd>
-							<mm_input v-model="form.url" :minlength="0" :maxlength="0" placeholder="用于跳转到发布该文章的网站" />
-						</dd>
-						<dt>标签</dt>
-						<dd>
-							<mm_input v-model="form.tag" :minlength="0" :maxlength="0" placeholder="用于标注文章所属相关内容，多个标签用空格隔开" />
-						</dd>
-						<dt>封面图</dt>
-						<dd>
-							<mm_upload_img width="10rem" height="10rem" name="img" type="text" v-model="form.img" />
-						</dd>
-						<dt>正文</dt>
-						<dd>
-							<mm_textarea v-model="form.content" type="text" placeholder="文章的主体内容" />
-						</dd>
-						<dt>收藏者</dt>
-						<dd>
-							<mm_textarea v-model="form.collecter" type="text" placeholder="多个收藏者用”,“分隔" />
-						</dd>
-					</dl>
-					<footer>
+					</div>
+					<div class="body">
+						<dl>
+							<dt>是否启用</dt>
+							<dd>
+								<mm_switch v-model="form.available" />
+							</dd>
+							<dt>状态</dt>
+							<dd>
+								<mm_select v-model="form.state" :options="$to_kv(arr_state)" />
+							</dd>
+							<dt>文章分类</dt>
+							<dd>
+								<mm_select v-model="form.type_id" :options="$to_kv(list_article_type, 'type_id', 'name')" />
+							</dd>
+							<dt>频道</dt>
+							<dd>
+								<mm_select v-model="form.channel_id" :options="$to_kv(list_article_channel, 'channel_id', 'name')" />
+							</dd>
+							<dt>用户</dt>
+							<dd>
+								<mm_select v-model="form.user_id" :options="$to_kv(list_account, 'user_id', 'nickname')" />
+							</dd>
+							<dt>所属城市</dt>
+							<dd>
+								<mm_select v-model="form.city_id" :options="$to_kv(list_address_city, 'city_id', 'name')" />
+							</dd>
+							<dt>热度</dt>
+							<dd>
+								<mm_number v-model="form.hot" :min="0" :max="1000000000" />
+							</dd>
+							<dt>点赞次数</dt>
+							<dd>
+								<mm_number v-model="form.praise" :min="0" :max="1000000000" />
+							</dd>
+							<dt>采集规则ID</dt>
+							<dd>
+								<mm_input v-model="form.collect_id" :minlength="0" :maxlength="0" placeholder="如果文章是通过采集的方式获得，那么具有采集ID" />
+							</dd>
+							<dt>作者</dt>
+							<dd>
+								<mm_input v-model="form.author" :minlength="0" :maxlength="0" placeholder="写出该文章的人" />
+							</dd>
+							<dt class="required">标题</dt>
+							<dd>
+								<mm_input v-model="form.title" :minlength="0" :maxlength="0" placeholder="用于文章和html的&#60;title&#62;标签中"
+								 :required="true" />
+							</dd>
+							<dt>关键词</dt>
+							<dd>
+								<mm_input v-model="form.keywords" :minlength="0" :maxlength="0" placeholder="引擎收录" />
+							</dd>
+							<dt>描述</dt>
+							<dd>
+								<mm_input v-model="form.description" :minlength="0" :maxlength="0" placeholder="用于文章提纲和搜索引擎收录" />
+							</dd>
+							<dt>来源</dt>
+							<dd>
+								<mm_input v-model="form.source" :minlength="0" :maxlength="0" placeholder="文章的出处" />
+							</dd>
+							<dt>来源地址</dt>
+							<dd>
+								<mm_input v-model="form.url" :minlength="0" :maxlength="0" placeholder="用于跳转到发布该文章的网站" />
+							</dd>
+							<dt>标签</dt>
+							<dd>
+								<mm_input v-model="form.tag" :minlength="0" :maxlength="0" placeholder="用于标注文章所属相关内容，多个标签用空格隔开" />
+							</dd>
+							<dt>封面图</dt>
+							<dd>
+								<mm_upload_img width="10rem" height="10rem" name="img" type="text" v-model="form.img" />
+							</dd>
+							<dt>正文</dt>
+							<dd>
+								<mm_textarea v-model="form.content" type="text" placeholder="文章的主体内容" />
+							</dd>
+							<dt>收藏者</dt>
+							<dd>
+								<mm_textarea v-model="form.collecter" type="text" placeholder="多个收藏者用”,“分隔" />
+							</dd>
+						</dl>
+					</div>
+					<div class="foot">
 						<div class="mm_group">
 							<button class="btn_default" type="button" @click="cancel">取消</button>
 							<button class="btn_primary" type="button" @click="submit()">提交</button>
 						</div>
-					</footer>
+					</div>
 				</mm_form>
 			</mm_col>
 		</mm_grid>
@@ -112,114 +115,114 @@
 					"article_id": 0
 				},
 				form: {
-						"article_id": 0,
-						"available": 0,
-						"state": 0,
-						"type_id": 0,
-						"channel_id": 0,
-						"user_id": 0,
-						"city_id": 0,
-						"hot": 0,
-						"praise": 0,
-						"collect_id": 0,
-						"author": '',
-						"title": '',
-						"keywords": '',
-						"description": '',
-						"source": '',
-						"url": '',
-						"tag": '',
-						"img": '',
-						"content": '',
-						"collecter": '',
+					"article_id": 0,
+					"available": 0,
+					"state": 0,
+					"type_id": 0,
+					"channel_id": 0,
+					"user_id": 0,
+					"city_id": 0,
+					"hot": 0,
+					"praise": 0,
+					"collect_id": 0,
+					"author": '',
+					"title": '',
+					"keywords": '',
+					"description": '',
+					"source": '',
+					"url": '',
+					"tag": '',
+					"img": '',
+					"content": '',
+					"collecter": '',
 				},
 				// 是否启用
-				'arr_available': ['否','是'],
+				'arr_available': [ '否' , '是' ],
 				// 状态
-				'arr_state': ['','正常','推荐','认证','违规','官方'],
+				'arr_state': [ '' , '正常' , '推荐' , '认证' , '违规' , '官方' ],
 				// 文章分类
-				'list_article_type': [],
+				'list_article_type': [ ],
 				// 频道
-				'list_article_channel': [],
+				'list_article_channel': [ ],
 				// 用户
-				'list_account': [],
+				'list_account': [ ],
 				// 所属城市
-				'list_address_city': [],
+				'list_address_city': [ ],
 			}
 		},
 		methods: {
-				/**
-				 * 获取文章分类
-				 * @param {query} 查询条件
-				 */
-				get_article_type(query){
-					var _this = this;
-					if(!query){
-						query = {
-							field: "type_id,name"
-						};
+			/**
+			 * 获取文章分类
+			 * @param {query} 查询条件
+			 */
+			get_article_type(query) {
+				var _this = this;
+				if (!query) {
+					query = {
+						field: "type_id,name"
+					};
+				}
+				this.$get('~/apis/cms/article_type?size=0', query, function(json) {
+					if (json.result) {
+						_this.list_article_type .clear();
+						_this.list_article_type .addList(json.result.list)
 					}
-					this.$get('~/apis/cms/article_type?size=0', query, function(json) {
-						if (json.result) {
-							_this.list_article_type.clear();
-							_this.list_article_type.addList(json.result.list)
-						}
-					});
-				},
-				/**
-				 * 获取频道
-				 * @param {query} 查询条件
-				 */
-				get_article_channel(query){
-					var _this = this;
-					if(!query){
-						query = {
-							field: "channel_id,name"
-						};
+				});
+			},
+			/**
+			 * 获取频道
+			 * @param {query} 查询条件
+			 */
+			get_article_channel(query) {
+				var _this = this;
+				if (!query) {
+					query = {
+						field: "channel_id,name"
+					};
+				}
+				this.$get('~/apis/cms/article_channel?size=0', query, function(json) {
+					if (json.result) {
+						_this.list_article_channel .clear();
+						_this.list_article_channel .addList(json.result.list)
 					}
-					this.$get('~/apis/cms/article_channel?size=0', query, function(json) {
-						if (json.result) {
-							_this.list_article_channel.clear();
-							_this.list_article_channel.addList(json.result.list)
-						}
-					});
-				},
-				/**
-				 * 获取用户
-				 * @param {query} 查询条件
-				 */
-				get_account(query){
-					var _this = this;
-					if(!query){
-						query = {
-							field: "user_id,nickname"
-						};
+				});
+			},
+			/**
+			 * 获取用户
+			 * @param {query} 查询条件
+			 */
+			get_account(query) {
+				var _this = this;
+				if (!query) {
+					query = {
+						field: "user_id,nickname"
+					};
+				}
+				this.$get('~/apis/user/account?size=0', query, function(json) {
+					if (json.result) {
+						_this.list_account .clear();
+						_this.list_account .addList(json.result.list)
 					}
-					this.$get('~/apis/user/account?size=0', query, function(json) {
-						if (json.result) {
-							_this.list_account.clear();
-							_this.list_account.addList(json.result.list)
-						}
-					});
-				},
-				/**
-				 * 获取所属城市
-				 * @param {query} 查询条件
-				 */
-				get_address_city(query){
-					var _this = this;
-					if(!query){
-						query = {
-							field: "city_id,name"
-						};
+				});
+			},
+			/**
+			 * 获取所属城市
+			 * @param {query} 查询条件
+			 */
+			get_address_city(query) {
+				var _this = this;
+				if (!query) {
+					query = {
+						field: "city_id,name"
+					};
+				}
+				this.$get('~/apis/sys/address_city?size=0', query, function(json) {
+					if (json.result) {
+						_this.list_address_city .clear();
+						_this.list_address_city .addList(json.result.list)
 					}
-					this.$get('~/apis/sys/address_city?size=0', query, function(json) {
-						if (json.result) {
-							_this.list_address_city.clear();
-							_this.list_address_city.addList(json.result.list)
-						}
-					});
-				},
+				});
+			},
 		},
 		created() {
 			// 获取文章分类

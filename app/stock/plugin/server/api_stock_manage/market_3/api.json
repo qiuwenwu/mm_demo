@@ -1,6 +1,6 @@
 {
     "name": "stock_market_32",
-    "title": "创业板行情",
+    "title": "股票行情",
     "description": "创业板股票每日行情",
     "path": "/apis/stock/market_3",
     "method": "ALL",

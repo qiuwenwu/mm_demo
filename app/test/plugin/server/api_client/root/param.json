@@ -1,55 +1,84 @@
 {
     "name": "test",
-    "title": "",
+    "title": "测试表",
     "add": {
         "body": [
-            "name",
+            "uid",
+            "email",
             "age",
             "sex",
-            "kouhao"
+            "note",
+            "money",
+            "like"
         ],
-        "body_required": []
+        "body_required": [
+            "name",
+            "username",
+            "password"
+        ]
     },
     "del": {
         "query": [],
-        "query_required": [
-            "id"
-        ]
+        "query_required": []
     },
     "set": {
         "query": [
-            "id",
             "name",
+            "username",
             "age_min",
             "age_max",
-            "sex",
+            "sex_min",
+            "sex_max",
+            "money_min",
+            "money_max",
             "keyword"
         ],
         "query_required": [],
         "body": [
+            "uid",
             "name",
+            "username",
+            "password",
+            "email",
             "age",
             "age_add",
             "sex",
-            "kouhao"
+            "sex_add",
+            "note",
+            "money",
+            "money_add",
+            "like"
         ],
         "body_required": [],
         "body_not": []
     },
     "get": {
         "query": [
-            "id",
             "name",
+            "username",
             "age_min",
             "age_max",
-            "sex",
+            "sex_min",
+            "sex_max",
+            "create_time_min",
+            "create_time_max",
+            "update_time_min",
+            "update_time_max",
+            "last_time_min",
+            "last_time_max",
+            "birthday_min",
+            "birthday_max",
+            "cycle_min",
+            "cycle_max",
+            "money_min",
+            "money_max",
             "keyword"
         ],
         "query_required": []
     },
     "list": [
         {
-            "name": "id",
+            "name": "uid",
             "title": "",
             "description": "",
             "type": "number",
@@ -64,10 +93,66 @@
             "description": "",
             "type": "string",
             "dataType": "varchar",
-            "string": {}
+            "string": {
+                "notEmpty": 1
+            }
+        },
+        {
+            "name": "username",
+            "title": "",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {
+                "notEmpty": 1
+            }
+        },
+        {
+            "name": "password",
+            "title": "",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {
+                "notEmpty": 1
+            }
+        },
+        {
+            "name": "email",
+            "title": "",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {
+                "format": "email"
+            }
         },
         {
             "name": "age",
+            "title": "",
+            "description": "",
+            "type": "number",
+            "dataType": "bigint",
+            "number": {}
+        },
+        {
+            "name": "age_min",
+            "title": "——最小值",
+            "description": "",
+            "type": "number",
+            "dataType": "bigint",
+            "number": {}
+        },
+        {
+            "name": "age_max",
+            "title": "——最大值",
+            "description": "",
+            "type": "number",
+            "dataType": "bigint",
+            "number": {}
+        },
+        {
+            "name": "sex",
             "title": "",
             "description": "",
             "type": "number",
@@ -77,7 +162,7 @@
             }
         },
         {
-            "name": "age_min",
+            "name": "sex_min",
             "title": "——最小值",
             "description": "",
             "type": "number",
@@ -87,7 +172,7 @@
             }
         },
         {
-            "name": "age_max",
+            "name": "sex_max",
             "title": "——最大值",
             "description": "",
             "type": "number",
@@ -97,17 +182,139 @@
             }
         },
         {
-            "name": "sex",
+            "name": "create_time",
             "title": "",
             "description": "",
-            "type": "number",
-            "dataType": "tinyint",
-            "number": {
-                "max": 1
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
             }
         },
         {
-            "name": "kouhao",
+            "name": "create_time_min",
+            "title": "——开始时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "create_time_max",
+            "title": "——结束时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "update_time",
+            "title": "",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "update_time_min",
+            "title": "——开始时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "update_time_max",
+            "title": "——结束时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "last_time",
+            "title": "",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "last_time_min",
+            "title": "——开始时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "last_time_max",
+            "title": "——结束时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "birthday",
+            "title": "",
+            "description": "",
+            "type": "string",
+            "dataType": "datetime",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "birthday_min",
+            "title": "——开始时间",
+            "description": "",
+            "type": "string",
+            "dataType": "datetime",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "birthday_max",
+            "title": "——结束时间",
+            "description": "",
+            "type": "string",
+            "dataType": "datetime",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "note",
             "title": "",
             "description": "",
             "type": "string",
@@ -115,9 +322,74 @@
             "string": {}
         },
         {
+            "name": "cycle",
+            "title": "",
+            "description": "",
+            "type": "string",
+            "dataType": "date",
+            "string": {
+                "notEmpty": true,
+                "format": "date"
+            }
+        },
+        {
+            "name": "cycle_min",
+            "title": "——开始时间",
+            "description": "",
+            "type": "string",
+            "dataType": "date",
+            "string": {
+                "notEmpty": true,
+                "format": "date"
+            }
+        },
+        {
+            "name": "cycle_max",
+            "title": "——结束时间",
+            "description": "",
+            "type": "string",
+            "dataType": "date",
+            "string": {
+                "notEmpty": true,
+                "format": "date"
+            }
+        },
+        {
+            "name": "money",
+            "title": "",
+            "description": "",
+            "type": "number",
+            "dataType": "float",
+            "number": {}
+        },
+        {
+            "name": "money_min",
+            "title": "——最小值",
+            "description": "",
+            "type": "number",
+            "dataType": "float",
+            "number": {}
+        },
+        {
+            "name": "money_max",
+            "title": "——最大值",
+            "description": "",
+            "type": "number",
+            "dataType": "float",
+            "number": {}
+        },
+        {
+            "name": "like",
+            "title": "",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
             "name": "keyword",
             "title": "关键词",
-            "description": "用于搜索(name)",
+            "description": "用于搜索(name)、(username)",
             "type": "string",
             "dataType": "varchar",
             "string": {}

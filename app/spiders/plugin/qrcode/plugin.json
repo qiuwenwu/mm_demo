@@ -1,0 +1,11 @@
+{
+	"name": "spiders_qrcode",
+	"title": "二维码爬取",
+	"description": "爬取指定网站二维码图片信息",
+	"version": "1.0",
+	"identifier": "spiders_qrcode",
+	"lang_path": "./lang/",
+	"icon": "/img/logo.png",
+	"cmd": "spiders_qrcode",
+	"sort": 10
+}

@@ -10,13 +10,17 @@
 	import nav_main from './components/nav_main.vue'
 	import nav_quick from './components/nav_quick.vue'
 	import nav_float from './components/nav_float.vue'
+	import mm_drag from '/src/components/expand/mm_drag.vue'
+	
+	Vue.component('mm_drag', mm_drag);
 	
 	export default {
 		components: {
 			nav_top,
 			nav_main,
 			nav_quick,
-			nav_float
+			nav_float,
+			
 		},
 		data: function() {
 			return {

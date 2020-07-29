@@ -10,7 +10,10 @@
 	import nav_main from './components/nav_main.vue'
 	import nav_quick from './components/nav_quick.vue'
 	import nav_float from './components/nav_float.vue'
-
+	import mm_drag from '/src/components/expand/mm_drag.vue'
+	
+	Vue.component('mm_drag', mm_drag);
+	
 	export default {
 		components: {
 			nav_top,
@@ -100,9 +103,9 @@
 		width: calc(100% - 1rem);
 		height: calc(100% - 3rem);
 	}
-	
+
 	.mm_side~.mm_main {
-	    height: calc(100vh - 2.5rem);
+		height: calc(100vh - 2.5rem);
 	}
 
 	.diy_left>div {
@@ -254,7 +257,7 @@
 		height: 2.5rem;
 		line-height: 2.5rem;
 		padding: 0 1rem;
-		border-bottom: 1px solid rgba(125,125,125, 0.25);
+		border-bottom: 1px solid rgba(125, 125, 125, 0.25);
 		border-radius: 2px 2px 0 0;
 		font-size: 14px;
 	}
@@ -268,14 +271,14 @@
 	[class*=mm_col_]>.mm_view {
 		background: #fff;
 		border-radius: .5rem;
-		box-shadow: 0 0.25rem 0.5rem 0 rgba(7,17,27,0.1);
+		box-shadow: 0 0.25rem 0.5rem 0 rgba(7, 17, 27, 0.1);
 	}
 
 	.mm_view>.mm_title {
 		line-height: 2.5rem;
 		padding: 0 0 0 1.5rem;
 		min-height: 2.5rem;
-		border-bottom: 1px solid rgba(125,125,125,0.25);
+		border-bottom: 1px solid rgba(125, 125, 125, 0.25);
 		position: relative;
 		background: #fdfdfd;
 	}
@@ -320,7 +323,7 @@
 		width: 12.5rem;
 		height: 1.5rem;
 		line-height: 1.5rem;
-		border: 1px solid rgba(125,125,125,0.25);
+		border: 1px solid rgba(125, 125, 125, 0.25);
 		border-radius: 0.25rem;
 		font-size: 0.875rem;
 	}
@@ -396,8 +399,13 @@
 		float: right;
 		margin-top: 0.25rem;
 	}
-	
+
 	.pager_now {
-		width: 2.5rem; text-align: center; height: 1.25rem; border-radius: .25rem; border: 1px solid rgba(125, 125, 125, 0.25);;
+		width: 2.5rem;
+		text-align: center;
+		height: 1.25rem;
+		border-radius: .25rem;
+		border: 1px solid rgba(125, 125, 125, 0.25);
+		;
 	}
 </style>

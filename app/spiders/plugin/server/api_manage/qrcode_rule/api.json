@@ -1,0 +1,18 @@
+{
+    "name": "spiders_qrcode_rule2",
+    "title": "抓取二维码规则",
+    "description": "",
+    "path": "/apis/spiders/qrcode_rule",
+    "method": "ALL",
+    "cache": 0,
+    "client_cache": false,
+    "param_path": "./param.json",
+    "sql_path": "./sql.json",
+    "check_param": true,
+    "oauth": {
+        "scope": true,
+        "signIn": true,
+        "gm": 2,
+        "user_admin": []
+    }
+}

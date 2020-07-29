@@ -1,0 +1,13 @@
+{
+	"title": "计算股票技术分析准确率",
+	"description": "每月1号上午10:00进行统计，便于精确分析结果",
+	"name": "count_formula",
+	"func_file": "./index.js",
+	"num": 0,
+	"interval": 1000,
+	"wait": 0,
+	"time": "01 10:00:00",
+	"date_start": "",
+	"date_end": "",
+	"sort": 100
+}

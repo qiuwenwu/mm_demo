@@ -1,0 +1,11 @@
+{
+	"name": "spiders",
+	"title": "爬虫",
+	"description": "带各种图片、视频、微信二维码等各种爬虫功能",
+	"version": "1.0",
+	"identifier": "spiders",
+	"lang_path": "./lang/",
+	"icon": "/img/logo.png",
+	"cmd": "spiders",
+	"sort": 10
+}

@@ -11,7 +11,8 @@
 							<h5><span>筛选条件</span></h5>
 							<mm_list col="3">
 								<mm_col>
-									<mm_select v-model="query.user_id" title="用户" :options="$to_kv(list_account, 'user_id', 'nickname')" @change="search()" />
+									<mm_select v-model="query.user_id" title="用户" :options="$to_kv(list_account, 'user_id', 'nickname')"
+									 @change="search()" />
 								</mm_col>
 								<mm_col>
 									<mm_btn class="btn_primary-x" type="reset" @click.native="reset();search()">重置</mm_btn>
@@ -48,7 +49,7 @@
 									<th scope="col" class="th_handle"><span>操作</span></th>
 								</tr>
 							</thead>
-							<tbody>
+							<draggable v-model="list" tag="tbody" @change="sort_change">
 								<tr v-for="(o, idx) in list" :key="idx" :class="{'active': select == idx}" @click="selected(idx)">
 									<th scope="row"><input type="checkbox" :checked="select_has(o[field])" @click="select_change(o[field])" /></th>
 									<td>
@@ -74,7 +75,7 @@
 										<mm_btn class="btn_warning" @click.native="del_show(o, field)">删除</mm_btn>
 									</td>
 								</tr>
-							</tbody>
+							</draggable>
 						</mm_table>
 					</mm_body>
 					<footer>
@@ -160,7 +161,7 @@
 				//颜色
 				arr_color: ['', '', 'font_yellow', 'font_success', 'font_warning', 'font_primary', 'font_info', 'font_default'],
 				// 用户
-				'list_account': [],
+				'list_account': [ ],
 				// 视图模型
 				vm: {}
 			}
@@ -170,17 +171,17 @@
 			 * 获取用户
 			 * @param {query} 查询条件
 			 */
-			get_account(query){
+			get_account(query) {
 				var _this = this;
-				if(!query){
+				if (!query) {
 					query = {
 						field: "user_id,nickname"
 					};
 				}
 				this.$get('~/apis/user/account?size=0', query, function(json) {
 					if (json.result) {
-						_this.list_account.clear();
-						_this.list_account.addList(json.result.list)
+						_this.list_account .clear();
+						_this.list_account .addList(json.result.list)
 					}
 				});
 			},

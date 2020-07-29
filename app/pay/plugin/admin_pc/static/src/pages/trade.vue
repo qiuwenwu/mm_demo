@@ -11,19 +11,23 @@
 							<h5><span>筛选条件</span></h5>
 							<mm_list col="3">
 								<mm_col>
-									<mm_input v-model="query.keyword" title="关键词" desc="付款标题 / 付款描述 / 付款内容" @blur="search()" />
+									<mm_input v-model="query.keyword" title="关键词" desc="付款标题 / 付款描述 / 付款内容"
+									 @blur="search()" />
 								</mm_col>
 								<mm_col>
 									<mm_select v-model="query.state" title="付款状态" :options="$to_kv(arr_state)" @change="search()" />
 								</mm_col>
 								<mm_col>
-									<mm_select v-model="query.from_user_id" title="付款人" :options="$to_kv(list_account, 'user_id', 'nickname')" @change="search()" />
+									<mm_select v-model="query.from_user_id" title="付款人" :options="$to_kv(list_account, 'user_id', 'nickname')"
+									 @change="search()" />
 								</mm_col>
 								<mm_col>
-									<mm_select v-model="query.to_user_id" title="收款人" :options="$to_kv(list_account, 'user_id', 'nickname')" @change="search()" />
+									<mm_select v-model="query.to_user_id" title="收款人" :options="$to_kv(list_account, 'user_id', 'nickname')"
+									 @change="search()" />
 								</mm_col>
 								<mm_col>
-									<mm_select v-model="query.seller_id" title="商户" :options="$to_kv(list_seller, 'seller_id', 'name')" @change="search()" />
+									<mm_select v-model="query.seller_id" title="商户" :options="$to_kv(list_seller, 'seller_id', 'name')"
+									 @change="search()" />
 								</mm_col>
 								<mm_col>
 									<mm_btn class="btn_primary-x" type="reset" @click.native="reset();search()">重置</mm_btn>
@@ -111,7 +115,7 @@
 									<th scope="col" class="th_handle"><span>操作</span></th>
 								</tr>
 							</thead>
-							<tbody>
+							<draggable v-model="list" tag="tbody" @change="sort_change">
 								<tr v-for="(o, idx) in list" :key="idx" :class="{'active': select == idx}" @click="selected(idx)">
 									<th scope="row"><input type="checkbox" :checked="select_has(o[field])" @click="select_change(o[field])" /></th>
 									<td>
@@ -188,7 +192,7 @@
 										<mm_btn class="btn_warning" @click.native="del_show(o, field)">删除</mm_btn>
 									</td>
 								</tr>
-							</tbody>
+							</draggable>
 						</mm_table>
 					</mm_body>
 					<footer>
@@ -318,13 +322,13 @@
 				//颜色
 				arr_color: ['', '', 'font_yellow', 'font_success', 'font_warning', 'font_primary', 'font_info', 'font_default'],
 				// 付款状态
-				'arr_state': ['','待付款','待确认','已完成','已取消'],
+				'arr_state': [ '' , '待付款' , '待确认' , '已完成' , '已取消' ],
 				// 付款人
-				'list_account': [],
+				'list_account': [ ],
 				// 收款人
-				'list_account': [],
+				'list_account': [ ],
 				// 商户
-				'list_seller': [],
+				'list_seller': [ ],
 				// 视图模型
 				vm: {}
 			}
@@ -334,17 +338,17 @@
 			 * 获取付款人
 			 * @param {query} 查询条件
 			 */
-			get_account(query){
+			get_account(query) {
 				var _this = this;
-				if(!query){
+				if (!query) {
 					query = {
 						field: "user_id,nickname"
 					};
 				}
 				this.$get('~/apis/user/account?size=0', query, function(json) {
 					if (json.result) {
-						_this.list_account.clear();
-						_this.list_account.addList(json.result.list)
+						_this.list_account .clear();
+						_this.list_account .addList(json.result.list)
 					}
 				});
 			},
@@ -352,17 +356,17 @@
 			 * 获取收款人
 			 * @param {query} 查询条件
 			 */
-			get_account(query){
+			get_account(query) {
 				var _this = this;
-				if(!query){
+				if (!query) {
 					query = {
 						field: "user_id,nickname"
 					};
 				}
 				this.$get('~/apis/user/account?size=0', query, function(json) {
 					if (json.result) {
-						_this.list_account.clear();
-						_this.list_account.addList(json.result.list)
+						_this.list_account .clear();
+						_this.list_account .addList(json.result.list)
 					}
 				});
 			},
@@ -370,17 +374,17 @@
 			 * 获取商户
 			 * @param {query} 查询条件
 			 */
-			get_seller(query){
+			get_seller(query) {
 				var _this = this;
-				if(!query){
+				if (!query) {
 					query = {
 						field: "seller_id,name"
 					};
 				}
 				this.$get('~/apis/pay/seller?size=0', query, function(json) {
 					if (json.result) {
-						_this.list_seller.clear();
-						_this.list_seller.addList(json.result.list)
+						_this.list_seller .clear();
+						_this.list_seller .addList(json.result.list)
 					}
 				});
 			},

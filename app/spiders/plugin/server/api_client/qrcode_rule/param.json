@@ -1,0 +1,384 @@
+{
+    "name": "spiders_qrcode_rule",
+    "title": "抓取二维码规则",
+    "add": {
+        "body": [
+            "host",
+            "path",
+            "pager",
+            "pager_index",
+            "list",
+            "pic",
+            "title",
+            "name",
+            "wechat",
+            "indstry",
+            "indstry_index",
+            "area",
+            "area_index",
+            "time",
+            "time_index",
+            "tag",
+            "tag_index",
+            "save_way",
+            "save_dir"
+        ],
+        "body_required": []
+    },
+    "del": {
+        "query": [],
+        "query_required": [
+            "rid"
+        ]
+    },
+    "set": {
+        "query": [
+            "rid",
+            "pager_index_min",
+            "pager_index_max",
+            "title",
+            "name",
+            "indstry_index_min",
+            "indstry_index_max",
+            "area_index_min",
+            "area_index_max",
+            "time_index_min",
+            "time_index_max",
+            "tag",
+            "tag_index_min",
+            "tag_index_max",
+            "keyword"
+        ],
+        "query_required": [],
+        "body": [
+            "host",
+            "path",
+            "pager",
+            "pager_index",
+            "pager_index_add",
+            "list",
+            "pic",
+            "title",
+            "name",
+            "wechat",
+            "indstry",
+            "indstry_index",
+            "indstry_index_add",
+            "area",
+            "area_index",
+            "area_index_add",
+            "time",
+            "time_index",
+            "time_index_add",
+            "tag",
+            "tag_index",
+            "tag_index_add",
+            "save_way",
+            "save_dir"
+        ],
+        "body_required": [],
+        "body_not": []
+    },
+    "get": {
+        "query": [
+            "rid",
+            "pager_index_min",
+            "pager_index_max",
+            "title",
+            "name",
+            "indstry_index_min",
+            "indstry_index_max",
+            "area_index_min",
+            "area_index_max",
+            "time_index_min",
+            "time_index_max",
+            "tag",
+            "tag_index_min",
+            "tag_index_max",
+            "keyword"
+        ],
+        "query_required": []
+    },
+    "list": [
+        {
+            "name": "rid",
+            "title": "二维码规则编号",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "host",
+            "title": "抓包网址",
+            "description": "",
+            "type": "string",
+            "dataType": "text",
+            "string": {}
+        },
+        {
+            "name": "path",
+            "title": "列表页",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "pager",
+            "title": "页数位置",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "pager_index",
+            "title": "页数位数",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "pager_index_min",
+            "title": "页数位数——最小值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "pager_index_max",
+            "title": "页数位数——最大值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "list",
+            "title": "列表位置",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "pic",
+            "title": "图片位置",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "title",
+            "title": "标题位置",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "name",
+            "title": "名称位置",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "wechat",
+            "title": "微信位置",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "indstry",
+            "title": "行业位置",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "indstry_index",
+            "title": "行业位数",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "indstry_index_min",
+            "title": "行业位数——最小值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "indstry_index_max",
+            "title": "行业位数——最大值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "area",
+            "title": "地区位置",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "area_index",
+            "title": "地区位数",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "area_index_min",
+            "title": "地区位数——最小值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "area_index_max",
+            "title": "地区位数——最大值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "time",
+            "title": "时间位置",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "time_index",
+            "title": "时间位数",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "time_index_min",
+            "title": "时间位数——最小值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "time_index_max",
+            "title": "时间位数——最大值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "tag",
+            "title": "标签位置",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "tag_index",
+            "title": "标签位数",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "tag_index_min",
+            "title": "标签位数——最小值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "tag_index_max",
+            "title": "标签位数——最大值",
+            "description": "",
+            "type": "number",
+            "dataType": "int",
+            "number": {
+                "max": 2147483647
+            }
+        },
+        {
+            "name": "save_way",
+            "title": "保存数据库",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "save_dir",
+            "title": "保存路径",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "keyword",
+            "title": "关键词",
+            "description": "用于搜索标题位置(title)、名称位置(name)、标签位置(tag)",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        }
+    ]
+}

@@ -1,0 +1,63 @@
+{
+	// 是否启用过滤, 启用过滤后, 不符合的参数会被过滤掉
+	"filter": true,
+	// 校验脚本文件, 可以使用脚本的方式加一步进行校验, 让传参更加安全
+	"func_file": "",
+	"get": {
+		"query": ["url", "pager", "list", "view_img", "view_title", "page_index", "save_way", "save_dir", "keywords"],
+		"query_required": []
+	},
+	"list": [{
+			"name": "url",
+			"title": "抓取地址",
+			"description": "输入要抓取的网页地址",
+			"type": "string"
+		}, {
+			"name": "pager",
+			"title": "页标签",
+			"description": "选择要抓取的标签",
+			"type": "string"
+		},
+		{
+			"name": "page_index",
+			"title": "抓取起始页",
+			"description": "从第几页开始抓取，默认从记录位置开始，如果没有记录则从第1页开始",
+			"type": "string"
+		},
+		{
+			"name": "list",
+			"title": "列表标签",
+			"description": "用于获取二维码图片",
+			"type": "string"
+		},
+		{
+			"name": "view_img",
+			"title": "详情图片标签",
+			"description": "用于定位到二维码图片",
+			"type": "string"
+		},
+		{
+			"name": "view_title",
+			"title": "详情标题",
+			"type": "string"
+		},
+		{
+			"name": "save_way",
+			"title": "保存方式",
+			"description": "默认将图片保存在目录, 默认值db 存数据库, 可传入excel 可改存为xlxs文件",
+			"type": "string"
+		},
+		{
+			"name": "save_dir",
+			"title": "保存目录",
+			"description": "默认保存在当前接口目录的img目录下",
+			"type": "string"
+		},
+		{
+			"name": "keywords",
+			"title": "仅含关键词",
+			"description": "仅抓取包含相关关键词的二维码, 包含多个关键词用 | 分割",
+			"type": "string"
+		}
+	]
+}

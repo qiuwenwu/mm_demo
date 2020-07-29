@@ -1,20 +1,41 @@
 {
     "name": "test2",
-    "title": "",
+    "title": "测试表",
     "table": "test",
     "key": "id",
     "orderby_default": "`id` desc",
-    "field_obj": "`id`,`name`,`age`,`sex`,`kouhao`",
-    "field_default": "`id`,`name`,`age`,`sex`",
+    "field_obj": "`uid`,`name`,`username`,`email`,`age`,`sex`,`last_time`,`birthday`,`note`,`cycle`,`money`,`like`",
+    "field_default": "`uid`,`name`,`username`,`email`,`age`,`sex`,`create_time`,`update_time`,`last_time`,`birthday`,`cycle`,`money`,`like`",
     "query": {
         "name": "`name` like '%{0}%'",
         "age_min": "`age` >= {0}",
         "age_max": "`age` <= {0}",
         "kouhao": "`kouhao` like '%{0}%'",
-        "keyword": "(`name` like '%{0}%')"
+        "keyword": "(`name` like '%{0}%' || `username` like '%{0}%')",
+        "username": "`username` like '%{0}%'",
+        "password": "`password` like '%{0}%'",
+        "email": "`email` like '%{0}%'",
+        "sex_min": "`sex` >= {0}",
+        "sex_max": "`sex` <= {0}",
+        "create_time_min": "`create_time` >= '{0}'",
+        "create_time_max": "`create_time` <= '{0}'",
+        "update_time_min": "`update_time` >= '{0}'",
+        "update_time_max": "`update_time` <= '{0}'",
+        "last_time_min": "`last_time` >= '{0}'",
+        "last_time_max": "`last_time` <= '{0}'",
+        "birthday_min": "`birthday` >= '{0}'",
+        "birthday_max": "`birthday` <= '{0}'",
+        "note": "`note` like '%{0}%'",
+        "cycle_min": "`cycle` >= '{0}'",
+        "cycle_max": "`cycle` <= '{0}'",
+        "money_min": "`money` >= {0}",
+        "money_max": "`money` <= {0}",
+        "like": "`like` like '%{0}%'"
     },
     "update": {
-        "age_add": "`age` = `age` + {0}"
+        "age_add": "`age` = `age` + {0}",
+        "sex_add": "`sex` = `sex` + {0}",
+        "money_add": "`money` = `money` + {0}"
     },
     "format": [],
     "field_hide": []

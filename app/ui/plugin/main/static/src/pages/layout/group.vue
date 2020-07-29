@@ -19,13 +19,13 @@
 						<h5>输入框组合</h5>
 						<mm_group>
 							<input type="text" />
-							<mm_btn>按钮</mm_btn>
+							<mm_btn class="btn_default-x">按钮</mm_btn>
 						</mm_group>
 						<br />
 						<mm_group>
 							<span>介绍</span>
 							<input type="text" />
-							<mm_btn>按钮</mm_btn>
+							<mm_btn class="btn_default-x">按钮</mm_btn>
 						</mm_group>
 						<br />
 						<mm_group>
@@ -42,18 +42,18 @@
 								</optgroup>
 							</select>
 							<input type="text" />
-							<mm_btn>按钮</mm_btn>
+							<mm_btn class="btn_default-x">按钮</mm_btn>
 						</mm_group>
 					</mm_view>
 
 					<mm_view>
 						<h5>按钮组合</h5>
 						<mm_group>
-							<mm_btn>按钮</mm_btn>
-							<mm_btn>按钮</mm_btn>
+							<mm_btn class="btn_default-x">按钮</mm_btn>
+							<mm_btn class="btn_default-x">按钮</mm_btn>
 						</mm_group>
 						<br />
-						<mm_group class=" b-a">
+						<mm_group class="b-a">
 							<mm_btn class="btn_warning">取消</mm_btn>
 							<mm_btn class="btn_success">确定</mm_btn>
 						</mm_group>

@@ -11,6 +11,10 @@
 							<h5><span>筛选条件</span></h5>
 							<mm_list col="3">
 								<mm_col>
+									<mm_select v-model="query.ok" title="阶段" :options="$to_kv(list_, 'ok', 'name')"
+									 @change="search()" />
+								</mm_col>
+								<mm_col>
 									<mm_btn class="btn_primary-x" type="reset" @click.native="reset();search()">重置</mm_btn>
 								</mm_col>
 							</mm_list>
@@ -54,10 +58,49 @@
 									<th scope="col">
 										<mm_reverse title="成交量" v-model="query.orderby" field="VOL" :func="search"></mm_reverse>
 									</th>
+									<th scope="col">
+										<mm_reverse title="人工得分" v-model="query.orderby" field="score" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="1日权重" v-model="query.orderby" field="weight_1" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="4日权重" v-model="query.orderby" field="weight_4" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="7日权重" v-model="query.orderby" field="weight_7" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="1日涨跌" v-model="query.orderby" field="extent_1" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="4日涨跌" v-model="query.orderby" field="extent_4" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="7日涨跌" v-model="query.orderby" field="extent_7" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="做T建议" v-model="query.orderby" field="action_day" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="长线建议" v-model="query.orderby" field="action_week" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="综合建议" v-model="query.orderby" field="action" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="分析提示" v-model="query.orderby" field="tip" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="预言" v-model="query.orderby" field="predict" :func="search"></mm_reverse>
+									</th>
+									<th scope="col">
+										<mm_reverse title="阶段" v-model="query.orderby" field="ok" :func="search"></mm_reverse>
+									</th>
 									<th scope="col" class="th_handle"><span>操作</span></th>
 								</tr>
 							</thead>
-							<tbody>
+							<draggable v-model="list" tag="tbody" @change="sort_change">
 								<tr v-for="(o, idx) in list" :key="idx" :class="{'active': select == idx}" @click="selected(idx)">
 									<th scope="row"><input type="checkbox" :checked="select_has(o[field])" @click="select_change(o[field])" /></th>
 									<td>
@@ -91,11 +134,50 @@
 										<span>{{ o.VOL }}</span>
 									</td>
 									<td>
+										<span>{{ o.score }}</span>
+									</td>
+									<td>
+										<span>{{ o.weight_1 }}</span>
+									</td>
+									<td>
+										<span>{{ o.weight_4 }}</span>
+									</td>
+									<td>
+										<span>{{ o.weight_7 }}</span>
+									</td>
+									<td>
+										<span>{{ o.extent_1 }}</span>
+									</td>
+									<td>
+										<span>{{ o.extent_4 }}</span>
+									</td>
+									<td>
+										<span>{{ o.extent_7 }}</span>
+									</td>
+									<td>
+										<span>{{ o.action_day }}</span>
+									</td>
+									<td>
+										<span>{{ o.action_week }}</span>
+									</td>
+									<td>
+										<span>{{ o.action }}</span>
+									</td>
+									<td>
+										<span>{{ o.tip }}</span>
+									</td>
+									<td>
+										<span>{{ o.predict }}</span>
+									</td>
+									<td>
+										<span>{{ get_name(list_, o.ok, 'ok', 'name') }}</span>
+									</td>
+									<td>
 										<mm_btn class="btn_primary" :url="'./market_form?code=' + o[field]">修改</mm_btn>
 										<mm_btn class="btn_warning" @click.native="del_show(o, field)">删除</mm_btn>
 									</td>
 								</tr>
-							</tbody>
+							</draggable>
 						</mm_table>
 					</mm_body>
 					<footer>
@@ -126,6 +208,10 @@
 				</header>
 				<mm_body>
 					<dl>
+						<dt>阶段</dt>
+						<dd>
+							<mm_select v-model="form.ok" :options="$to_kv(list_, 'ok', 'name')" />
+						</dd>
 					</dl>
 				</mm_body>
 				<footer>
@@ -196,19 +282,73 @@
 					'VOL_min': 0,
 					// 成交量——最大值
 					'VOL_max': 0,
+					// 人工得分——最小值
+					'score_min': 0,
+					// 人工得分——最大值
+					'score_max': 0,
+					// 1日权重——最小值
+					'weight_1_min': 0,
+					// 1日权重——最大值
+					'weight_1_max': 0,
+					// 4日权重——最小值
+					'weight_4_min': 0,
+					// 4日权重——最大值
+					'weight_4_max': 0,
+					// 7日权重——最小值
+					'weight_7_min': 0,
+					// 7日权重——最大值
+					'weight_7_max': 0,
+					// 1日涨跌——最小值
+					'extent_1_min': 0,
+					// 1日涨跌——最大值
+					'extent_1_max': 0,
+					// 4日涨跌——最小值
+					'extent_4_min': 0,
+					// 4日涨跌——最大值
+					'extent_4_max': 0,
+					// 7日涨跌——最小值
+					'extent_7_min': 0,
+					// 7日涨跌——最大值
+					'extent_7_max': 0,
+					// 阶段——最小值
+					'ok_min': '',
+					// 阶段——最大值
+					'ok_max': '',
 					//排序
 					orderby: ""
 				},
 				form: {},
 				//颜色
 				arr_color: ['', '', 'font_yellow', 'font_success', 'font_warning', 'font_primary', 'font_info', 'font_default'],
+				// 阶段
+				'list_': [ ],
 				// 视图模型
 				vm: {}
 			}
 		},
 		methods: {
+			/**
+			 * 获取阶段
+			 * @param {query} 查询条件
+			 */
+			get_(query) {
+				var _this = this;
+				if (!query) {
+					query = {
+						field: "ok,name"
+					};
+				}
+				this.$get('~/apis/1已抓取，2已分析，3已计算?size=0', query, function(json) {
+					if (json.result) {
+						_this.list_ .clear();
+						_this.list_ .addList(json.result.list)
+					}
+				});
+			},
 		},
 		created() {
+			// 获取阶段
+			this.get_();
 		}
 	}
 </script>

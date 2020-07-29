@@ -41,7 +41,11 @@
 							<mm_icon src="/img/avatar.png"></mm_icon>
 						</mm_select>
 					</mm_view>
-
+					
+					<mm_view class="pc">
+						<h5 @click="$copy(code_5)">样式六 (多选)</h5>
+						<mm_select v-model="value" :options="options" type="multiple" ></mm_select>
+					</mm_view>
 					<mm_view>
 						{{ value }}
 					</mm_view>

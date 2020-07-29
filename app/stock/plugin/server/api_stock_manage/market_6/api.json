@@ -1,6 +1,6 @@
 {
     "name": "stock_market_62",
-    "title": "上证行情",
+    "title": "股票行情",
     "description": "上海交易所股票每日行情",
     "path": "/apis/stock/market_6",
     "method": "ALL",

@@ -1,0 +1,38 @@
+{
+    "name": "home_pc",
+    "sort": 1,
+    "routes": [
+		{
+		    "name": "spiders_qrcode",
+		    "path": "/spiders/qrcode",
+		    "component": "/spiders/home_pc/src/pages/qrcode.vue",
+		    "level": 0,
+		    "oauth": {
+		        "signIn": false,
+		        "user_admin": []
+		    }
+		}
+    ],
+    "top": [],
+    "left": [],
+    "bottom": [],
+    "right": [],
+    "desktop": [],
+    "quick": [],
+    "main": [
+        {
+            "title": "spiders_qrcode",
+            "name": "spiders_qrcode",
+            "url": "/spiders/qrcode",
+            "display": 0,
+            "sub": [
+                {
+                    "title": "用户账户",
+                    "show": false,
+                    "name": "spiders_qrcode",
+                    "url": "/spiders/qrcode"
+                }
+            ]
+        }
+    ]
+}

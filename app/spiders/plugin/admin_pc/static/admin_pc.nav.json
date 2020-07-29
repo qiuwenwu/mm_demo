@@ -1,0 +1,84 @@
+{
+    "name": "admin_pc",
+    "sort": 1,
+    "routes": [
+        {
+            "name": "spiders",
+            "path": "/spiders",
+            "redirect": "/spiders/qrcode"
+        },
+        {
+            "name": "spiders_qrcode",
+            "path": "/spiders/qrcode",
+            "component": "/spiders/admin_pc/src/pages/qrcode.vue",
+            "level": 3,
+            "oauth": {
+                "signIn": true,
+                "gm": 2,
+                "user_admin": []
+            }
+        },
+        {
+            "name": "spiders_qrcode_form",
+            "path": "/spiders/qrcode_form",
+            "component": "/spiders/admin_pc/src/pages/qrcode_form.vue",
+            "level": 4,
+            "oauth": {
+                "signIn": true,
+                "gm": 2,
+                "user_admin": []
+            }
+        },
+        {
+            "name": "spiders_qrcode_rule",
+            "path": "/spiders/qrcode_rule",
+            "component": "/spiders/admin_pc/src/pages/qrcode_rule.vue",
+            "level": 2,
+            "oauth": {
+                "signIn": true,
+                "gm": 2,
+                "user_admin": []
+            }
+        },
+        {
+            "name": "spiders_qrcode_rule_form",
+            "path": "/spiders/qrcode_rule_form",
+            "component": "/spiders/admin_pc/src/pages/qrcode_rule_form.vue",
+            "level": 3,
+            "oauth": {
+                "signIn": true,
+                "gm": 2,
+                "user_admin": []
+            }
+        }
+    ],
+    "top": [],
+    "left": [],
+    "bottom": [],
+    "right": [],
+    "desktop": [],
+    "quick": [],
+    "main": [
+        {
+            "title": "爬虫",
+            "name": "spiders",
+            "icon": "<i class=\"fa-cog\"></i>",
+            "url": "/spiders",
+            "display": 0,
+            "sub": [
+                {
+                    "title": "抓取二维码",
+                    "show": false,
+                    "name": "spiders_qrcode",
+                    "url": "/spiders/qrcode"
+                },
+                {
+                    "title": "抓取二维码规则",
+                    "show": false,
+                    "name": "spiders_qrcode_rule",
+                    "url": "/spiders/qrcode_rule"
+                }
+            ]
+        }
+    ]
+}

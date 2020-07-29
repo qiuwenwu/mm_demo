@@ -36,6 +36,9 @@
 					</mm_view>
 				</mm_col>
 			</mm_grid>
+			<mm_grid>
+				<mm_col width="100">{{ value }}</mm_col>
+			</mm_grid>
 		</main>
 	</mm_page>
 </template>

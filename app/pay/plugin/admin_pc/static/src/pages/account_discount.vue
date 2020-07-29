@@ -14,13 +14,16 @@
 									<mm_select v-model="query.state" title="提现状态" :options="$to_kv(arr_state)" @change="search()" />
 								</mm_col>
 								<mm_col>
-									<mm_select v-model="query.to_user_id" title="收款人" :options="$to_kv(list_account, 'user_id', 'nickname')" @change="search()" />
+									<mm_select v-model="query.to_user_id" title="收款人" :options="$to_kv(list_account, 'user_id', 'nickname')"
+									 @change="search()" />
 								</mm_col>
 								<mm_col>
-									<mm_select v-model="query.seller_id" title="商户" :options="$to_kv(list_seller, 'seller_id', 'name')" @change="search()" />
+									<mm_select v-model="query.seller_id" title="商户" :options="$to_kv(list_seller, 'seller_id', 'name')"
+									 @change="search()" />
 								</mm_col>
 								<mm_col>
-									<mm_select v-model="query.user_id" title="审批人" :options="$to_kv(list_account, 'user_id', 'nickname')" @change="search()" />
+									<mm_select v-model="query.user_id" title="审批人" :options="$to_kv(list_account, 'user_id', 'nickname')"
+									 @change="search()" />
 								</mm_col>
 								<mm_col>
 									<mm_btn class="btn_primary-x" type="reset" @click.native="reset();search()">重置</mm_btn>
@@ -96,7 +99,7 @@
 									<th scope="col" class="th_handle"><span>操作</span></th>
 								</tr>
 							</thead>
-							<tbody>
+							<draggable v-model="list" tag="tbody" @change="sort_change">
 								<tr v-for="(o, idx) in list" :key="idx" :class="{'active': select == idx}" @click="selected(idx)">
 									<th scope="row"><input type="checkbox" :checked="select_has(o[field])" @click="select_change(o[field])" /></th>
 									<td>
@@ -161,7 +164,7 @@
 										<mm_btn class="btn_warning" @click.native="del_show(o, field)">删除</mm_btn>
 									</td>
 								</tr>
-							</tbody>
+							</draggable>
 						</mm_table>
 					</mm_body>
 					<footer>
@@ -279,13 +282,13 @@
 				//颜色
 				arr_color: ['', '', 'font_yellow', 'font_success', 'font_warning', 'font_primary', 'font_info', 'font_default'],
 				// 提现状态
-				'arr_state': ['','申请中','转帐中','已完成','已拒绝'],
+				'arr_state': [ '' , '申请中' , '转帐中' , '已完成' , '已拒绝' ],
 				// 收款人
-				'list_account': [],
+				'list_account': [ ],
 				// 商户
-				'list_seller': [],
+				'list_seller': [ ],
 				// 审批人
-				'list_account': [],
+				'list_account': [ ],
 				// 视图模型
 				vm: {}
 			}
@@ -295,17 +298,17 @@
 			 * 获取收款人
 			 * @param {query} 查询条件
 			 */
-			get_account(query){
+			get_account(query) {
 				var _this = this;
-				if(!query){
+				if (!query) {
 					query = {
 						field: "user_id,nickname"
 					};
 				}
 				this.$get('~/apis/user/account?size=0', query, function(json) {
 					if (json.result) {
-						_this.list_account.clear();
-						_this.list_account.addList(json.result.list)
+						_this.list_account .clear();
+						_this.list_account .addList(json.result.list)
 					}
 				});
 			},
@@ -313,17 +316,17 @@
 			 * 获取商户
 			 * @param {query} 查询条件
 			 */
-			get_seller(query){
+			get_seller(query) {
 				var _this = this;
-				if(!query){
+				if (!query) {
 					query = {
 						field: "seller_id,name"
 					};
 				}
 				this.$get('~/apis/pay/seller?size=0', query, function(json) {
 					if (json.result) {
-						_this.list_seller.clear();
-						_this.list_seller.addList(json.result.list)
+						_this.list_seller .clear();
+						_this.list_seller .addList(json.result.list)
 					}
 				});
 			},
@@ -331,17 +334,17 @@
 			 * 获取审批人
 			 * @param {query} 查询条件
 			 */
-			get_account(query){
+			get_account(query) {
 				var _this = this;
-				if(!query){
+				if (!query) {
 					query = {
 						field: "user_id,nickname"
 					};
 				}
 				this.$get('~/apis/user/account?size=0', query, function(json) {
 					if (json.result) {
-						_this.list_account.clear();
-						_this.list_account.addList(json.result.list)
+						_this.list_account .clear();
+						_this.list_account .addList(json.result.list)
 					}
 				});
 			},

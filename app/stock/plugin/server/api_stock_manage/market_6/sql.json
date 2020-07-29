@@ -1,11 +1,11 @@
 {
     "name": "stock_market_62",
-    "title": "上证行情",
+    "title": "股票行情",
     "table": "stock_market_6",
     "key": "code",
     "orderby_default": "`code` desc",
-    "field_obj": "`code`,`DATETIME`,`HIGH`,`LOW`,`OPEN`,`CLOSE`,`LCLOSE`,`CHG`,`TOTAL`,`VOL`",
-    "field_default": "`code`,`DATETIME`,`HIGH`,`LOW`,`OPEN`,`CLOSE`,`LCLOSE`,`CHG`,`TOTAL`,`VOL`",
+    "field_obj": "`code`,`DATETIME`,`HIGH`,`LOW`,`OPEN`,`CLOSE`,`LCLOSE`,`CHG`,`TOTAL`,`VOL`,`score`,`weight_1`,`weight_4`,`weight_7`,`extent_1`,`extent_4`,`extent_7`,`action_day`,`action_week`,`action`,`tip`,`predict`,`ok`",
+    "field_default": "`code`,`DATETIME`,`HIGH`,`LOW`,`OPEN`,`CLOSE`,`LCLOSE`,`CHG`,`TOTAL`,`VOL`,`score`,`weight_1`,`weight_4`,`weight_7`,`extent_1`,`extent_4`,`extent_7`,`action_day`,`action_week`,`action`,`tip`,`predict`,`ok`",
     "query": {
         "code": "`code` like '%{0}%'",
         "DATETIME_min": "`DATETIME` >= '{0}'",
@@ -25,7 +25,28 @@
         "TOTAL_min": "`TOTAL` >= {0}",
         "TOTAL_max": "`TOTAL` <= {0}",
         "VOL_min": "`VOL` >= {0}",
-        "VOL_max": "`VOL` <= {0}"
+        "VOL_max": "`VOL` <= {0}",
+        "score_min": "`score` >= {0}",
+        "score_max": "`score` <= {0}",
+        "weight_1_min": "`weight_1` >= {0}",
+        "weight_1_max": "`weight_1` <= {0}",
+        "weight_4_min": "`weight_4` >= {0}",
+        "weight_4_max": "`weight_4` <= {0}",
+        "weight_7_min": "`weight_7` >= {0}",
+        "weight_7_max": "`weight_7` <= {0}",
+        "extent_1_min": "`extent_1` >= {0}",
+        "extent_1_max": "`extent_1` <= {0}",
+        "extent_4_min": "`extent_4` >= {0}",
+        "extent_4_max": "`extent_4` <= {0}",
+        "extent_7_min": "`extent_7` >= {0}",
+        "extent_7_max": "`extent_7` <= {0}",
+        "action_day": "`action_day` like '%{0}%'",
+        "action_week": "`action_week` like '%{0}%'",
+        "action": "`action` like '%{0}%'",
+        "tip": "`tip` like '%{0}%'",
+        "predict": "`predict` like '%{0}%'",
+        "ok_min": "`ok` >= {0}",
+        "ok_max": "`ok` <= {0}"
     },
     "update": {
         "HIGH_add": "`HIGH` = `HIGH` + {0}",
@@ -35,8 +56,27 @@
         "LCLOSE_add": "`LCLOSE` = `LCLOSE` + {0}",
         "CHG_add": "`CHG` = `CHG` + {0}",
         "TOTAL_add": "`TOTAL` = `TOTAL` + {0}",
-        "VOL_add": "`VOL` = `VOL` + {0}"
+        "VOL_add": "`VOL` = `VOL` + {0}",
+        "score_add": "`score` = `score` + {0}",
+        "weight_1_add": "`weight_1` = `weight_1` + {0}",
+        "weight_4_add": "`weight_4` = `weight_4` + {0}",
+        "weight_7_add": "`weight_7` = `weight_7` + {0}",
+        "extent_1_add": "`extent_1` = `extent_1` + {0}",
+        "extent_4_add": "`extent_4` = `extent_4` + {0}",
+        "extent_7_add": "`extent_7` = `extent_7` + {0}",
+        "ok_add": "`ok` = `ok` + {0}"
     },
-    "format": [],
+    "format": [
+        {
+            "key": "ok",
+            "title": "阶段",
+            "list": [
+                "",
+                "已抓取",
+                "已分析",
+                "已计算"
+            ]
+        }
+    ],
     "field_hide": []
 }

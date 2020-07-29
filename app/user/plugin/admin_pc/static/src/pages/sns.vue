@@ -75,7 +75,7 @@
 									<th scope="col" class="th_handle"><span>操作</span></th>
 								</tr>
 							</thead>
-							<tbody>
+							<draggable v-model="list" tag="tbody" @change="sort_change">
 								<tr v-for="(o, idx) in list" :key="idx" :class="{'active': select == idx}" @click="selected(idx)">
 									<th scope="row"><input type="checkbox" :checked="select_has(o[field])" @click="select_change(o[field])" /></th>
 									<td>
@@ -116,7 +116,7 @@
 										<mm_btn class="btn_warning" @click.native="del_show(o, field)">删除</mm_btn>
 									</td>
 								</tr>
-							</tbody>
+							</draggable>
 						</mm_table>
 					</mm_body>
 					<footer>
@@ -220,15 +220,15 @@
 				//颜色
 				arr_color: ['', '', 'font_yellow', 'font_success', 'font_warning', 'font_primary', 'font_info', 'font_default'],
 				// QQ认证
-				'arr_qq_state': ['未认证','已认证'],
+				'arr_qq_state': [ '未认证' , '已认证' ],
 				// 微信认证
-				'arr_wechat_state': ['未认证','已认证'],
+				'arr_wechat_state': [ '未认证' , '已认证' ],
 				// MM认证
-				'arr_mm_state': ['未认证','已认证'],
+				'arr_mm_state': [ '未认证' , '已认证' ],
 				// 百度认证
-				'arr_baidu_state': ['未认证','已认证'],
+				'arr_baidu_state': [ '未认证' , '已认证' ],
 				// 淘宝认证
-				'arr_taobao_state': ['未认证','已认证'],
+				'arr_taobao_state': [ '未认证' , '已认证' ],
 				// 视图模型
 				vm: {}
 			}

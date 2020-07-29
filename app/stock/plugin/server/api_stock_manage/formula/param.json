@@ -4,9 +4,9 @@
     "add": {
         "body": [
             "score",
-            "weigth_1",
-            "weigth_4",
-            "weigth_7",
+            "weight_1",
+            "weight_4",
+            "weight_7",
             "extent_1",
             "extent_4",
             "extent_7",
@@ -36,12 +36,12 @@
             "formula_id",
             "score_min",
             "score_max",
-            "weigth_1_min",
-            "weigth_1_max",
-            "weigth_4_min",
-            "weigth_4_max",
-            "weigth_7_min",
-            "weigth_7_max",
+            "weight_1_min",
+            "weight_1_max",
+            "weight_4_min",
+            "weight_4_max",
+            "weight_7_min",
+            "weight_7_max",
             "extent_1_min",
             "extent_1_max",
             "extent_4_min",
@@ -68,12 +68,12 @@
         "body": [
             "score",
             "score_add",
-            "weigth_1",
-            "weigth_1_add",
-            "weigth_4",
-            "weigth_4_add",
-            "weigth_7",
-            "weigth_7_add",
+            "weight_1",
+            "weight_1_add",
+            "weight_4",
+            "weight_4_add",
+            "weight_7",
+            "weight_7_add",
             "extent_1",
             "extent_1_add",
             "extent_4",
@@ -106,12 +106,12 @@
             "formula_id",
             "score_min",
             "score_max",
-            "weigth_1_min",
-            "weigth_1_max",
-            "weigth_4_min",
-            "weigth_4_max",
-            "weigth_7_min",
-            "weigth_7_max",
+            "weight_1_min",
+            "weight_1_max",
+            "weight_4_min",
+            "weight_4_max",
+            "weight_7_min",
+            "weight_7_max",
             "extent_1_min",
             "extent_1_max",
             "extent_4_min",
@@ -194,7 +194,7 @@
             }
         },
         {
-            "name": "weigth_1",
+            "name": "weight_1",
             "title": "1日权重",
             "description": "正分看涨，负分看跌。-3分大跌，-2分看跌，-1分看淡，0分未知，1分看好，2分看涨，3分大涨",
             "type": "number",
@@ -207,7 +207,7 @@
             }
         },
         {
-            "name": "weigth_1_min",
+            "name": "weight_1_min",
             "title": "1日权重——最小值",
             "description": "正分看涨，负分看跌。-3分大跌，-2分看跌，-1分看淡，0分未知，1分看好，2分看涨，3分大涨",
             "type": "number",
@@ -220,7 +220,7 @@
             }
         },
         {
-            "name": "weigth_1_max",
+            "name": "weight_1_max",
             "title": "1日权重——最大值",
             "description": "正分看涨，负分看跌。-3分大跌，-2分看跌，-1分看淡，0分未知，1分看好，2分看涨，3分大涨",
             "type": "number",
@@ -233,7 +233,7 @@
             }
         },
         {
-            "name": "weigth_4",
+            "name": "weight_4",
             "title": "4日权重",
             "description": "正分看涨，负分看跌。",
             "type": "number",
@@ -246,7 +246,7 @@
             }
         },
         {
-            "name": "weigth_4_min",
+            "name": "weight_4_min",
             "title": "4日权重——最小值",
             "description": "正分看涨，负分看跌。",
             "type": "number",
@@ -259,7 +259,7 @@
             }
         },
         {
-            "name": "weigth_4_max",
+            "name": "weight_4_max",
             "title": "4日权重——最大值",
             "description": "正分看涨，负分看跌。",
             "type": "number",
@@ -272,7 +272,7 @@
             }
         },
         {
-            "name": "weigth_7",
+            "name": "weight_7",
             "title": "7日权重",
             "description": "正分看涨，负分看跌。",
             "type": "number",
@@ -285,7 +285,7 @@
             }
         },
         {
-            "name": "weigth_7_min",
+            "name": "weight_7_min",
             "title": "7日权重——最小值",
             "description": "正分看涨，负分看跌。",
             "type": "number",
@@ -298,7 +298,7 @@
             }
         },
         {
-            "name": "weigth_7_max",
+            "name": "weight_7_max",
             "title": "7日权重——最大值",
             "description": "正分看涨，负分看跌。",
             "type": "number",

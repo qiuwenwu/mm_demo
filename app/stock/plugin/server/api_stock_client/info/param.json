@@ -3,14 +3,14 @@
     "title": "股票信息",
     "add": {
         "body": [
-            "company",
-            "description",
             "bonus",
-            "issue_price",
             "pe",
             "pb",
+            "issue_price",
             "profit",
-            "num"
+            "num",
+            "company",
+            "description"
         ],
         "body_required": [
             "code",
@@ -24,39 +24,39 @@
     "set": {
         "query": [
             "name",
-            "description",
             "bonus_min",
             "bonus_max",
-            "issue_price_min",
-            "issue_price_max",
             "pe_min",
             "pe_max",
             "pb_min",
             "pb_max",
+            "issue_price_min",
+            "issue_price_max",
             "profit_min",
             "profit_max",
             "num_min",
             "num_max",
+            "description",
             "keyword"
         ],
         "query_required": [],
         "body": [
             "code",
             "name",
-            "company",
-            "description",
             "bonus",
             "bonus_add",
-            "issue_price",
-            "issue_price_add",
             "pe",
             "pe_add",
             "pb",
             "pb_add",
+            "issue_price",
+            "issue_price_add",
             "profit",
             "profit_add",
             "num",
-            "num_add"
+            "num_add",
+            "company",
+            "description"
         ],
         "body_required": [],
         "body_not": []
@@ -64,21 +64,23 @@
     "get": {
         "query": [
             "name",
-            "description",
             "bonus_min",
             "bonus_max",
-            "issue_price_min",
-            "issue_price_max",
             "pe_min",
             "pe_max",
             "pb_min",
             "pb_max",
+            "issue_price_min",
+            "issue_price_max",
             "profit_min",
             "profit_max",
             "num_min",
             "num_max",
             "time_to_market_min",
             "time_to_market_max",
+            "description",
+            "create_time_min",
+            "create_time_max",
             "keyword"
         ],
         "query_required": []
@@ -105,22 +107,6 @@
             }
         },
         {
-            "name": "company",
-            "title": "公司名称",
-            "description": "",
-            "type": "string",
-            "dataType": "varchar",
-            "string": {}
-        },
-        {
-            "name": "description",
-            "title": "股票简介",
-            "description": "",
-            "type": "string",
-            "dataType": "varchar",
-            "string": {}
-        },
-        {
             "name": "bonus",
             "title": "分红频率",
             "description": "1年1次为1.0；2年一次为0.5；3年一次为0.33；不分红为0",
@@ -140,30 +126,6 @@
             "name": "bonus_max",
             "title": "分红频率——最大值",
             "description": "1年1次为1.0；2年一次为0.5；3年一次为0.33；不分红为0",
-            "type": "number",
-            "dataType": "double",
-            "number": {}
-        },
-        {
-            "name": "issue_price",
-            "title": "发行价格",
-            "description": "",
-            "type": "number",
-            "dataType": "double",
-            "number": {}
-        },
-        {
-            "name": "issue_price_min",
-            "title": "发行价格——最小值",
-            "description": "",
-            "type": "number",
-            "dataType": "double",
-            "number": {}
-        },
-        {
-            "name": "issue_price_max",
-            "title": "发行价格——最大值",
-            "description": "",
             "type": "number",
             "dataType": "double",
             "number": {}
@@ -211,6 +173,30 @@
         {
             "name": "pb_max",
             "title": "市净率——最大值",
+            "description": "",
+            "type": "number",
+            "dataType": "double",
+            "number": {}
+        },
+        {
+            "name": "issue_price",
+            "title": "发行价格",
+            "description": "",
+            "type": "number",
+            "dataType": "double",
+            "number": {}
+        },
+        {
+            "name": "issue_price_min",
+            "title": "发行价格——最小值",
+            "description": "",
+            "type": "number",
+            "dataType": "double",
+            "number": {}
+        },
+        {
+            "name": "issue_price_max",
+            "title": "发行价格——最大值",
             "description": "",
             "type": "number",
             "dataType": "double",
@@ -301,6 +287,55 @@
             "string": {
                 "notEmpty": true,
                 "format": "date"
+            }
+        },
+        {
+            "name": "company",
+            "title": "公司名称",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "description",
+            "title": "股票简介",
+            "description": "",
+            "type": "string",
+            "dataType": "varchar",
+            "string": {}
+        },
+        {
+            "name": "create_time",
+            "title": "创建时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "create_time_min",
+            "title": "创建时间——开始时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
+            }
+        },
+        {
+            "name": "create_time_max",
+            "title": "创建时间——结束时间",
+            "description": "",
+            "type": "string",
+            "dataType": "timestamp",
+            "string": {
+                "notEmpty": true,
+                "format": "datetime"
             }
         },
         {
