@@ -12,7 +12,7 @@ var config = {
 	"name": ".content h1",
 	"save_way": "db",
 	"save_dir": "./",
-	"keywords": "美女|裸露"
+	"keywords": "美女|裸露|清纯|萝莉|学生"
 };
 
 /**
@@ -109,7 +109,7 @@ function download(href, db, pm) {
 					var url_img = jq(pm.img + " img").eq(0).attr("src");
 					if (url_img) {
 						var path = dir + /\/\w+\.\w+$/.exec(url_img)[0].replace("/", "");
-						console.log(path, url_img);
+						// console.log(path, url_img);
 						var hp = new $.Http();
 						var file = await hp.download(url_img, path);
 						db.addOrSet({
