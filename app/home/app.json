@@ -1,11 +1,12 @@
 {
-	"name": "admin",
-	"title": "后台管理系统",
-	"description": "提供给站长、客服、财务管理网站使用",
+	"name": "home",
+	"title": "门户网站",
+	"description": "提供给用户访问的网站",
 	"version": "1.0",
-	"identifier": "admin",
+	"identifier": "home",
 	"lang_path": "./lang/",
-	"icon": "/img/logo.png",
-	"cmd": "admin",
+	"icon": "/home/img/logo.png",
+	"cmd": "home",
 	"sort": 10
 }
+

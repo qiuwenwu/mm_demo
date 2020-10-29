@@ -1,7 +1,7 @@
 {
-	"path": "/test/mongodb",
+	"path": "/demo/mongodb",
 	"type": "api",
-	"name": "test_mongodb",
+	"name": "demo_mongodb",
 	"title": "测试mongodb接口",
 	"cache": 0,
 	"description": "描述接口使用方法",

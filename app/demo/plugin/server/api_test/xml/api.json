@@ -1,7 +1,7 @@
 {
-    "path": "/test/xml",
+    "path": "/demo/xml",
 	"type": "api",
-    "name": "test_xml",
+    "name": "demo_xml",
     "title": "测试接收xml格式数据",
     "description": "描述接口使用方法",
     "func_file": "./index.js",

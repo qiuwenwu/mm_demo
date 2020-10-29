@@ -4,9 +4,7 @@
  * @version 1.0
  */
 
-// 创建应用
-var plugins = $.plugin_admin('dev');
-plugins.update(__dirname);
+
 
 /**
  * @description 插件对象
@@ -18,6 +16,9 @@ module.exports = {
 	 * @return {String} 成功返回null, 否则返回错误提示
 	 */
 	init(option) {
+		// 创建插件
+		this.plugin = $.plugin_admin('dev');
+		this.plugin.update(__dirname);
 		var msg = null;
 		return msg;
 	},

@@ -5,7 +5,7 @@
 	"version": "1.0",
 	"identifier": "dev",
 	"lang_path": "./lang/",
-	"icon": "/img/logo.png",
+	"icon": "/dev/img/logo.png",
 	"cmd": "dev",
 	"sort": 10
 }

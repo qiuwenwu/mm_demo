@@ -11,7 +11,7 @@ var test_msg = {
  * @param {Object} ws websocket通讯器
  */
 exports.main = async function(body, ws) {
-	$.log.debug('收到客户端推送数据', body);
+	$.log.info('收到客户端推送数据', body);
 	test_msg["create_time"] = new Date().stamp();
 	
 	ws.send(JSON.stringify([body.params, test_msg]));

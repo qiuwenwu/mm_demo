@@ -8,7 +8,7 @@ async function main(ctx, db) {
 	var req = ctx.request;
 	// 获取请求参数
 	var q = req.query;
-	// $.log.debug(req.headers);
+	console.log(req.headers);
 	// $.log.debug(req.body);
 	return "hello world" + JSON.stringify(q);
 };

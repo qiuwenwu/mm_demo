@@ -1,4 +1,4 @@
-const file =  '../../static/index.html'.fullname(__dirname);
+const file = '../../static/index.html'.fullname(__dirname);
 
 /**
  * @description 接口主函数
@@ -8,13 +8,13 @@ const file =  '../../static/index.html'.fullname(__dirname);
  */
 async function main(ctx, db) {
 	var path = ctx.path;
-	if(path.indexOf('.') === -1)
-	{
+	if (path.indexOf('.') === -1) {
 		$.globalBag.congfig = $.config;
 		var model = {
 			os: "mm",
 			app: "home",
 			plugin: "pc",
+			site_name: "elins.cn",
 			title: $.config.sys.title + "门户",
 			keywords: "mm home pc",
 			description: "",

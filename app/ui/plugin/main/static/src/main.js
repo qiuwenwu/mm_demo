@@ -1,51 +1,56 @@
 "use strict";
 
 require({
+	// 基础路径, 会将 ./ 替换成该路径
 	baseUrl: '/ui/src/',
 	// 是否保留注释
 	preserveLicenseComments: true,
 	waitSeconds: 0,
 	paths: {
-		text: '/js/text.min',
 		css: '/js/css.min',
-		vue: '/js/mm-requirejs-vue',
+		text: '/js/text.min',
+		vue: '/js/requirejs-vue',
 
 		// 生产版||调试版
 		Vue: '/js/vue',
 		vuex: '/js/vuex.min',
 		VueRouter: '/js/vue-router.min',
 		jquery: '/js/jquery.min',
+		swiper: "/js/swiper.min",
 		clipboard: '/js/clipboard.min',
 		mm_sdk: '/js/mm_sdk',
 		mm_vue: '/js/mm_vue',
 		ui: '/js/mm_vue_ui',
 		mm_component: '/src/mm_component',
-		mm_ui_expand: '/js/mm_ui_expand',
-		swiper: '/js/swiper.min',
+		nav: '/api/nav.js?scope=home_pc',
 		store: './store',
-		router: './router'
+		router: './router',
+		echarts: '/js/echarts',
+		kindeditor: '/kindeditor/kindeditor-all-min',
+		page: '/src/mixins/page.js'
 	},
 	shim: {
 		clipboard: {
 			deps: ['jquery']
 		},
-		mm_sdk: {
+		kindeditor: {
+			exports: 'Kindeditor',
 			deps: ['jquery']
-		},
-		ui: {
-			deps: ['jquery']
-		},
-		mm_ui_expand: {
-			deps: ['jquery']
-		},
-		mm_vue: {
-			deps: ['mm_sdk']
 		},
 		vuex: {
 			deps: ['Vue']
 		},
 		VueRouter: {
 			deps: ['Vue']
+		},
+		swiper: {
+			deps: ['jquery']
+		},
+		mm_sdk: {
+			deps: ['jquery']
+		},
+		mm_vue: {
+			deps: ['mm_sdk']
 		}
 	},
 	config: {
@@ -55,15 +60,13 @@ require({
 			'templateVar': '__template__'
 		}
 	}
-}, ['Vue', 'mm_sdk', 'mm_vue', 'store', 'router', 'ui', 'mm_ui_expand', 'clipboard', 'vue!./App.vue', 'mm_component'], function(Vue,
-	mm_sdk,
-	mm_vue, store, router,
-	ui, mm_ui_expand, clipboard, app, mm_component) {
+}, ['Vue', 'mm_sdk', 'mm_vue', 'store', 'router', 'ui', 'clipboard', 'vue!./App.vue', 'mm_component'], function(Vue, mm_sdk, mm_vue, store, router,
+	ui, clipboard, app, mm_component) {
 	// 开启调试模式
 	Vue.config.debug = true;
 	// 使用UI组件
 	Vue.config.devtools = true;
-
+	
 	Vue.use(mm_vue);
 	Vue.use(ui);
 	Vue.use(mm_component);

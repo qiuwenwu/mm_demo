@@ -56,6 +56,13 @@ define(["Vue", "VueRouter"], function(Vue, VueRouter) {
 				return require(['vue!./pages/content/color.vue'], resolve);
 			}
 		},
+		{
+			// 二维码
+			path: "/content/qrcode",
+			component: function(resolve) {
+				return require(['vue!./pages/content/qrcode.vue'], resolve);
+			}
+		},
 		/* 布局 */
 		{
 			// 块
@@ -154,6 +161,13 @@ define(["Vue", "VueRouter"], function(Vue, VueRouter) {
 			path: "/form/switch",
 			component: function(resolve) {
 				return require(['vue!./pages/form/switch.vue'], resolve);
+			}
+		},
+		{
+			// 富文本编辑器
+			path: "/form/rich",
+			component: function(resolve) {
+				return require(['vue!./pages/form/rich.vue'], resolve);
 			}
 		},
 		/* 栏目 */

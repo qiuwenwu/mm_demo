@@ -1,7 +1,7 @@
 {
-    "path": "/test/hello*",
+    "path": "/demo/hello*",
 	"type": "api",
-    "name": "test_hello",
+    "name": "demo_hello",
     "title": "初次测试接口",
     "description": "描述接口使用方法",
     "func_file": "./index.js",

@@ -1,8 +1,8 @@
 {
-    "name": "test_check",
+    "name": "demo_check",
     "title": "测试验证请求参数",
     "description": "使用param.json文件做参数验证",
-    "path": "/test/check",
+    "path": "/demo/check",
     "type": "api",
     "func_file": "./index.js",
     "func_name": "",

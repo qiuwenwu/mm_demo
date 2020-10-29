@@ -103,6 +103,11 @@
 						title: "颜色",
 						name: "mm_color",
 						url: "/content/color"
+					},
+					{
+						title: "二维码",
+						name: "mm_qrcode",
+						url: "/content/qrcode"
 					}
 				],
 				layout: [{
@@ -175,6 +180,11 @@
 						title: "分页器",
 						name: "mm_pager",
 						url: "/form/pager"
+					},
+					{
+						title: "富文本编辑器",
+						name: "mm_rich",
+						url: "/form/rich"
 					}
 				],
 				expand: [{
@@ -327,8 +337,6 @@
 </script>
 
 <style>
-	
-
 	#page_root h3 a {
 		font-size: 1rem;
 		float: right;
@@ -351,7 +359,8 @@
 		padding: 0.5rem 1.5rem;
 		border: 1px solid #DBDBDB;
 		margin-top: -1px;
-		}
+	}
+
 	#page_root .mm_item span:last-child {
 		color: #999;
 		float: right;
@@ -360,6 +369,4 @@
 	#page_root .mm_item:hover {
 		background: #f9f9f9;
 	}
-
-	
 </style>

@@ -13,11 +13,22 @@
 		<meta name="description" content="${description}">
 		<meta name="keywords" content="${keywords}">
 		<meta name="author" content="邱文武">
-
+		<meta name="image" content="/img/preview.png">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="${title}">
+		<meta property="og:description" content="${description}">
+		<meta property="og:site_name" content="${site_name}">
+		<meta property="og:url" content="/">
+		<meta property="og:image" content="/img/preview.png">
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:title" content="${title}">
+		<meta property="twitter:description" content="${description}">
+		<meta property="twitter:image" content="/img/preview.png">
+		
 		<!-- 加载JS -->
 		<!--if lt IE 9]><script src="/js/html5.min.js"></script><![endif]-->
-		<script data-main="/home/pc/src/main" data-server="/" src="/js/require.js" charset="utf-8" async></script>
-		<title>${title}</title>
+		<script data-main="/home/pc/src/config" data-server="/" src="/js/require.js" charset="utf-8" async></script>
+		<title>${ globalBag.congfig.title } - ${title}</title>
 
 		<!-- 加载CSS -->
 		<link rel="shortcut icon" href="/favicon.ico">

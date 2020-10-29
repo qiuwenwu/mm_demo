@@ -1,9 +1,9 @@
 [
     {
-        "name": "test_web",
+        "name": "demo_web",
         "title": "MVC模式示例",
         "description": "使用内置的模型、视图、控制器渲染页面",
-        "path": "/test/web",
+        "path": "/demo/web",
         "type": "web",
         "func_file": "./index.js",
         "func_name": "",
@@ -15,10 +15,10 @@
         "check_param": true
     },
     {
-        "name": "test_web_file",
+        "name": "demo_web_file",
         "title": "测试MVC模板文件",
         "description": "通过文件的方式做MVC渲染",
-        "path": "/test/web/file",
+        "path": "/demo/web/file",
         "type": "web",
         "func_file": "./file.js",
         "func_name": "",

@@ -1,8 +1,8 @@
 {
-    "name": "test_sqlite",
+    "name": "demo_sqlite",
     "title": "测试sqlite的接口",
     "description": "使用内置sqlite函数",
-    "path": "/test/sqlite",
+    "path": "/demo/sqlite",
     "type": "api",
     "func_file": "./index.js",
     "func_name": "",

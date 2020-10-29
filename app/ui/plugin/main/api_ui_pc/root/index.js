@@ -7,6 +7,7 @@ const file = './../../static/index.html'.fullname(__dirname);
  * @return {Object} 执行结果
  */
 async function main(ctx, db) {
+	// console.log(ctx);
 	var req = ctx.request;
 	// 过滤静态文件
 	if (req.path.indexOf('.') === -1) {

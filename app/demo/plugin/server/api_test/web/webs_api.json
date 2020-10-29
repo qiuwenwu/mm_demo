@@ -1,8 +1,8 @@
 {
-    "name": "test_webs",
+    "name": "demo_webs",
     "title": "示例接口",
     "description": "描述接口使用方法",
-    "path": "/test/webs",
+    "path": "/demo/webs",
     "type": "web",
     "func_file": "./index1.js",
     "func_name": "",

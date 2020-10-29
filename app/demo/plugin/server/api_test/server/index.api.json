@@ -1,8 +1,8 @@
 {
-    "name": "test_server",
+    "name": "demo_server",
     "title": "初次服务器连接",
     "description": "连接服务器",
-    "path": "/test/server",
+    "path": "/demo/server",
     "type": "api",
     "func_file": "./index.js",
     "func_name": "",
