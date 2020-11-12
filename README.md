@@ -1,2 +1,2 @@
-# mm_demo
- 这是超级美眉mm_os运用示例
+# mm_template
+ 这是超级美眉服务端模板
