@@ -9,7 +9,7 @@
 		 * 系统服务监听端口
 		 * @type {Number}
 		 */
-		"port": 10001
+		"port": 10002
 	},
 	/**
 	 * web服务配置
@@ -25,7 +25,7 @@
 		 * 监听端口
 		 * @type {Number}
 		 */
-		"port": 5000,
+		"port": 5002,
 		/**
 		 * 是否输出操作日志
 		 * @type {Boolean}
@@ -204,7 +204,7 @@
 		"targets": {
 			// 转发到开发者服务器
 			"/api/dev(.*)": {
-				"target": "http://127.0.0.1:10001",
+				"target": "http://127.0.0.1:10002",
 				"changeOrigin": true,
 				"header": {
 					"apikey": "bfd59291e825b5f2bbf1eb76569f8fe7"
